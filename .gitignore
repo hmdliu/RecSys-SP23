@@ -1,0 +1,13 @@
+tmp/
+*.DS_Store
+*.swp
+*.pth.tar
+*.pth
+*.cluster
+*.log
+*.out
+*.err
+*.zip
+*.csv
+*.pickle
+*.pyc
