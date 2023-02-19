@@ -10,10 +10,16 @@ class Similarity:
         self.dataset = RecDataset()
     
     # fetch the set of users who have been interacted with an item
-    def user_set(self, item):
+    def user_set(self, item, return_df=False):
         df = self.dataset.ratings_df
         df = df[df['MovieID'] == item]
-        return set(df['UserID'].values)
+        return (set(df['UserID'].values), df) if return_df else set(df['UserID'].values)
+    
+    # fetch the set of items who have been interacted with a user
+    def item_set(self, user, return_df=False):
+        df = self.dataset.ratings_df
+        df = df[df['UserID'] == user]
+        return (set(df['MovieID'].values), df) if return_df else set(df['MovieID'].values)
 
     def jaccard_similarity(self, item1, item2, verbose=True):
         #TODO: implement the required functions and print the solution to Question 2a here
