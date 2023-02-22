@@ -45,7 +45,7 @@ class RecDataset:
         self.nb_users = self.users_df.shape[0]
         self.nb_items = self.movies_df.shape[0]
         self.nb_ratings = self.ratings_df.shape[0]
-        self.ratings_count = self.ratings_df['UserID'].value_counts()
+        self.ratings_count = self.ratings_df['MovieID'].value_counts()
         self.ratings_max = max(self.ratings_count)
         self.ratings_min = min(self.ratings_count)
 

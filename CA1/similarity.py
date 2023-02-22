@@ -26,7 +26,7 @@ class Similarity:
         us1, us2 = self.user_set(item1), self.user_set(item2)
         jaccard_sim = len(us1 & us2) / len(us1 | us2)
         if verbose:
-            print(f'\nJaccard similarity between item {item1} and item {item2} is {jaccard_sim:.2f}')
+            print(f'\nJaccard similarity between item {item1} and item {item2} is {jaccard_sim:.4f}')
         return jaccard_sim
         
     def cosine_similarity(self, item1, item2, verbose=True):
@@ -35,9 +35,9 @@ class Similarity:
         userID_set = self.user_set(item1) & self.user_set(item2)
         vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
-        cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec1))
+        cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
         if verbose:
-            print(f'\nCosine similarity between item {item1} and item {item2} is {cosine_sim:.2f}')
+            print(f'\nCosine similarity between item {item1} and item {item2} is {cosine_sim:.4f}')
         return cosine_sim
 
     def pearson_similarity(self, item1, item2, verbose=True):
@@ -48,9 +48,9 @@ class Similarity:
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
         vec1 = vec1 - vec1.mean()
         vec2 = vec2 - vec2.mean()
-        pearson_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec1))
+        pearson_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
         if verbose:
-            print(f'\nPearson similarity between item {item1} and item {item2} is {pearson_sim:.2f}')
+            print(f'\nPearson similarity between item {item1} and item {item2} is {pearson_sim:.4f}')
         return pearson_sim
 
 if __name__ == '__main__':
