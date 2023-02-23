@@ -1,22 +1,32 @@
 
+import os
+import pickle
 import numpy as np
 import pandas as pd
+
 from similarity import Similarity
+from rec_dataset import SAVE_ROOT
 
 # turn off warnings for chained assignment
 pd.options.mode.chained_assignment = None
 
 class MemoryRecommender:
     """Implement the required functions for Q2"""
-    def __init__(self, sim, sim_func, weight_type="item-based"):
+    def __init__(self, sim, func_type="cosine_item", weight_type="item-based"):
         #TODO: implement any necessary initalization function here
         # sim_func is one of the similarity functions implemented in similarity.py 
         # weight_type is one of ["item-based", "user-based"]
         # You can add more input parameters as needed.
         assert weight_type in ('item-based', 'user-based')
         self.sim = sim
-        self.sim_func = sim_func
+        self.func_type = func_type
         self.weight_type = weight_type
+        self.sim_func = {
+            'jaccard_item': self.sim.jaccard_similarity,
+            'cosine_item': self.sim.cosine_similarity,
+            'pearson_item': self.sim.pearson_similarity,
+            'cosine_user': lambda x: 0, # TODO
+        }[func_type]
 
     def rating_predict(self, userID, itemID, verbose=True):
         #TODO: implement the rating prediction function for a given user-item pair
@@ -38,25 +48,37 @@ class MemoryRecommender:
             print(f'\nr(user {userID}, item {itemID}) = {r_pred:.2f}')
         return r_pred
     
-    def topk(self, userID, k=5):
-        #TODO: implement top-k recommendations for a given user
+    def dump_similarity(self, userID):
+        # compute the similarity scores for this user offline
         df = self.sim.dataset.movies_df
         rec_set = set(df['MovieID'].values) - self.sim.item_set(user=userID)
-        rec_list = [(j, self.rating_predict(userID, j)) for j in list(rec_set)[:10]]    # test-only
+        rec_list = [(j, self.rating_predict(userID, j)) for j in list(rec_set)]
         rec_list.sort(key=lambda x: x[1], reverse=True)
-        for i in range(k):
-            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.2f})')        
+        for i in range(5):
+            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.2f})')
+        # dump the sorted similarity list
+        dump_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
+        print(f'\nDumping similarity matrix for user {userID} to {dump_path}...\n')
+        with open(dump_path, 'wb') as f:
+            pickle.dump(rec_list, f)
+        print('=' * 32)
+
+    def topk(self, userID, k=5):
+        #TODO: implement top-k recommendations for a given user
+        pass      
 
 if __name__ == '__main__':
     
     sim = Similarity()
     # print the solution to Q3a here
-    recommender = MemoryRecommender(sim, sim.cosine_similarity, weight_type="item-based")
+    recommender = MemoryRecommender(sim, func_type="cosine_item", weight_type="item-based")
+    recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
-    recommender = MemoryRecommender(sim, sim.pearson_similarity, weight_type="item-based")
+    recommender = MemoryRecommender(sim, func_type="pearson_item", weight_type="item-based")
+    recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
     # print the solution to Q3b here
-    recommender = MemoryRecommender(sim, sim.cosine_similarity, weight_type="user-based")
+    recommender = MemoryRecommender(sim, func_type="cosine_user", weight_type="user-based")
     recommender.topk(userID=381)
