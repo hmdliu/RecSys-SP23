@@ -12,7 +12,7 @@ pd.options.mode.chained_assignment = None
 
 class MemoryRecommender:
     """Implement the required functions for Q2"""
-    def __init__(self, sim, func_type="cosine_item", weight_type="item-based"):
+    def __init__(self, sim, func_type="item_cosine", weight_type="item-based"):
         #TODO: implement any necessary initalization function here
         # sim_func is one of the similarity functions implemented in similarity.py 
         # weight_type is one of ["item-based", "user-based"]
@@ -21,12 +21,12 @@ class MemoryRecommender:
         self.sim = sim
         self.func_type = func_type
         self.weight_type = weight_type
-        self.sim_func = {
-            'jaccard_item': self.sim.jaccard_similarity,
-            'cosine_item': self.sim.cosine_similarity,
-            'pearson_item': self.sim.pearson_similarity,
-            'cosine_user': lambda x: 0, # TODO
-        }[func_type]
+        self.sim_func = dict(
+            item_jaccard=self.sim.item_jaccard_similarity,
+            item_cosine=self.sim.item_cosine_similarity,
+            user_cosine=self.sim.user_cosine_similarity,
+            item_pearson=self.sim.item_pearson_similarity,
+        )[func_type]
 
     def rating_predict(self, userID, itemID, verbose=True):
         #TODO: implement the rating prediction function for a given user-item pair
@@ -37,13 +37,12 @@ class MemoryRecommender:
                 df = df.drop(df['MovieID'] == itemID)
             df['Sim'] = df['MovieID'].apply(lambda j: self.sim_func(itemID, j, verbose=False))
         else:
-            raise NotImplementedError
             user_set, df = self.sim.user_set(item=itemID, return_df=True)
             if userID in user_set:
                 user_set.discard(userID)
                 df = df.drop(df['UserID'] == userID)
             df['Sim'] = df['UserID'].apply(lambda v: self.sim_func(userID, v, verbose=False))
-        r_pred = np.dot(df['Rating'].values, df['Sim'].values) / df['Sim'].values.sum()
+        r_pred = np.dot(df['Rating'].values, df['Sim'].values) / (df['Sim'].values.sum() + 1e-8)
         if verbose:
             print(f'\nr(user {userID}, item {itemID}) = {r_pred:.2f}')
         return r_pred
@@ -71,14 +70,14 @@ if __name__ == '__main__':
     
     sim = Similarity()
     # print the solution to Q3a here
-    recommender = MemoryRecommender(sim, func_type="cosine_item", weight_type="item-based")
+    recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="item-based")
     recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
-    recommender = MemoryRecommender(sim, func_type="pearson_item", weight_type="item-based")
+    recommender = MemoryRecommender(sim, func_type="item_pearson", weight_type="item-based")
     recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
     # print the solution to Q3b here
-    recommender = MemoryRecommender(sim, func_type="cosine_user", weight_type="user-based")
+    recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="user-based")
     recommender.topk(userID=381)

@@ -10,6 +10,7 @@ USERS_COLUMN = ['UserID', 'Gender', 'Age', 'Occupation', 'Zip-code']
 MOVIES_COLUMN = ['MovieID', 'Title', 'Genres']
 RATINGS_COLUMN = ['UserID', 'MovieID', 'Rating', 'Timestamp']
 AGE_GROUP_TICKS = ['<18', '18-24', '25-34', '35-44', '45-49', '50-55', '56+']
+CSV_KWARGS = dict(header=None, sep='::', engine='python', encoding='latin-1')
 
 class RecDataset:
     """Implement the required functions for Q1"""
@@ -28,17 +29,17 @@ class RecDataset:
 
         # load users
         print(f'\nLoading users data from [{self.users_path}]:')
-        self.users_df = pd.read_csv(self.users_path, header=None, sep='::', names=USERS_COLUMN, engine='python')
+        self.users_df = pd.read_csv(self.users_path, names=USERS_COLUMN, **CSV_KWARGS)
         print(self.users_df.head())
 
         # load movies
         print(f'\nLoading movies data from [{self.movies_path}]:')
-        self.movies_df = pd.read_csv(self.movies_path, header=None, sep='::', names=MOVIES_COLUMN, engine='python')
+        self.movies_df = pd.read_csv(self.movies_path, names=MOVIES_COLUMN, **CSV_KWARGS)
         print(self.movies_df.head())
 
         # load ratings
         print(f'\nLoading ratings data from [{self.ratings_path}]:')
-        self.ratings_df = pd.read_csv(self.ratings_path, header=None, sep='::', names=RATINGS_COLUMN, engine='python')
+        self.ratings_df = pd.read_csv(self.ratings_path, names=RATINGS_COLUMN, **CSV_KWARGS)
         print(self.ratings_df.head())
 
         # parse dataset statistics (for Q1a)

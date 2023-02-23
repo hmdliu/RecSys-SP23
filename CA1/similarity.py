@@ -9,6 +9,13 @@ class Similarity:
         #You can add more input parameters as needed.
         self.dataset = RecDataset()
     
+    # compute the cosine similarity of two vectors
+    @staticmethod
+    def cosine_similarity(dim_set, vec1, vec2):
+        if len(dim_set) == 0:
+            return 0
+        return np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2) + 1e-8)
+
     # fetch the set of users who have been interacted with an item
     def user_set(self, item, return_df=False):
         df = self.dataset.ratings_df
@@ -21,34 +28,43 @@ class Similarity:
         df = df[df['UserID'] == user]
         return (set(df['MovieID'].values), df) if return_df else set(df['MovieID'].values)
 
-    def jaccard_similarity(self, item1, item2, verbose=True):
+    def item_jaccard_similarity(self, item1, item2, verbose=True):
         #TODO: implement the required functions and print the solution to Question 2a here
         us1, us2 = self.user_set(item1), self.user_set(item2)
-        jaccard_sim = len(us1 & us2) / len(us1 | us2)
+        jaccard_sim = len(us1 & us2) / (len(us1 | us2) + 1e-8)
         if verbose:
             print(f'\nJaccard similarity between item {item1} and item {item2} is {jaccard_sim:.4f}')
         return jaccard_sim
         
-    def cosine_similarity(self, item1, item2, verbose=True):
+    def item_cosine_similarity(self, item1, item2, verbose=True):
         #TODO: implement the required functions and print the solution to Question 2b here
         df = self.dataset.ratings_df
         userID_set = self.user_set(item1) & self.user_set(item2)
         vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
-        cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+        cosine_sim = self.cosine_similarity(userID_set, vec1, vec2)
         if verbose:
             print(f'\nCosine similarity between item {item1} and item {item2} is {cosine_sim:.4f}')
         return cosine_sim
+    
+    def user_cosine_similarity(self, user1, user2, verbose=True):
+        #TODO: implement the required functions and print the solution to Question 3b here
+        df = self.dataset.ratings_df
+        movieID_set = self.item_set(user1) & self.item_set(user2)
+        vec1 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user1)]['Rating'].values
+        vec2 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user2)]['Rating'].values
+        cosine_sim = self.cosine_similarity(movieID_set, vec1, vec2)
+        if verbose:
+            print(f'\nCosine similarity between user {user1} and user {user2} is {cosine_sim:.4f}')
+        return cosine_sim
 
-    def pearson_similarity(self, item1, item2, verbose=True):
+    def item_pearson_similarity(self, item1, item2, verbose=True):
         #TODO: implement the required functions and print the solution to Question 2c here
         df = self.dataset.ratings_df
         userID_set = self.user_set(item1) & self.user_set(item2)
         vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
-        vec1 = vec1 - vec1.mean()
-        vec2 = vec2 - vec2.mean()
-        pearson_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+        pearson_sim = self.cosine_similarity(userID_set, vec1 - vec1.mean(), vec2 - vec2.mean())
         if verbose:
             print(f'\nPearson similarity between item {item1} and item {item2} is {pearson_sim:.4f}')
         return pearson_sim
@@ -58,13 +74,13 @@ if __name__ == '__main__':
     sim = Similarity()
     
     # print the solution to Q2a here
-    sim.jaccard_similarity(item1=1, item2=2)
-    sim.jaccard_similarity(item1=1, item2=3114)
+    sim.item_jaccard_similarity(item1=1, item2=2)
+    sim.item_jaccard_similarity(item1=1, item2=3114)
     
     # print the solution to Q2b here
-    sim.cosine_similarity(item1=1, item2=2)
-    sim.cosine_similarity(item1=1, item2=3114)
+    sim.item_cosine_similarity(item1=1, item2=2)
+    sim.item_cosine_similarity(item1=1, item2=3114)
     
     # print the solution to Q2c here
-    sim.pearson_similarity(item1=1, item2=2)
-    sim.pearson_similarity(item1=1, item2=3114)
+    sim.item_pearson_similarity(item1=1, item2=2)
+    sim.item_pearson_similarity(item1=1, item2=3114)
