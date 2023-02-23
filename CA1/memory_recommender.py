@@ -48,23 +48,29 @@ class MemoryRecommender:
         return r_pred
     
     def dump_similarity(self, userID):
-        # compute the similarity scores for this user offline
+        # compute the similarity scores for this user (offline)
         df = self.sim.dataset.movies_df
         rec_set = set(df['MovieID'].values) - self.sim.item_set(user=userID)
         rec_list = [(j, self.rating_predict(userID, j)) for j in list(rec_set)]
         rec_list.sort(key=lambda x: x[1], reverse=True)
-        for i in range(5):
-            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.2f})')
         # dump the sorted similarity list
         dump_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
-        print(f'\nDumping similarity matrix for user {userID} to {dump_path}...\n')
+        print(f'\nDumping similarity matrix for user {userID} to [{dump_path}]...')
         with open(dump_path, 'wb') as f:
             pickle.dump(rec_list, f)
-        print('=' * 32)
+        print('\n================================================================')
 
     def topk(self, userID, k=5):
         #TODO: implement top-k recommendations for a given user
-        pass      
+        load_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
+        print(f'\nLoading similarity matrix from [{load_path}]...')
+        with open(load_path, 'rb') as f:
+            rec_list = pickle.load(f)
+        print(f'\nTop-{k} recommendations for user {userID} ({self.func_type}):')
+        for i in range(k):
+            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.2f})')
+        print('\n================================================================')
+        
 
 if __name__ == '__main__':
     
@@ -79,5 +85,6 @@ if __name__ == '__main__':
     recommender.topk(userID=381)
     
     # print the solution to Q3b here
-    recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="user-based")
+    recommender = MemoryRecommender(sim, func_type="user_cosine", weight_type="user-based")
+    recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
