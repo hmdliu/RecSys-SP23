@@ -69,7 +69,7 @@ class RecDataset:
         if verbose:
             print(f'\n[User {userID} Info]')
             print(f'Num of ratings: {ratings_num}')
-            print(f'Averaged ratings score: {ratings_avg:.2f}')
+            print(f'Averaged ratings score: {ratings_avg:.4f}')
         return ratings_num, ratings_avg
     
     def dist_by_age_groups(self):

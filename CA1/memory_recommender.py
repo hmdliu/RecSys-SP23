@@ -1,5 +1,6 @@
 
 import os
+import time
 import pickle
 import numpy as np
 import pandas as pd
@@ -44,10 +45,11 @@ class MemoryRecommender:
             df['Sim'] = df['UserID'].apply(lambda v: self.sim_func(userID, v, verbose=False))
         r_pred = np.dot(df['Rating'].values, df['Sim'].values) / (df['Sim'].values.sum() + 1e-8)
         if verbose:
-            print(f'\nr(user {userID}, item {itemID}) = {r_pred:.2f}')
+            print(f'\nr(user {userID}, item {itemID}) = {r_pred:.4f}')
         return r_pred
     
     def dump_similarity(self, userID):
+        start_time = time.time()
         # compute the similarity scores for this user (offline)
         df = self.sim.dataset.movies_df
         rec_set = set(df['MovieID'].values) - self.sim.item_set(user=userID)
@@ -58,6 +60,7 @@ class MemoryRecommender:
         print(f'\nDumping similarity matrix for user {userID} to [{dump_path}]...')
         with open(dump_path, 'wb') as f:
             pickle.dump(rec_list, f)
+        print(f'\nComputation time: {(time.time() - start_time) / 60:.2f} mins')
         print('\n================================================================')
 
     def topk(self, userID, k=5):
@@ -68,7 +71,7 @@ class MemoryRecommender:
             rec_list = pickle.load(f)
         print(f'\nTop-{k} recommendations for user {userID} ({self.func_type}):')
         for i in range(k):
-            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.2f})')
+            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.4f})')
         print('\n================================================================')
         
 
