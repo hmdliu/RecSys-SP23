@@ -2,13 +2,14 @@
 import numpy as np
 from rec_dataset import RecDataset
 
+COS_SIM = lambda v1, v2: np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2) + 1e-8)
+
 class Similarity:
     """Implement the required functions for Q2"""
     def __init__(self):
         #TODO: implement any necessary initalization function here
         #You can add more input parameters as needed.
         self.dataset = RecDataset()
-        self.cos_sim = lambda v1, v2: np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2) + 1e-8)
 
     # fetch the set of users who have been interacted with an item
     def user_set(self, item, return_df=False):
@@ -34,9 +35,9 @@ class Similarity:
         #TODO: implement the required functions and print the solution to Question 2b here
         df = self.dataset.ratings_df
         userID_set = self.user_set(item1) & self.user_set(item2)
-        vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
-        vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
-        sim = self.cos_sim(vec1, vec2) if len(userID_set) > 0 else 0
+        df1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]
+        df2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]
+        sim = COS_SIM(df1['Rating'].values, df2['Rating'].values) if len(userID_set) > 0 else 0
         if verbose:
             print(f'\nCosine similarity between item {item1} and item {item2} is {sim:.4f}')
         return sim
@@ -45,9 +46,9 @@ class Similarity:
         #TODO: implement the required functions and print the solution to Question 3b here
         df = self.dataset.ratings_df
         movieID_set = self.item_set(user1) & self.item_set(user2)
-        vec1 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user1)]['Rating'].values
-        vec2 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user2)]['Rating'].values
-        sim = self.cos_sim(vec1, vec2) if len(movieID_set) > 0 else 0
+        df1 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user1)].sort_values('MovieID')
+        df2 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user2)].sort_values('MovieID')
+        sim = COS_SIM(df1['Rating'].values, df2['Rating'].values) if len(movieID_set) > 0 else 0
         if verbose:
             print(f'\nCosine similarity between user {user1} and user {user2} is {sim:.4f}')
         return sim
@@ -58,7 +59,7 @@ class Similarity:
         userID_set = self.user_set(item1) & self.user_set(item2)
         vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
-        sim = self.cos_sim(vec1 - vec1.mean(), vec2 - vec2.mean()) if len(userID_set) > 0 else 0
+        sim = COS_SIM(vec1 - vec1.mean(), vec2 - vec2.mean()) if len(userID_set) > 0 else 0
         if verbose:
             print(f'\nPearson similarity between item {item1} and item {item2} is {sim:.4f}')
         return sim

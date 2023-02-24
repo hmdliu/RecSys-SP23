@@ -5,6 +5,9 @@ import pickle
 import numpy as np
 import pandas as pd
 
+# acceleration trick (credits to Ruochen)
+import multiprocessing as mp
+
 from similarity import Similarity
 from rec_dataset import SAVE_ROOT
 
@@ -46,18 +49,25 @@ class MemoryRecommender:
         r_pred = np.dot(df['Rating'].values, df['Sim'].values) / (df['Sim'].values.sum() + 1e-8)
         if verbose:
             print(f'\nr(user {userID}, item {itemID}) = {r_pred:.4f}')
-        return r_pred
+        return r_pred, userID, itemID
     
     def dump_similarity(self, userID):
         start_time = time.time()
-        # compute the similarity scores for this user (offline)
+        print(f'\nComputing similarity matrix for user {userID}')
+        # compute the similarity scores for this user via multi-processing
         df = self.sim.dataset.movies_df
         rec_set = set(df['MovieID'].values) - self.sim.item_set(user=userID)
-        rec_list = [(j, self.rating_predict(userID, j)) for j in list(rec_set)]
-        rec_list.sort(key=lambda x: x[1], reverse=True)
+        if (cores := mp.cpu_count()) > 1:
+            print(f'\nMulti-processing with {cores} CPUs')
+            with mp.Pool(cores) as p:
+                rec_list = p.starmap(self.rating_predict, [(userID, j) for j in list(rec_set)])
+        else:
+            print(f'\nMulti-processing disabled')
+            rec_list = [self.rating_predict(userID, j) for j in list(rec_set)]
+        rec_list.sort(key=lambda x: x[0], reverse=True)
         # dump the sorted similarity list
         dump_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
-        print(f'\nDumping similarity matrix for user {userID} to [{dump_path}]...')
+        print(f'\nDumping similarity matrix to [{dump_path}]...')
         with open(dump_path, 'wb') as f:
             pickle.dump(rec_list, f)
         print(f'\nComputation time: {(time.time() - start_time) / 60:.2f} mins')
@@ -71,13 +81,20 @@ class MemoryRecommender:
             rec_list = pickle.load(f)
         print(f'\nTop-{k} recommendations for user {userID} ({self.func_type}):')
         for i in range(k):
-            print(f'\nRank {i+1}: item {rec_list[i][0]} (r_pred = {rec_list[i][1]:.4f})')
+            print(f'\nRank {i+1}: item {rec_list[i][2]} (r_pred = {rec_list[i][0]:.4f})')
         print('\n================================================================')
         
 
 if __name__ == '__main__':
     
     sim = Similarity()
+
+    # test a special case
+    recommender = MemoryRecommender(sim, func_type="item_pearson", weight_type="item-based")
+    recommender.sim.item_pearson_similarity(item1=1861, item2=589)
+    recommender.sim.item_pearson_similarity(item1=1861, item2=1965)
+    recommender.rating_predict(userID=381, itemID=1861)
+
     # print the solution to Q3a here
     recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="item-based")
     recommender.dump_similarity(userID=381)
