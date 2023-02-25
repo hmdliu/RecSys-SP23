@@ -38,6 +38,7 @@ class Similarity:
         df1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]
         df2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]
         sim = COS_SIM(df1['Rating'].values, df2['Rating'].values) if len(userID_set) > 0 else 0
+        # no need to map the similarities to [0, 1] since the raw ratings are all positive
         if verbose:
             print(f'\nCosine similarity between item {item1} and item {item2} is {sim:.4f}')
         return sim
@@ -49,6 +50,7 @@ class Similarity:
         df1 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user1)].sort_values('MovieID')
         df2 = df[(df['MovieID'].isin(movieID_set)) & (df['UserID'] == user2)].sort_values('MovieID')
         sim = COS_SIM(df1['Rating'].values, df2['Rating'].values) if len(movieID_set) > 0 else 0
+        # no need to map the similarities to [0, 1] since the raw ratings are all positive
         if verbose:
             print(f'\nCosine similarity between user {user1} and user {user2} is {sim:.4f}')
         return sim
@@ -60,6 +62,8 @@ class Similarity:
         vec1 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item1)]['Rating'].values
         vec2 = df[(df['UserID'].isin(userID_set)) & (df['MovieID'] == item2)]['Rating'].values
         sim = COS_SIM(vec1 - vec1.mean(), vec2 - vec2.mean()) if len(userID_set) > 0 else 0
+        # map the similarities from [-1, 1] to [0, 1]
+        sim = (sim + 1) / 2
         if verbose:
             print(f'\nPearson similarity between item {item1} and item {item2} is {sim:.4f}')
         return sim

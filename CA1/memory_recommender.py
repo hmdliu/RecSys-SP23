@@ -89,12 +89,6 @@ if __name__ == '__main__':
     
     sim = Similarity()
 
-    # test a special case
-    recommender = MemoryRecommender(sim, func_type="item_pearson", weight_type="item-based")
-    recommender.sim.item_pearson_similarity(item1=1861, item2=589)
-    recommender.sim.item_pearson_similarity(item1=1861, item2=1965)
-    recommender.rating_predict(userID=381, itemID=1861)
-
     # print the solution to Q3a here
     recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="item-based")
     recommender.dump_similarity(userID=381)
