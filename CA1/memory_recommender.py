@@ -31,6 +31,7 @@ class MemoryRecommender:
             user_cosine=self.sim.user_cosine_similarity,
             item_pearson=self.sim.item_pearson_similarity,
         )[func_type]
+        os.makedirs(os.path.join(SAVE_ROOT, 'mem'), exist_ok=True)
 
     def rating_predict(self, userID, itemID, verbose=True):
         #TODO: implement the rating prediction function for a given user-item pair
