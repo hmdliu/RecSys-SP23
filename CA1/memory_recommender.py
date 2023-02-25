@@ -15,7 +15,7 @@ from rec_dataset import SAVE_ROOT
 pd.options.mode.chained_assignment = None
 
 # constants
-MAX_CPUS = 4
+MAX_CORES = 16
 
 class MemoryRecommender:
     """Implement the required functions for Q2"""
@@ -61,8 +61,8 @@ class MemoryRecommender:
         # compute the similarity scores for this user via multi-processing
         df = self.sim.dataset.movies_df
         rec_set = set(df['MovieID'].values) - self.sim.item_set(user=userID)
-        if (cores := min(mp.cpu_count(), MAX_CPUS)) > 1:
-            print(f'\nMulti-processing with {cores} CPUs')
+        if (cores := min(mp.cpu_count(), MAX_CORES)) > 1:
+            print(f'\nMulti-processing with {cores} CPU cores')
             with mp.Pool(cores) as p:
                 rec_list = p.starmap(self.rating_predict, [(userID, j) for j in list(rec_set)])
         else:
