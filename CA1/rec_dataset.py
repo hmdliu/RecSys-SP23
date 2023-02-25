@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+# constants
 SAVE_ROOT = './'
 DATASET_ROOT = './ml-1m'
 USERS_COLUMN = ['UserID', 'Gender', 'Age', 'Occupation', 'Zip-code']

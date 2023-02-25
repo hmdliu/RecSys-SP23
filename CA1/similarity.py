@@ -71,7 +71,7 @@ class Similarity:
 if __name__ == '__main__':
     
     sim = Similarity()
-    
+
     # print the solution to Q2a here
     sim.item_jaccard_similarity(item1=1, item2=2)
     sim.item_jaccard_similarity(item1=1, item2=3114)
