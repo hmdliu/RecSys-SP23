@@ -21,9 +21,11 @@ class RecDataset:
         
         # init dataset path & check validity
         self.root = root
+        self.misc_dir = os.path.join(root, 'misc')
         self.users_path = os.path.join(root, 'users.dat')
         self.movies_path = os.path.join(root, 'movies.dat')
         self.ratings_path = os.path.join(root, 'ratings.dat')
+        os.makedirs(self.misc_dir, exist_ok=True)
         assert os.path.exists(self.users_path)
         assert os.path.exists(self.movies_path)
         assert os.path.exists(self.ratings_path)
@@ -72,7 +74,7 @@ class RecDataset:
             print(f'Num of ratings: {ratings_num}')
             print(f'Averaged ratings score: {ratings_avg:.4f}')
         return ratings_num, ratings_avg
-    
+
     def dist_by_age_groups(self):
         #TODO: implement the required functions and print the solution to Question 1c here
         #You could import `users.dat` here or in __init__(). 
@@ -102,7 +104,7 @@ class RecDataset:
         plt.xlabel('Age Groups')
         plt.ylabel('Average Rating Score')
         plt.bar(AGE_GROUP_TICKS, rating_avg_list)
-        plt.savefig(os.path.join(SAVE_ROOT, 'Q1c.png'))
+        plt.savefig(os.path.join(SAVE_ROOT, 'misc/Q1c.png'))
         plt.show()
 
 if __name__ == '__main__':

@@ -16,6 +16,8 @@ pd.options.mode.chained_assignment = None
 
 # constants
 MAX_CORES = 16
+SEP_BOUND = '=' * 100
+REC_COLUMNS = ['Rank', 'Title', 'Genres', 'MovieID', 'RatingPred']
 
 class MemoryRecommender:
     """Implement the required functions for Q2"""
@@ -78,19 +80,25 @@ class MemoryRecommender:
         with open(dump_path, 'wb') as f:
             pickle.dump(rec_list, f)
         print(f'\nComputation time: {(time.time() - start_time) / 60:.2f} mins')
-        print('\n================================================================')
+        print(f'\n{SEP_BOUND}')
 
     def topk(self, userID, k=5):
         #TODO: implement top-k recommendations for a given user
+        self.dump_similarity(userID=userID)
         load_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
         print(f'\nLoading similarity matrix from [{load_path}]...')
         with open(load_path, 'rb') as f:
             rec_list = pickle.load(f)
         print(f'\nTop-{k} recommendations for user {userID} ({self.func_type}):')
+        results = []
         for i in range(k):
-            print(f'\nRank {i+1}: item {rec_list[i][2]} (r_pred = {rec_list[i][0]:.4f})')
-        print('\n================================================================')
-        
+            itemPred, _, itemID = rec_list[i]
+            df = self.sim.dataset.movies_df[self.sim.dataset.movies_df['MovieID'] == itemID]
+            itemTitle, itemGenres = df['Title'].values[0], df['Genres'].values[0]
+            results.append((i+1, itemTitle, itemGenres, itemID, itemPred))
+            # print(f'\nRank {i+1}: {itemTitle} (Genres: {itemGenres}, itemID: {itemID}, r_pred: {itemPred:.4f})')
+        rec_df = pd.DataFrame(results, index=range(1, k+1), columns=REC_COLUMNS)
+        print(f'\n{rec_df}\n\n{SEP_BOUND}')        
 
 if __name__ == '__main__':
     
@@ -98,14 +106,15 @@ if __name__ == '__main__':
 
     # print the solution to Q3a here
     recommender = MemoryRecommender(sim, func_type="item_cosine", weight_type="item-based")
-    recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
     recommender = MemoryRecommender(sim, func_type="item_pearson", weight_type="item-based")
-    recommender.dump_similarity(userID=381)
     recommender.topk(userID=381)
     
     # print the solution to Q3b here
     recommender = MemoryRecommender(sim, func_type="user_cosine", weight_type="user-based")
-    recommender.dump_similarity(userID=381)
+    recommender.topk(userID=381)
+
+    # extra testing
+    recommender = MemoryRecommender(sim, func_type="item_jaccard", weight_type="item-based")
     recommender.topk(userID=381)
