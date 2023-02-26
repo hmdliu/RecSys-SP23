@@ -1,0 +1,7796 @@
+
+Loading users data from [./ml-1m/users.dat]:
+   UserID Gender  Age  Occupation Zip-code
+0       1      F    1          10    48067
+1       2      M   56          16    70072
+2       3      M   25          15    55117
+3       4      M   45           7    02460
+4       5      M   25          20    55455
+
+Loading movies data from [./ml-1m/movies.dat]:
+   MovieID                               Title                        Genres
+0        1                    Toy Story (1995)   Animation|Children's|Comedy
+1        2                      Jumanji (1995)  Adventure|Children's|Fantasy
+2        3             Grumpier Old Men (1995)                Comedy|Romance
+3        4            Waiting to Exhale (1995)                  Comedy|Drama
+4        5  Father of the Bride Part II (1995)                        Comedy
+
+Loading ratings data from [./ml-1m/ratings.dat]:
+   UserID  MovieID  Rating  Timestamp
+0       1     1193       5  978300760
+1       1      661       3  978302109
+2       1      914       3  978301968
+3       1     3408       4  978300275
+4       1     2355       5  978824291
+
+Found existing dump at [./mem/item_cosine_uid381.pkl]
+
+Loading similarity matrix from [./mem/item_cosine_uid381.pkl]...
+
+Top-5 recommendations for user 381 (item_cosine):
+
+   Rank                                         Title  ... MovieID  RatingPred
+1     1                        Mutters Courage (1995)  ...     655         5.0
+2     2  Make Them Die Slowly (Cannibal Ferox) (1980)  ...    3842         5.0
+3     3                        For Ever Mozart (1996)  ...    1579         5.0
+4     4                       Heaven's Burning (1997)  ...    1832         5.0
+5     5                          Outside Ozona (1998)  ...    2438         5.0
+
+[5 rows x 5 columns]
+
+====================================================================================================
+
+Found existing dump at [./mem/item_pearson_uid381.pkl]
+
+Loading similarity matrix from [./mem/item_pearson_uid381.pkl]...
+
+Top-5 recommendations for user 381 (item_pearson):
+
+   Rank                                              Title  ... MovieID  RatingPred
+1     1                        Contempt (Le Mépris) (1963)  ...    1572    4.388625
+2     2       White Balloon, The (Badkonake Sefid ) (1995)  ...      80    4.384695
+3     3  Lovers of the Arctic Circle, The (Los Amantes ...  ...    2585    4.383909
+4     4                             Harmonists, The (1997)  ...    2493    4.382016
+5     5                             Quiet Room, The (1996)  ...    1486    4.362301
+
+[5 rows x 5 columns]
+
+====================================================================================================
+
+Found existing dump at [./mem/user_cosine_uid381.pkl]
+
+Loading similarity matrix from [./mem/user_cosine_uid381.pkl]...
+
+Top-5 recommendations for user 381 (user_cosine):
+
+   Rank                                      Title  ... MovieID  RatingPred
+1     1         Gate of Heavenly Peace, The (1995)  ...     787         5.0
+2     2  Schlafes Bruder (Brother of Sleep) (1995)  ...     989         5.0
+3     3      Dry Cleaning (Nettoyage à sec) (1997)  ...    2480         5.0
+4     4                   Bittersweet Motel (2000)  ...    3881         5.0
+5     5                               Lured (1947)  ...    3656         5.0
+
+[5 rows x 5 columns]
+
+====================================================================================================
+
+Computing similarity matrix for user 381
+
+Multi-processing with 16 CPU cores
+
+r(user 381, item 934) = 4.1652
+
+r(user 381, item 935) = 4.0535
+
+r(user 381, item 936) = 4.1462
+
+r(user 381, item 937) = 4.0184
+
+r(user 381, item 938) = 4.1582
+
+r(user 381, item 939) = 3.5465
+
+r(user 381, item 940) = 4.1872
+
+r(user 381, item 941) = 4.0016
+
+r(user 381, item 942) = 4.2475
+
+r(user 381, item 943) = 4.1122
+
+r(user 381, item 944) = 4.0803
+
+r(user 381, item 945) = 4.2175
+
+r(user 381, item 946) = 4.2003
+
+r(user 381, item 947) = 4.1844
+
+r(user 381, item 948) = 4.1381
+
+r(user 381, item 949) = 4.1996
+
+r(user 381, item 950) = 4.2388
+
+r(user 381, item 951) = 4.2507
+
+r(user 381, item 952) = 4.1436
+
+r(user 381, item 953) = 4.2700
+
+r(user 381, item 954) = 4.2546
+
+r(user 381, item 955) = 4.2484
+
+r(user 381, item 956) = 4.0690
+
+r(user 381, item 957) = 4.0191
+
+r(user 381, item 958) = 3.9042
+
+r(user 381, item 959) = 4.0609
+
+r(user 381, item 960) = 4.0342
+
+r(user 381, item 961) = 3.9663
+
+r(user 381, item 962) = 3.6917
+
+r(user 381, item 963) = 4.0970
+
+r(user 381, item 964) = 3.9671
+
+r(user 381, item 965) = 4.2504
+
+r(user 381, item 966) = 3.5923
+
+r(user 381, item 967) = 3.8432
+
+r(user 381, item 968) = 4.3179
+
+r(user 381, item 969) = 4.2798
+
+r(user 381, item 970) = 4.0398
+
+r(user 381, item 971) = 4.2122
+
+r(user 381, item 972) = 3.6709
+
+r(user 381, item 973) = 4.1088
+
+r(user 381, item 974) = 3.7859
+
+r(user 381, item 975) = 3.7104
+
+r(user 381, item 976) = 4.0053
+
+r(user 381, item 977) = 2.1635
+
+r(user 381, item 978) = 4.2050
+
+r(user 381, item 979) = 0.0000
+
+r(user 381, item 980) = 3.9171
+
+r(user 381, item 981) = 3.7605
+
+r(user 381, item 982) = 4.0708
+
+r(user 381, item 983) = 0.0000
+
+r(user 381, item 984) = 3.9440
+
+r(user 381, item 985) = 4.4780
+
+r(user 381, item 986) = 4.1084
+
+r(user 381, item 987) = 4.0418
+
+r(user 381, item 988) = 4.1236
+
+r(user 381, item 989) = 4.0000
+
+r(user 381, item 990) = 3.9079
+
+r(user 381, item 991) = 4.1171
+
+r(user 381, item 992) = 3.9606
+
+r(user 381, item 993) = 3.6300
+
+r(user 381, item 994) = 4.2879
+
+r(user 381, item 1981) = 4.1711
+
+r(user 381, item 1982) = 4.2767
+
+r(user 381, item 1983) = 4.1641
+
+r(user 381, item 1984) = 4.1352
+
+r(user 381, item 1985) = 4.1392
+
+r(user 381, item 1986) = 4.1239
+
+r(user 381, item 1987) = 4.0231
+
+r(user 381, item 1988) = 4.0351
+
+r(user 381, item 1989) = 4.0068
+
+r(user 381, item 1990) = 3.9769
+
+r(user 381, item 1991) = 4.2215
+
+r(user 381, item 1992) = 4.1151
+
+r(user 381, item 1993) = 4.0401
+
+r(user 381, item 1994) = 4.3204
+
+r(user 381, item 1995) = 4.1273
+
+r(user 381, item 1996) = 4.0585
+
+r(user 381, item 1997) = 4.3282
+
+r(user 381, item 1998) = 4.0609
+
+r(user 381, item 1999) = 4.1226
+
+r(user 381, item 2000) = 4.3228
+
+r(user 381, item 2001) = 4.2877
+
+r(user 381, item 2002) = 4.2446
+
+r(user 381, item 2003) = 4.3049
+
+r(user 381, item 2004) = 4.2593
+
+r(user 381, item 2005) = 4.3104
+
+r(user 381, item 2006) = 4.2766
+
+r(user 381, item 2007) = 4.1548
+
+r(user 381, item 2008) = 4.1103
+
+r(user 381, item 2009) = 4.2798
+
+r(user 381, item 2011) = 4.3370
+
+r(user 381, item 2012) = 4.3257
+
+r(user 381, item 2013) = 4.1882
+
+r(user 381, item 2014) = 4.2269
+
+r(user 381, item 2015) = 4.2253
+
+r(user 381, item 2016) = 4.0893
+
+r(user 381, item 2017) = 4.1043
+
+r(user 381, item 2018) = 4.2812
+
+r(user 381, item 2019) = 4.3313
+
+r(user 381, item 2020) = 4.3160
+
+r(user 381, item 2021) = 4.3500
+
+r(user 381, item 2022) = 4.2501
+
+r(user 381, item 2024) = 4.2132
+
+r(user 381, item 2025) = 4.2938
+
+r(user 381, item 2026) = 4.1453
+
+r(user 381, item 2027) = 4.0729
+
+r(user 381, item 2028) = 4.3345
+
+r(user 381, item 2029) = 4.1807
+
+r(user 381, item 2030) = 0.0000
+
+r(user 381, item 2031) = 4.0881
+
+r(user 381, item 2032) = 4.0272
+
+r(user 381, item 2033) = 4.2255
+
+r(user 381, item 2034) = 4.2528
+
+r(user 381, item 2035) = 3.9594
+
+r(user 381, item 2036) = 3.9640
+
+r(user 381, item 2037) = 4.0042
+
+r(user 381, item 2038) = 4.2001
+
+r(user 381, item 2039) = 4.7999
+
+r(user 381, item 2040) = 4.1181
+
+r(user 381, item 2041) = 4.1971
+
+r(user 381, item 2042) = 4.1190
+
+r(user 381, item 2043) = 4.0834
+
+r(user 381, item 2719) = 4.1945
+
+r(user 381, item 2720) = 4.1618
+
+r(user 381, item 2721) = 4.1388
+
+r(user 381, item 2722) = 4.2368
+
+r(user 381, item 2723) = 4.3251
+
+r(user 381, item 2724) = 4.1750
+
+r(user 381, item 2725) = 4.2419
+
+r(user 381, item 2726) = 4.1798
+
+r(user 381, item 2727) = 4.0446
+
+r(user 381, item 2728) = 4.2440
+
+r(user 381, item 2729) = 4.2870
+
+r(user 381, item 2730) = 4.1974
+
+r(user 381, item 2731) = 4.2937
+
+r(user 381, item 2732) = 4.2303
+
+r(user 381, item 2733) = 3.9682
+
+r(user 381, item 2734) = 4.2568
+
+r(user 381, item 2735) = 4.2501
+
+r(user 381, item 2736) = 4.1849
+
+r(user 381, item 2737) = 3.7216
+
+r(user 381, item 2738) = 4.0777
+
+r(user 381, item 2739) = 4.2510
+
+r(user 381, item 2740) = 4.2514
+
+r(user 381, item 2741) = 3.9780
+
+r(user 381, item 2742) = 2.0004
+
+r(user 381, item 2743) = 3.6849
+
+r(user 381, item 2744) = 3.9135
+
+r(user 381, item 2745) = 4.1947
+
+r(user 381, item 2746) = 4.3145
+
+r(user 381, item 2747) = 4.2503
+
+r(user 381, item 2748) = 4.0821
+
+r(user 381, item 2749) = 4.0463
+
+r(user 381, item 2750) = 4.2555
+
+r(user 381, item 2751) = 4.0644
+
+r(user 381, item 2752) = 4.1568
+
+r(user 381, item 2753) = 3.8800
+
+r(user 381, item 2754) = 3.8331
+
+r(user 381, item 2755) = 3.7609
+
+r(user 381, item 2756) = 3.8607
+
+r(user 381, item 2757) = 4.1772
+
+r(user 381, item 2758) = 4.0910
+
+r(user 381, item 2759) = 4.2696
+
+r(user 381, item 2760) = 3.4392
+
+r(user 381, item 2761) = 4.3182
+
+r(user 381, item 2762) = 4.3428
+
+r(user 381, item 2763) = 4.2860
+
+r(user 381, item 2764) = 4.1977
+
+r(user 381, item 2765) = 3.6905
+
+r(user 381, item 2766) = 3.8573
+
+r(user 381, item 2767) = 3.9229
+
+r(user 381, item 2768) = 4.3325
+
+r(user 381, item 2769) = 3.7457
+
+r(user 381, item 2770) = 4.2955
+
+r(user 381, item 2771) = 4.0048
+
+r(user 381, item 2772) = 4.2493
+
+r(user 381, item 2773) = 4.2238
+
+r(user 381, item 2774) = 4.1785
+
+r(user 381, item 2775) = 4.1469
+
+r(user 381, item 2776) = 4.1382
+
+r(user 381, item 2777) = 3.3586
+
+r(user 381, item 2778) = 3.5096
+
+r(user 381, item 2779) = 4.2204
+
+r(user 381, item 3948) = 4.1995
+
+r(user 381, item 3949) = 4.2187
+
+r(user 381, item 3950) = 3.8155
+
+r(user 381, item 3951) = 3.8000
+
+r(user 381, item 3952) = 4.0767
+
+r(user 381, item 433) = 3.9177
+
+r(user 381, item 434) = 4.2409
+
+r(user 381, item 435) = 4.2782
+
+r(user 381, item 436) = 4.0947
+
+r(user 381, item 437) = 3.9920
+
+r(user 381, item 438) = 4.0691
+
+r(user 381, item 439) = 4.7892
+
+r(user 381, item 440) = 4.2721
+
+r(user 381, item 441) = 4.3450
+
+r(user 381, item 442) = 4.3128
+
+r(user 381, item 443) = 4.2000
+
+r(user 381, item 444) = 4.2063
+
+r(user 381, item 445) = 4.1960
+
+r(user 381, item 446) = 4.2921
+
+r(user 381, item 447) = 4.0055
+
+r(user 381, item 448) = 4.2353
+
+r(user 381, item 449) = 4.3284
+
+r(user 381, item 450) = 4.1941
+
+r(user 381, item 451) = 4.1003
+
+r(user 381, item 452) = 4.2314
+
+r(user 381, item 453) = 4.0399
+
+r(user 381, item 454) = 4.2735
+
+r(user 381, item 455) = 4.1200
+
+r(user 381, item 456) = 4.0686
+
+r(user 381, item 457) = 4.3405
+
+r(user 381, item 458) = 4.0160
+
+r(user 381, item 459) = 4.0477
+
+r(user 381, item 460) = 3.7386
+
+r(user 381, item 461) = 4.2275
+
+r(user 381, item 462) = 3.9643
+
+r(user 381, item 463) = 3.8307
+
+r(user 381, item 464) = 4.1726
+
+r(user 381, item 465) = 4.0347
+
+r(user 381, item 466) = 4.2500
+
+r(user 381, item 467) = 4.2161
+
+r(user 381, item 468) = 4.2122
+
+r(user 381, item 469) = 4.0452
+
+r(user 381, item 470) = 3.9823
+
+r(user 381, item 471) = 4.3309
+
+r(user 381, item 472) = 4.0262
+
+r(user 381, item 473) = 4.1311
+
+r(user 381, item 474) = 4.2895
+
+r(user 381, item 475) = 4.2695
+
+r(user 381, item 476) = 4.0702
+
+r(user 381, item 477) = 4.1447
+
+r(user 381, item 478) = 3.8443
+
+r(user 381, item 479) = 4.1420
+
+r(user 381, item 480) = 4.3436
+
+r(user 381, item 481) = 4.2478
+
+r(user 381, item 482) = 4.2496
+
+r(user 381, item 483) = 4.1752
+
+r(user 381, item 484) = 3.6619
+
+r(user 381, item 485) = 4.2392
+
+r(user 381, item 486) = 3.9678
+
+r(user 381, item 487) = 3.9237
+
+r(user 381, item 488) = 4.0803
+
+r(user 381, item 489) = 3.9926
+
+r(user 381, item 490) = 4.1017
+
+r(user 381, item 491) = 4.1483
+
+r(user 381, item 492) = 4.2606
+
+r(user 381, item 493) = 4.2660
+
+r(user 381, item 1319) = 0.0000
+
+r(user 381, item 1320) = 4.3453
+
+r(user 381, item 1321) = 4.2987
+
+r(user 381, item 1322) = 3.9334
+
+r(user 381, item 1323) = 4.0527
+
+r(user 381, item 1324) = 4.1342
+
+r(user 381, item 1325) = 4.0088
+
+r(user 381, item 1326) = 3.9452
+
+r(user 381, item 1327) = 4.2360
+
+r(user 381, item 1328) = 4.0184
+
+r(user 381, item 1329) = 4.1636
+
+r(user 381, item 1330) = 4.1108
+
+r(user 381, item 1331) = 3.9552
+
+r(user 381, item 1332) = 4.0962
+
+r(user 381, item 1333) = 4.3023
+
+r(user 381, item 1334) = 4.1939
+
+r(user 381, item 1335) = 3.8622
+
+r(user 381, item 1336) = 3.9949
+
+r(user 381, item 1337) = 4.0035
+
+r(user 381, item 1339) = 4.3221
+
+r(user 381, item 1340) = 4.1820
+
+r(user 381, item 1341) = 4.0132
+
+r(user 381, item 1342) = 4.2104
+
+r(user 381, item 1343) = 4.2962
+
+r(user 381, item 1344) = 4.2517
+
+r(user 381, item 1345) = 4.2932
+
+r(user 381, item 1346) = 4.1529
+
+r(user 381, item 1347) = 4.2760
+
+r(user 381, item 1348) = 4.2518
+
+r(user 381, item 1349) = 4.0689
+
+r(user 381, item 1350) = 4.2609
+
+r(user 381, item 1351) = 3.9831
+
+r(user 381, item 1352) = 4.2154
+
+r(user 381, item 1353) = 4.0973
+
+r(user 381, item 1354) = 4.2819
+
+r(user 381, item 1355) = 4.0505
+
+r(user 381, item 1356) = 4.3523
+
+r(user 381, item 1357) = 4.2692
+
+r(user 381, item 1358) = 4.3315
+
+r(user 381, item 1359) = 4.0995
+
+r(user 381, item 1360) = 4.5683
+
+r(user 381, item 1361) = 4.2442
+
+r(user 381, item 1362) = 4.1174
+
+r(user 381, item 1363) = 3.9105
+
+r(user 381, item 1364) = 3.4487
+
+r(user 381, item 1365) = 4.1356
+
+r(user 381, item 1366) = 4.0693
+
+r(user 381, item 1367) = 4.1896
+
+r(user 381, item 1368) = 0.0000
+
+r(user 381, item 1369) = 3.9996
+
+r(user 381, item 1370) = 4.3056
+
+r(user 381, item 1371) = 4.3076
+
+r(user 381, item 1372) = 4.3429
+
+r(user 381, item 1373) = 4.2953
+
+r(user 381, item 1374) = 4.3535
+
+r(user 381, item 1375) = 4.3226
+
+r(user 381, item 1376) = 4.3383
+
+r(user 381, item 1377) = 4.3080
+
+r(user 381, item 1378) = 4.2671
+
+r(user 381, item 1379) = 4.2122
+
+r(user 381, item 1380) = 4.2775
+
+r(user 381, item 2166) = 4.0881
+
+r(user 381, item 2167) = 4.3370
+
+r(user 381, item 2168) = 3.9472
+
+r(user 381, item 2169) = 4.1238
+
+r(user 381, item 2170) = 4.0704
+
+r(user 381, item 2171) = 4.3110
+
+r(user 381, item 2172) = 3.4898
+
+r(user 381, item 2173) = 4.2017
+
+r(user 381, item 2174) = 4.3393
+
+r(user 381, item 2175) = 3.7001
+
+r(user 381, item 2176) = 4.2033
+
+r(user 381, item 2177) = 4.0457
+
+r(user 381, item 2178) = 4.0657
+
+r(user 381, item 2179) = 3.9225
+
+r(user 381, item 2180) = 3.9845
+
+r(user 381, item 2181) = 4.1042
+
+r(user 381, item 2182) = 4.1373
+
+r(user 381, item 2183) = 4.1939
+
+r(user 381, item 2184) = 4.1609
+
+r(user 381, item 2185) = 3.9791
+
+r(user 381, item 2186) = 4.3217
+
+r(user 381, item 2187) = 4.0053
+
+r(user 381, item 2188) = 4.1408
+
+r(user 381, item 2189) = 4.2650
+
+r(user 381, item 2190) = 3.9092
+
+r(user 381, item 2191) = 3.9058
+
+r(user 381, item 2192) = 3.9166
+
+r(user 381, item 2193) = 4.3263
+
+r(user 381, item 2194) = 4.3171
+
+r(user 381, item 2195) = 4.1854
+
+r(user 381, item 2196) = 3.8825
+
+r(user 381, item 2197) = 3.9417
+
+r(user 381, item 2198) = 4.5407
+
+r(user 381, item 2199) = 0.0000
+
+r(user 381, item 2200) = 3.7262
+
+r(user 381, item 2201) = 3.8290
+
+r(user 381, item 2202) = 4.1755
+
+r(user 381, item 2203) = 4.2384
+
+r(user 381, item 2204) = 4.1206
+
+r(user 381, item 2205) = 3.9639
+
+r(user 381, item 2206) = 4.2353
+
+r(user 381, item 2207) = 3.6913
+
+r(user 381, item 2208) = 4.2335
+
+r(user 381, item 2209) = 3.6815
+
+r(user 381, item 2210) = 4.0142
+
+r(user 381, item 2211) = 3.8520
+
+r(user 381, item 2212) = 4.1668
+
+r(user 381, item 2213) = 3.7094
+
+r(user 381, item 2214) = 3.2433
+
+r(user 381, item 2215) = 3.9055
+
+r(user 381, item 2216) = 0.0000
+
+r(user 381, item 2217) = 3.7094
+
+r(user 381, item 2218) = 4.0291
+
+r(user 381, item 2219) = 3.8138
+
+r(user 381, item 2220) = 0.0000
+
+r(user 381, item 2221) = 3.8638
+
+r(user 381, item 2222) = 0.0000
+
+r(user 381, item 2223) = 3.5925
+
+r(user 381, item 2224) = 0.0000
+
+r(user 381, item 2225) = 0.0000
+
+r(user 381, item 2226) = 4.4678
+
+r(user 381, item 3024) = 4.1720
+
+r(user 381, item 3025) = 4.0323
+
+r(user 381, item 3026) = 4.1166
+
+r(user 381, item 3027) = 4.0436
+
+r(user 381, item 3028) = 4.0862
+
+r(user 381, item 3029) = 4.0967
+
+r(user 381, item 3030) = 4.2750
+
+r(user 381, item 3031) = 3.9242
+
+r(user 381, item 3032) = 4.2075
+
+r(user 381, item 3033) = 4.3352
+
+r(user 381, item 3034) = 4.2510
+
+r(user 381, item 3035) = 4.1843
+
+r(user 381, item 3036) = 4.1586
+
+r(user 381, item 3037) = 4.2502
+
+r(user 381, item 3038) = 4.1100
+
+r(user 381, item 3039) = 4.2801
+
+r(user 381, item 3040) = 4.2094
+
+r(user 381, item 3041) = 4.0566
+
+r(user 381, item 3042) = 4.1019
+
+r(user 381, item 3043) = 4.0114
+
+r(user 381, item 3044) = 4.2985
+
+r(user 381, item 3045) = 4.1928
+
+r(user 381, item 3046) = 4.3141
+
+r(user 381, item 3047) = 3.8804
+
+r(user 381, item 3048) = 3.9995
+
+r(user 381, item 3049) = 4.0484
+
+r(user 381, item 3050) = 3.5553
+
+r(user 381, item 3051) = 4.0610
+
+r(user 381, item 3052) = 4.3415
+
+r(user 381, item 3053) = 4.2501
+
+r(user 381, item 3054) = 4.2433
+
+r(user 381, item 3055) = 4.0755
+
+r(user 381, item 3056) = 3.5327
+
+r(user 381, item 3057) = 4.2094
+
+r(user 381, item 3058) = 3.7864
+
+r(user 381, item 3059) = 0.0000
+
+r(user 381, item 3060) = 4.2957
+
+r(user 381, item 3061) = 4.1670
+
+r(user 381, item 3062) = 4.1412
+
+r(user 381, item 3063) = 4.1554
+
+r(user 381, item 3064) = 4.1061
+
+r(user 381, item 3065) = 4.7647
+
+r(user 381, item 3066) = 4.0762
+
+r(user 381, item 3067) = 4.3510
+
+r(user 381, item 3068) = 4.2239
+
+r(user 381, item 3069) = 4.1165
+
+r(user 381, item 3070) = 4.3368
+
+r(user 381, item 3071) = 4.2327
+
+r(user 381, item 3072) = 4.2763
+
+r(user 381, item 3073) = 3.9756
+
+r(user 381, item 3074) = 4.1209
+
+r(user 381, item 3075) = 4.1661
+
+r(user 381, item 3076) = 4.0783
+
+r(user 381, item 3077) = 4.2345
+
+r(user 381, item 3078) = 4.1260
+
+r(user 381, item 3079) = 4.1574
+
+r(user 381, item 3080) = 0.0000
+
+r(user 381, item 3081) = 4.3321
+
+r(user 381, item 3082) = 4.2934
+
+r(user 381, item 3083) = 4.3126
+
+r(user 381, item 3084) = 4.1285
+
+r(user 381, item 64) = 4.0723
+
+r(user 381, item 65) = 4.1034
+
+r(user 381, item 66) = 4.2003
+
+r(user 381, item 67) = 3.8180
+
+r(user 381, item 68) = 4.2125
+
+r(user 381, item 69) = 4.3124
+
+r(user 381, item 70) = 4.3380
+
+r(user 381, item 71) = 3.9772
+
+r(user 381, item 72) = 4.1768
+
+r(user 381, item 73) = 4.1270
+
+r(user 381, item 74) = 4.0782
+
+r(user 381, item 75) = 4.1905
+
+r(user 381, item 76) = 4.1695
+
+r(user 381, item 77) = 4.1235
+
+r(user 381, item 78) = 3.9337
+
+r(user 381, item 79) = 4.0659
+
+r(user 381, item 80) = 4.0840
+
+r(user 381, item 81) = 4.2481
+
+r(user 381, item 82) = 4.1756
+
+r(user 381, item 83) = 3.9661
+
+r(user 381, item 84) = 3.9431
+
+r(user 381, item 85) = 4.3331
+
+r(user 381, item 86) = 4.1647
+
+r(user 381, item 87) = 4.0230
+
+r(user 381, item 88) = 4.1852
+
+r(user 381, item 89) = 4.1371
+
+r(user 381, item 90) = 3.7338
+
+r(user 381, item 92) = 3.9831
+
+r(user 381, item 93) = 4.0634
+
+r(user 381, item 94) = 4.1923
+
+r(user 381, item 95) = 4.2448
+
+r(user 381, item 96) = 4.0457
+
+r(user 381, item 97) = 4.2419
+
+r(user 381, item 98) = 3.4903
+
+r(user 381, item 99) = 4.2719
+
+r(user 381, item 100) = 4.0960
+
+r(user 381, item 101) = 4.3148
+
+r(user 381, item 102) = 4.0465
+
+r(user 381, item 103) = 3.8599
+
+r(user 381, item 104) = 4.2926
+
+r(user 381, item 105) = 4.1920
+
+r(user 381, item 106) = 3.8008
+
+r(user 381, item 107) = 4.2155
+
+r(user 381, item 108) = 4.1090
+
+r(user 381, item 109) = 0.0000
+
+r(user 381, item 110) = 4.3340
+
+r(user 381, item 111) = 4.3617
+
+r(user 381, item 112) = 4.3164
+
+r(user 381, item 113) = 4.0861
+
+r(user 381, item 114) = 3.4597
+
+r(user 381, item 115) = 0.0000
+
+r(user 381, item 116) = 3.8821
+
+r(user 381, item 117) = 4.2412
+
+r(user 381, item 118) = 4.0417
+
+r(user 381, item 119) = 4.1283
+
+r(user 381, item 120) = 3.5004
+
+r(user 381, item 121) = 4.0303
+
+r(user 381, item 122) = 4.1772
+
+r(user 381, item 123) = 4.2430
+
+r(user 381, item 124) = 3.9147
+
+r(user 381, item 125) = 4.3149
+
+r(user 381, item 1058) = 3.8215
+
+r(user 381, item 1059) = 4.2947
+
+r(user 381, item 1060) = 4.3564
+
+r(user 381, item 1061) = 4.2048
+
+r(user 381, item 1062) = 4.7513
+
+r(user 381, item 1063) = 3.9948
+
+r(user 381, item 1064) = 4.1740
+
+r(user 381, item 1065) = 0.0000
+
+r(user 381, item 1066) = 4.1856
+
+r(user 381, item 1067) = 3.9908
+
+r(user 381, item 1068) = 3.9705
+
+r(user 381, item 1069) = 4.0806
+
+r(user 381, item 1070) = 3.4001
+
+r(user 381, item 1071) = 3.8104
+
+r(user 381, item 1073) = 4.3373
+
+r(user 381, item 1075) = 0.0000
+
+r(user 381, item 1076) = 4.0310
+
+r(user 381, item 1077) = 4.3375
+
+r(user 381, item 1078) = 4.2414
+
+r(user 381, item 1079) = 4.3261
+
+r(user 381, item 1080) = 4.3544
+
+r(user 381, item 1081) = 4.2447
+
+r(user 381, item 1082) = 4.2016
+
+r(user 381, item 1083) = 4.0567
+
+r(user 381, item 1084) = 4.2742
+
+r(user 381, item 1085) = 4.1052
+
+r(user 381, item 1087) = 4.0425
+
+r(user 381, item 1088) = 4.2640
+
+r(user 381, item 1089) = 4.3822
+
+r(user 381, item 1090) = 4.3102
+
+r(user 381, item 1091) = 4.2487
+
+r(user 381, item 1092) = 4.2869
+
+r(user 381, item 1093) = 4.3119
+
+r(user 381, item 1094) = 4.3109
+
+r(user 381, item 1095) = 4.3219
+
+r(user 381, item 1096) = 4.2085
+
+r(user 381, item 1097) = 4.3625
+
+r(user 381, item 1098) = 3.7597
+
+r(user 381, item 1099) = 4.0959
+
+r(user 381, item 1100) = 4.1994
+
+r(user 381, item 1101) = 4.2894
+
+r(user 381, item 1102) = 4.3169
+
+r(user 381, item 1103) = 4.2668
+
+r(user 381, item 1104) = 4.2667
+
+r(user 381, item 1105) = 4.1078
+
+r(user 381, item 1106) = 0.0000
+
+r(user 381, item 1107) = 4.6033
+
+r(user 381, item 1108) = 0.0000
+
+r(user 381, item 1109) = 0.0000
+
+r(user 381, item 1110) = 0.0000
+
+r(user 381, item 1111) = 4.2897
+
+r(user 381, item 1112) = 3.9026
+
+r(user 381, item 1113) = 4.0111
+
+r(user 381, item 1114) = 3.8327
+
+r(user 381, item 1115) = 2.0004
+
+r(user 381, item 1116) = 3.9511
+
+r(user 381, item 1117) = 4.0557
+
+r(user 381, item 1118) = 2.0004
+
+r(user 381, item 1119) = 4.1480
+
+r(user 381, item 1120) = 4.2860
+
+r(user 381, item 1121) = 3.9125
+
+r(user 381, item 2349) = 4.2353
+
+r(user 381, item 2350) = 3.8937
+
+r(user 381, item 2351) = 4.1842
+
+r(user 381, item 2352) = 4.2777
+
+r(user 381, item 2353) = 4.2925
+
+r(user 381, item 2354) = 4.1779
+
+r(user 381, item 2355) = 4.3213
+
+r(user 381, item 2356) = 4.2644
+
+r(user 381, item 2357) = 4.2994
+
+r(user 381, item 2358) = 4.6173
+
+r(user 381, item 2359) = 4.2743
+
+r(user 381, item 2360) = 4.2832
+
+r(user 381, item 2361) = 4.2646
+
+r(user 381, item 2362) = 4.1182
+
+r(user 381, item 2363) = 4.2274
+
+r(user 381, item 2364) = 4.0653
+
+r(user 381, item 2365) = 4.1349
+
+r(user 381, item 2366) = 4.2888
+
+r(user 381, item 2367) = 4.1679
+
+r(user 381, item 2368) = 4.0227
+
+r(user 381, item 2369) = 4.2600
+
+r(user 381, item 2370) = 4.1090
+
+r(user 381, item 2371) = 4.2725
+
+r(user 381, item 2372) = 4.1756
+
+r(user 381, item 2373) = 4.1660
+
+r(user 381, item 2374) = 4.1693
+
+r(user 381, item 2375) = 4.2241
+
+r(user 381, item 2376) = 4.2174
+
+r(user 381, item 2377) = 4.1631
+
+r(user 381, item 2378) = 4.2385
+
+r(user 381, item 2379) = 4.1412
+
+r(user 381, item 2380) = 4.1531
+
+r(user 381, item 2381) = 4.1409
+
+r(user 381, item 2382) = 4.1298
+
+r(user 381, item 2383) = 4.1328
+
+r(user 381, item 2384) = 4.2757
+
+r(user 381, item 2385) = 4.1355
+
+r(user 381, item 2386) = 4.1209
+
+r(user 381, item 2387) = 4.2153
+
+r(user 381, item 2388) = 4.1300
+
+r(user 381, item 2389) = 4.1998
+
+r(user 381, item 2390) = 4.2208
+
+r(user 381, item 2391) = 4.3095
+
+r(user 381, item 2392) = 4.0617
+
+r(user 381, item 2393) = 4.3257
+
+r(user 381, item 2394) = 4.2623
+
+r(user 381, item 2395) = 4.3632
+
+r(user 381, item 2396) = 4.3177
+
+r(user 381, item 2397) = 3.9001
+
+r(user 381, item 2398) = 4.1776
+
+r(user 381, item 2399) = 4.1498
+
+r(user 381, item 2400) = 3.9636
+
+r(user 381, item 2401) = 4.1820
+
+r(user 381, item 2402) = 4.2022
+
+r(user 381, item 2403) = 4.2060
+
+r(user 381, item 2404) = 4.1713
+
+r(user 381, item 2405) = 4.2619
+
+r(user 381, item 2406) = 4.3039
+
+r(user 381, item 2407) = 4.3099
+
+r(user 381, item 2408) = 4.1656
+
+r(user 381, item 2409) = 4.2084
+
+r(user 381, item 3329) = 3.9802
+
+r(user 381, item 3330) = 4.1646
+
+r(user 381, item 3331) = 3.8845
+
+r(user 381, item 3332) = 0.0000
+
+r(user 381, item 3333) = 3.8710
+
+r(user 381, item 3334) = 4.2592
+
+r(user 381, item 3335) = 4.1299
+
+r(user 381, item 3336) = 3.4676
+
+r(user 381, item 3337) = 3.4476
+
+r(user 381, item 3338) = 3.9971
+
+r(user 381, item 3339) = 3.8880
+
+r(user 381, item 3340) = 3.9939
+
+r(user 381, item 3341) = 4.1520
+
+r(user 381, item 3342) = 4.2385
+
+r(user 381, item 3343) = 4.1294
+
+r(user 381, item 3344) = 3.9829
+
+r(user 381, item 3345) = 3.7856
+
+r(user 381, item 3346) = 4.0335
+
+r(user 381, item 3347) = 4.2083
+
+r(user 381, item 3348) = 0.0000
+
+r(user 381, item 3349) = 4.0382
+
+r(user 381, item 3350) = 4.1051
+
+r(user 381, item 3351) = 4.0558
+
+r(user 381, item 3352) = 4.3720
+
+r(user 381, item 3353) = 2.8234
+
+r(user 381, item 3354) = 4.2479
+
+r(user 381, item 3355) = 4.1540
+
+r(user 381, item 3356) = 0.0000
+
+r(user 381, item 3357) = 4.0112
+
+r(user 381, item 3358) = 4.2510
+
+r(user 381, item 3359) = 4.2441
+
+r(user 381, item 3360) = 4.2549
+
+r(user 381, item 3361) = 4.2986
+
+r(user 381, item 3362) = 4.2919
+
+r(user 381, item 3363) = 4.2846
+
+r(user 381, item 3364) = 4.1731
+
+r(user 381, item 3365) = 4.1600
+
+r(user 381, item 3366) = 4.1154
+
+r(user 381, item 3367) = 3.9066
+
+r(user 381, item 3368) = 3.9588
+
+r(user 381, item 3369) = 0.0000
+
+r(user 381, item 3370) = 4.1239
+
+r(user 381, item 3371) = 3.9585
+
+r(user 381, item 3372) = 3.8282
+
+r(user 381, item 3373) = 4.2836
+
+r(user 381, item 3374) = 4.2180
+
+r(user 381, item 3375) = 3.9677
+
+r(user 381, item 3376) = 3.7094
+
+r(user 381, item 3377) = 3.5365
+
+r(user 381, item 3378) = 3.6699
+
+r(user 381, item 3379) = 4.1052
+
+r(user 381, item 3380) = 2.7605
+
+r(user 381, item 3381) = 4.6320
+
+r(user 381, item 3382) = 0.0000
+
+r(user 381, item 3383) = 0.0000
+
+r(user 381, item 3384) = 4.1626
+
+r(user 381, item 3385) = 4.1205
+
+r(user 381, item 3386) = 4.3023
+
+r(user 381, item 3387) = 4.1715
+
+r(user 381, item 3388) = 4.1889
+
+r(user 381, item 3389) = 4.0182
+
+r(user 381, item 1) = 4.3358
+
+r(user 381, item 2) = 4.2722
+
+r(user 381, item 3) = 4.1997
+
+r(user 381, item 4) = 4.1284
+
+r(user 381, item 5) = 4.1564
+
+r(user 381, item 6) = 4.3250
+
+r(user 381, item 7) = 4.2151
+
+r(user 381, item 8) = 3.9924
+
+r(user 381, item 9) = 4.0330
+
+r(user 381, item 10) = 4.2954
+
+r(user 381, item 11) = 4.2563
+
+r(user 381, item 12) = 4.1191
+
+r(user 381, item 13) = 4.0222
+
+r(user 381, item 14) = 4.1484
+
+r(user 381, item 15) = 4.0543
+
+r(user 381, item 16) = 4.3130
+
+r(user 381, item 17) = 4.2676
+
+r(user 381, item 18) = 4.2641
+
+r(user 381, item 19) = 4.2124
+
+r(user 381, item 20) = 4.0593
+
+r(user 381, item 21) = 4.3281
+
+r(user 381, item 22) = 4.2014
+
+r(user 381, item 23) = 4.0883
+
+r(user 381, item 24) = 4.2964
+
+r(user 381, item 25) = 4.3052
+
+r(user 381, item 26) = 4.1858
+
+r(user 381, item 27) = 3.9159
+
+r(user 381, item 28) = 4.2152
+
+r(user 381, item 30) = 4.1956
+
+r(user 381, item 31) = 4.0491
+
+r(user 381, item 33) = 4.0006
+
+r(user 381, item 34) = 4.3203
+
+r(user 381, item 35) = 4.1729
+
+r(user 381, item 36) = 4.3062
+
+r(user 381, item 37) = 4.1841
+
+r(user 381, item 38) = 3.8953
+
+r(user 381, item 39) = 4.3112
+
+r(user 381, item 40) = 3.8022
+
+r(user 381, item 41) = 4.2869
+
+r(user 381, item 42) = 4.1830
+
+r(user 381, item 43) = 4.2259
+
+r(user 381, item 44) = 4.2333
+
+r(user 381, item 45) = 4.2882
+
+r(user 381, item 46) = 4.1209
+
+r(user 381, item 47) = 4.3479
+
+r(user 381, item 48) = 4.2035
+
+r(user 381, item 49) = 3.9793
+
+r(user 381, item 50) = 4.3664
+
+r(user 381, item 51) = 0.0000
+
+r(user 381, item 52) = 4.2848
+
+r(user 381, item 53) = 3.7582
+
+r(user 381, item 54) = 4.0282
+
+r(user 381, item 55) = 4.1380
+
+r(user 381, item 56) = 4.0231
+
+r(user 381, item 57) = 4.1092
+
+r(user 381, item 58) = 4.2863
+
+r(user 381, item 59) = 3.8827
+
+r(user 381, item 60) = 4.1974
+
+r(user 381, item 61) = 3.8240
+
+r(user 381, item 62) = 4.2266
+
+r(user 381, item 63) = 4.2080
+
+r(user 381, item 1122) = 0.0000
+
+r(user 381, item 1123) = 3.9785
+
+r(user 381, item 1124) = 4.1974
+
+r(user 381, item 1125) = 4.2350
+
+r(user 381, item 1126) = 4.2711
+
+r(user 381, item 1127) = 4.3521
+
+r(user 381, item 1128) = 4.1449
+
+r(user 381, item 1130) = 4.1935
+
+r(user 381, item 1131) = 4.2709
+
+r(user 381, item 1132) = 4.3009
+
+r(user 381, item 1133) = 4.1080
+
+r(user 381, item 1134) = 3.8737
+
+r(user 381, item 1135) = 4.2012
+
+r(user 381, item 1136) = 4.3545
+
+r(user 381, item 1137) = 0.0000
+
+r(user 381, item 1138) = 3.9198
+
+r(user 381, item 1139) = 4.5898
+
+r(user 381, item 1140) = 0.0000
+
+r(user 381, item 1141) = 0.0000
+
+r(user 381, item 1142) = 2.1322
+
+r(user 381, item 1143) = 0.0000
+
+r(user 381, item 1144) = 4.1193
+
+r(user 381, item 1145) = 2.9091
+
+r(user 381, item 1146) = 0.0000
+
+r(user 381, item 1147) = 4.3451
+
+r(user 381, item 1148) = 4.3892
+
+r(user 381, item 1149) = 3.9844
+
+r(user 381, item 1150) = 4.2740
+
+r(user 381, item 1151) = 4.1133
+
+r(user 381, item 1152) = 4.1476
+
+r(user 381, item 1153) = 3.5761
+
+r(user 381, item 1154) = 3.7284
+
+r(user 381, item 1155) = 0.0000
+
+r(user 381, item 1156) = 0.0000
+
+r(user 381, item 1157) = 0.0000
+
+r(user 381, item 1158) = 0.0000
+
+r(user 381, item 1159) = 0.0000
+
+r(user 381, item 1160) = 3.8666
+
+r(user 381, item 1161) = 4.1149
+
+r(user 381, item 1162) = 4.1668
+
+r(user 381, item 1163) = 3.9340
+
+r(user 381, item 1164) = 4.5043
+
+r(user 381, item 1165) = 4.0000
+
+r(user 381, item 1166) = 0.0000
+
+r(user 381, item 1167) = 4.2046
+
+r(user 381, item 1168) = 4.0156
+
+r(user 381, item 1169) = 4.1498
+
+r(user 381, item 1170) = 3.7160
+
+r(user 381, item 1171) = 4.2922
+
+r(user 381, item 1172) = 4.3415
+
+r(user 381, item 1173) = 4.2921
+
+r(user 381, item 1174) = 4.5998
+
+r(user 381, item 1176) = 4.2772
+
+r(user 381, item 1177) = 4.2105
+
+r(user 381, item 1178) = 4.2191
+
+r(user 381, item 1179) = 4.3288
+
+r(user 381, item 1180) = 4.0104
+
+r(user 381, item 1181) = 3.8364
+
+r(user 381, item 1183) = 4.2728
+
+r(user 381, item 1184) = 4.1898
+
+r(user 381, item 1185) = 4.2801
+
+r(user 381, item 2410) = 4.2206
+
+r(user 381, item 2411) = 4.2221
+
+r(user 381, item 2412) = 4.1492
+
+r(user 381, item 2413) = 4.2964
+
+r(user 381, item 2414) = 4.2591
+
+r(user 381, item 2415) = 3.7610
+
+r(user 381, item 2416) = 4.2341
+
+r(user 381, item 2417) = 4.1227
+
+r(user 381, item 2418) = 4.1030
+
+r(user 381, item 2419) = 3.9592
+
+r(user 381, item 2420) = 4.2373
+
+r(user 381, item 2421) = 4.2250
+
+r(user 381, item 2422) = 4.1692
+
+r(user 381, item 2423) = 4.2322
+
+r(user 381, item 2424) = 4.2215
+
+r(user 381, item 2425) = 4.0902
+
+r(user 381, item 2426) = 4.0306
+
+r(user 381, item 2427) = 4.2986
+
+r(user 381, item 2428) = 4.2539
+
+r(user 381, item 2429) = 4.0361
+
+r(user 381, item 2430) = 4.0465
+
+r(user 381, item 2431) = 4.1852
+
+r(user 381, item 2432) = 4.0336
+
+r(user 381, item 2433) = 4.2117
+
+r(user 381, item 2434) = 4.0061
+
+r(user 381, item 2435) = 4.1918
+
+r(user 381, item 2436) = 4.1095
+
+r(user 381, item 2437) = 4.2615
+
+r(user 381, item 2438) = 4.9999
+
+r(user 381, item 2439) = 4.1777
+
+r(user 381, item 2440) = 4.0692
+
+r(user 381, item 2441) = 3.6261
+
+r(user 381, item 2442) = 4.1892
+
+r(user 381, item 2443) = 4.1357
+
+r(user 381, item 2444) = 3.3122
+
+r(user 381, item 2445) = 3.9524
+
+r(user 381, item 2446) = 3.9484
+
+r(user 381, item 2447) = 4.1685
+
+r(user 381, item 2448) = 4.1586
+
+r(user 381, item 2449) = 4.1498
+
+r(user 381, item 2450) = 4.2952
+
+r(user 381, item 2451) = 4.1380
+
+r(user 381, item 2452) = 4.1351
+
+r(user 381, item 2453) = 4.1495
+
+r(user 381, item 2454) = 4.2599
+
+r(user 381, item 2455) = 4.3447
+
+r(user 381, item 2456) = 4.2312
+
+r(user 381, item 2457) = 4.1507
+
+r(user 381, item 2458) = 4.1352
+
+r(user 381, item 2459) = 4.2294
+
+r(user 381, item 2460) = 4.1045
+
+r(user 381, item 2461) = 4.0163
+
+r(user 381, item 2462) = 3.9848
+
+r(user 381, item 2463) = 4.2594
+
+r(user 381, item 2464) = 4.0301
+
+r(user 381, item 2465) = 3.9861
+
+r(user 381, item 2466) = 3.9245
+
+r(user 381, item 2467) = 4.2701
+
+r(user 381, item 2468) = 4.1945
+
+r(user 381, item 2469) = 4.2421
+
+r(user 381, item 2470) = 4.2815
+
+r(user 381, item 3085) = 4.4086
+
+r(user 381, item 3086) = 4.0707
+
+r(user 381, item 3087) = 4.2596
+
+r(user 381, item 3088) = 4.2516
+
+r(user 381, item 3089) = 4.2754
+
+r(user 381, item 3090) = 4.2208
+
+r(user 381, item 3091) = 4.1520
+
+r(user 381, item 3092) = 3.9648
+
+r(user 381, item 3093) = 4.1915
+
+r(user 381, item 3094) = 4.1883
+
+r(user 381, item 3095) = 4.2380
+
+r(user 381, item 3096) = 4.1837
+
+r(user 381, item 3097) = 4.1813
+
+r(user 381, item 3098) = 4.2560
+
+r(user 381, item 3099) = 4.1755
+
+r(user 381, item 3100) = 4.2530
+
+r(user 381, item 3101) = 4.2630
+
+r(user 381, item 3102) = 4.1922
+
+r(user 381, item 3103) = 4.0292
+
+r(user 381, item 3104) = 4.3005
+
+r(user 381, item 3105) = 4.2681
+
+r(user 381, item 3106) = 4.0454
+
+r(user 381, item 3107) = 4.2641
+
+r(user 381, item 3108) = 4.3343
+
+r(user 381, item 3109) = 3.9773
+
+r(user 381, item 3110) = 3.9781
+
+r(user 381, item 3111) = 4.1285
+
+r(user 381, item 3112) = 4.0873
+
+r(user 381, item 3113) = 4.2516
+
+r(user 381, item 3114) = 4.3038
+
+r(user 381, item 3115) = 4.0029
+
+r(user 381, item 3116) = 3.5128
+
+r(user 381, item 3117) = 3.9313
+
+r(user 381, item 3118) = 4.0429
+
+r(user 381, item 3119) = 3.4096
+
+r(user 381, item 3120) = 4.1036
+
+r(user 381, item 3121) = 3.6872
+
+r(user 381, item 3122) = 3.7963
+
+r(user 381, item 3123) = 4.3882
+
+r(user 381, item 3124) = 3.9975
+
+r(user 381, item 3125) = 4.2228
+
+r(user 381, item 3126) = 3.4021
+
+r(user 381, item 3127) = 4.0800
+
+r(user 381, item 3128) = 3.9389
+
+r(user 381, item 3129) = 4.2586
+
+r(user 381, item 3130) = 4.0824
+
+r(user 381, item 3131) = 3.9344
+
+r(user 381, item 3132) = 3.9848
+
+r(user 381, item 3133) = 3.9472
+
+r(user 381, item 3134) = 4.2071
+
+r(user 381, item 3135) = 4.1569
+
+r(user 381, item 3136) = 3.2530
+
+r(user 381, item 3137) = 3.7006
+
+r(user 381, item 3138) = 4.0394
+
+r(user 381, item 3139) = 3.6837
+
+r(user 381, item 3140) = 4.1438
+
+r(user 381, item 3141) = 4.1328
+
+r(user 381, item 3142) = 4.1838
+
+r(user 381, item 3143) = 3.7878
+
+r(user 381, item 3144) = 3.8990
+
+r(user 381, item 3145) = 4.2523
+
+r(user 381, item 372) = 4.2945
+
+r(user 381, item 373) = 4.2853
+
+r(user 381, item 374) = 4.1158
+
+r(user 381, item 375) = 3.8597
+
+r(user 381, item 376) = 4.1563
+
+r(user 381, item 377) = 4.3201
+
+r(user 381, item 378) = 4.1372
+
+r(user 381, item 379) = 4.2461
+
+r(user 381, item 380) = 4.3151
+
+r(user 381, item 381) = 4.1506
+
+r(user 381, item 382) = 4.2372
+
+r(user 381, item 383) = 4.1979
+
+r(user 381, item 384) = 3.9043
+
+r(user 381, item 385) = 3.9264
+
+r(user 381, item 386) = 4.2008
+
+r(user 381, item 387) = 4.0748
+
+r(user 381, item 388) = 4.0617
+
+r(user 381, item 389) = 3.8559
+
+r(user 381, item 390) = 4.1719
+
+r(user 381, item 391) = 4.1358
+
+r(user 381, item 392) = 4.1195
+
+r(user 381, item 393) = 4.0722
+
+r(user 381, item 394) = 3.8814
+
+r(user 381, item 395) = 0.0000
+
+r(user 381, item 396) = 4.4376
+
+r(user 381, item 397) = 4.3314
+
+r(user 381, item 398) = 4.0449
+
+r(user 381, item 399) = 0.0000
+
+r(user 381, item 400) = 0.0000
+
+r(user 381, item 401) = 2.6190
+
+r(user 381, item 402) = 4.8232
+
+r(user 381, item 403) = 0.0000
+
+r(user 381, item 404) = 4.7128
+
+r(user 381, item 405) = 4.2252
+
+r(user 381, item 406) = 4.3918
+
+r(user 381, item 407) = 4.2473
+
+r(user 381, item 408) = 4.0191
+
+r(user 381, item 409) = 4.0126
+
+r(user 381, item 410) = 4.2602
+
+r(user 381, item 411) = 4.0701
+
+r(user 381, item 412) = 4.2700
+
+r(user 381, item 413) = 4.2142
+
+r(user 381, item 414) = 4.0325
+
+r(user 381, item 415) = 4.0970
+
+r(user 381, item 416) = 4.0689
+
+r(user 381, item 417) = 4.3065
+
+r(user 381, item 418) = 4.0001
+
+r(user 381, item 419) = 4.1036
+
+r(user 381, item 420) = 4.1656
+
+r(user 381, item 421) = 4.0592
+
+r(user 381, item 422) = 3.8869
+
+r(user 381, item 423) = 4.1264
+
+r(user 381, item 424) = 4.0225
+
+r(user 381, item 425) = 4.1347
+
+r(user 381, item 426) = 4.2000
+
+r(user 381, item 427) = 4.1504
+
+r(user 381, item 428) = 4.2323
+
+r(user 381, item 429) = 4.1738
+
+r(user 381, item 430) = 3.9532
+
+r(user 381, item 431) = 4.2480
+
+r(user 381, item 432) = 4.1919
+
+r(user 381, item 1651) = 3.7905
+
+r(user 381, item 1652) = 3.6124
+
+r(user 381, item 1653) = 4.3782
+
+r(user 381, item 1654) = 4.1586
+
+r(user 381, item 1655) = 4.0356
+
+r(user 381, item 1656) = 3.6759
+
+r(user 381, item 1657) = 4.1689
+
+r(user 381, item 1658) = 4.2183
+
+r(user 381, item 1659) = 3.6631
+
+r(user 381, item 1660) = 4.1428
+
+r(user 381, item 1661) = 3.9446
+
+r(user 381, item 1662) = 3.8700
+
+r(user 381, item 1663) = 4.2767
+
+r(user 381, item 1664) = 4.0985
+
+r(user 381, item 1665) = 4.2031
+
+r(user 381, item 1666) = 4.1166
+
+r(user 381, item 1667) = 4.1057
+
+r(user 381, item 1668) = 4.0030
+
+r(user 381, item 1669) = 4.1106
+
+r(user 381, item 1670) = 4.1193
+
+r(user 381, item 1671) = 3.6705
+
+r(user 381, item 1672) = 4.1681
+
+r(user 381, item 1673) = 4.3381
+
+r(user 381, item 1674) = 4.2958
+
+r(user 381, item 1675) = 3.9230
+
+r(user 381, item 1676) = 4.3591
+
+r(user 381, item 1677) = 3.8709
+
+r(user 381, item 1678) = 4.2566
+
+r(user 381, item 1679) = 4.0934
+
+r(user 381, item 1680) = 4.2444
+
+r(user 381, item 1681) = 4.1748
+
+r(user 381, item 1682) = 4.3102
+
+r(user 381, item 1683) = 4.2401
+
+r(user 381, item 1684) = 4.1291
+
+r(user 381, item 1685) = 3.7022
+
+r(user 381, item 1686) = 3.9718
+
+r(user 381, item 1687) = 4.1848
+
+r(user 381, item 1688) = 4.1812
+
+r(user 381, item 1689) = 4.1904
+
+r(user 381, item 1690) = 4.3395
+
+r(user 381, item 1692) = 4.1669
+
+r(user 381, item 1693) = 4.1971
+
+r(user 381, item 1694) = 4.2462
+
+r(user 381, item 1695) = 3.9690
+
+r(user 381, item 1696) = 3.9107
+
+r(user 381, item 1697) = 0.0000
+
+r(user 381, item 1698) = 0.0000
+
+r(user 381, item 1699) = 4.3280
+
+r(user 381, item 1701) = 4.2909
+
+r(user 381, item 1702) = 4.1997
+
+r(user 381, item 1703) = 3.9119
+
+r(user 381, item 1704) = 4.3192
+
+r(user 381, item 1705) = 0.0000
+
+r(user 381, item 1706) = 0.0000
+
+r(user 381, item 1707) = 4.0914
+
+r(user 381, item 1708) = 0.0000
+
+r(user 381, item 1709) = 3.6568
+
+r(user 381, item 1710) = 0.0000
+
+r(user 381, item 1711) = 4.2935
+
+r(user 381, item 1713) = 4.1346
+
+r(user 381, item 1714) = 4.0788
+
+r(user 381, item 2902) = 4.1232
+
+r(user 381, item 2903) = 4.0287
+
+r(user 381, item 2904) = 3.9901
+
+r(user 381, item 2905) = 4.0976
+
+r(user 381, item 2906) = 4.0526
+
+r(user 381, item 2907) = 4.2087
+
+r(user 381, item 2908) = 4.3026
+
+r(user 381, item 2909) = 4.9201
+
+r(user 381, item 2910) = 0.0000
+
+r(user 381, item 2911) = 3.1919
+
+r(user 381, item 2912) = 4.3143
+
+r(user 381, item 2913) = 4.4573
+
+r(user 381, item 2914) = 4.4167
+
+r(user 381, item 2915) = 4.2927
+
+r(user 381, item 2916) = 4.3736
+
+r(user 381, item 2917) = 4.2546
+
+r(user 381, item 2918) = 4.3148
+
+r(user 381, item 2919) = 4.2204
+
+r(user 381, item 2920) = 4.2325
+
+r(user 381, item 2921) = 4.1946
+
+r(user 381, item 2922) = 4.1476
+
+r(user 381, item 2923) = 3.8889
+
+r(user 381, item 2924) = 4.2539
+
+r(user 381, item 2925) = 4.2222
+
+r(user 381, item 2926) = 4.2799
+
+r(user 381, item 2927) = 4.2035
+
+r(user 381, item 2928) = 4.0583
+
+r(user 381, item 2929) = 4.1902
+
+r(user 381, item 2930) = 4.5454
+
+r(user 381, item 2931) = 4.3710
+
+r(user 381, item 2932) = 4.1925
+
+r(user 381, item 2933) = 3.7398
+
+r(user 381, item 2934) = 3.9695
+
+r(user 381, item 2935) = 4.1988
+
+r(user 381, item 2936) = 4.1692
+
+r(user 381, item 2937) = 4.1273
+
+r(user 381, item 2938) = 4.0431
+
+r(user 381, item 2939) = 4.0603
+
+r(user 381, item 2940) = 4.1899
+
+r(user 381, item 2941) = 4.1269
+
+r(user 381, item 2942) = 4.1855
+
+r(user 381, item 2943) = 4.1989
+
+r(user 381, item 2944) = 4.2541
+
+r(user 381, item 2945) = 3.8589
+
+r(user 381, item 2946) = 4.2069
+
+r(user 381, item 2947) = 4.3137
+
+r(user 381, item 2948) = 4.2813
+
+r(user 381, item 2949) = 4.2938
+
+r(user 381, item 2950) = 4.1660
+
+r(user 381, item 2951) = 4.2441
+
+r(user 381, item 2952) = 4.2448
+
+r(user 381, item 2953) = 4.1660
+
+r(user 381, item 2954) = 0.0000
+
+r(user 381, item 2955) = 4.0263
+
+r(user 381, item 2956) = 4.0457
+
+r(user 381, item 2957) = 0.0000
+
+r(user 381, item 2958) = 0.0000
+
+r(user 381, item 2959) = 4.3555
+
+r(user 381, item 2960) = 4.5684
+
+r(user 381, item 2961) = 4.1577
+
+r(user 381, item 2962) = 4.1880
+
+r(user 381, item 3268) = 4.1312
+
+r(user 381, item 3269) = 4.2200
+
+r(user 381, item 3270) = 4.1650
+
+r(user 381, item 3271) = 4.2494
+
+r(user 381, item 3272) = 4.1782
+
+r(user 381, item 3273) = 4.2090
+
+r(user 381, item 3274) = 4.2442
+
+r(user 381, item 3275) = 4.0544
+
+r(user 381, item 3276) = 3.8607
+
+r(user 381, item 3277) = 3.5640
+
+r(user 381, item 3278) = 0.0000
+
+r(user 381, item 3279) = 0.0000
+
+r(user 381, item 3280) = 0.0000
+
+r(user 381, item 3281) = 4.1042
+
+r(user 381, item 3282) = 4.1173
+
+r(user 381, item 3283) = 3.8992
+
+r(user 381, item 3284) = 4.0418
+
+r(user 381, item 3285) = 4.1025
+
+r(user 381, item 3286) = 3.9224
+
+r(user 381, item 3287) = 4.0920
+
+r(user 381, item 3288) = 3.7066
+
+r(user 381, item 3289) = 3.9230
+
+r(user 381, item 3290) = 3.6568
+
+r(user 381, item 3291) = 4.3276
+
+r(user 381, item 3292) = 3.6580
+
+r(user 381, item 3293) = 4.0310
+
+r(user 381, item 3294) = 1.9874
+
+r(user 381, item 3295) = 4.6620
+
+r(user 381, item 3296) = 4.1163
+
+r(user 381, item 3297) = 3.8288
+
+r(user 381, item 3298) = 4.1866
+
+r(user 381, item 3299) = 3.9200
+
+r(user 381, item 3300) = 4.2401
+
+r(user 381, item 3301) = 4.1570
+
+r(user 381, item 3302) = 4.0904
+
+r(user 381, item 3303) = 4.4542
+
+r(user 381, item 3304) = 3.9624
+
+r(user 381, item 3305) = 4.1521
+
+r(user 381, item 3306) = 4.0199
+
+r(user 381, item 3307) = 4.2281
+
+r(user 381, item 3308) = 4.2142
+
+r(user 381, item 3309) = 3.9830
+
+r(user 381, item 3310) = 4.0359
+
+r(user 381, item 3311) = 3.8187
+
+r(user 381, item 3312) = 2.0004
+
+r(user 381, item 3313) = 3.9760
+
+r(user 381, item 3314) = 3.4814
+
+r(user 381, item 3315) = 3.5473
+
+r(user 381, item 3316) = 4.0196
+
+r(user 381, item 3317) = 4.2148
+
+r(user 381, item 3318) = 3.8508
+
+r(user 381, item 3319) = 3.7818
+
+r(user 381, item 3320) = 4.1111
+
+r(user 381, item 3321) = 2.0004
+
+r(user 381, item 3322) = 2.5914
+
+r(user 381, item 3323) = 0.0000
+
+r(user 381, item 3324) = 3.9989
+
+r(user 381, item 3325) = 3.9694
+
+r(user 381, item 3326) = 4.0082
+
+r(user 381, item 3327) = 4.1254
+
+r(user 381, item 3328) = 4.2682
+
+r(user 381, item 682) = 4.0524
+
+r(user 381, item 683) = 0.0000
+
+r(user 381, item 684) = 0.0000
+
+r(user 381, item 685) = 3.6948
+
+r(user 381, item 687) = 4.0874
+
+r(user 381, item 688) = 4.0732
+
+r(user 381, item 690) = 4.7796
+
+r(user 381, item 691) = 4.0598
+
+r(user 381, item 692) = 4.1399
+
+r(user 381, item 693) = 0.0000
+
+r(user 381, item 694) = 4.0534
+
+r(user 381, item 695) = 4.1188
+
+r(user 381, item 696) = 3.4442
+
+r(user 381, item 697) = 4.2206
+
+r(user 381, item 698) = 3.9731
+
+r(user 381, item 699) = 0.0000
+
+r(user 381, item 700) = 4.2098
+
+r(user 381, item 701) = 3.2433
+
+r(user 381, item 702) = 3.8754
+
+r(user 381, item 703) = 3.6625
+
+r(user 381, item 704) = 3.9142
+
+r(user 381, item 705) = 3.9562
+
+r(user 381, item 706) = 3.5144
+
+r(user 381, item 707) = 4.2083
+
+r(user 381, item 708) = 4.2892
+
+r(user 381, item 709) = 4.1134
+
+r(user 381, item 710) = 3.9796
+
+r(user 381, item 711) = 4.0239
+
+r(user 381, item 712) = 3.4144
+
+r(user 381, item 713) = 0.0000
+
+r(user 381, item 714) = 4.3143
+
+r(user 381, item 715) = 4.0173
+
+r(user 381, item 716) = 3.9774
+
+r(user 381, item 717) = 4.7326
+
+r(user 381, item 718) = 4.0616
+
+r(user 381, item 719) = 4.1987
+
+r(user 381, item 720) = 4.3535
+
+r(user 381, item 721) = 0.0000
+
+r(user 381, item 722) = 4.0631
+
+r(user 381, item 723) = 0.0000
+
+r(user 381, item 724) = 4.2828
+
+r(user 381, item 725) = 4.0649
+
+r(user 381, item 726) = 3.3280
+
+r(user 381, item 727) = 0.0000
+
+r(user 381, item 728) = 4.3275
+
+r(user 381, item 729) = 3.9396
+
+r(user 381, item 730) = 2.8941
+
+r(user 381, item 731) = 3.9876
+
+r(user 381, item 732) = 3.7206
+
+r(user 381, item 733) = 4.3060
+
+r(user 381, item 734) = 2.8595
+
+r(user 381, item 735) = 4.2161
+
+r(user 381, item 736) = 4.2770
+
+r(user 381, item 737) = 4.2212
+
+r(user 381, item 738) = 0.0000
+
+r(user 381, item 739) = 0.0000
+
+r(user 381, item 741) = 4.4165
+
+r(user 381, item 742) = 4.1207
+
+r(user 381, item 743) = 4.0202
+
+r(user 381, item 744) = 4.2654
+
+r(user 381, item 745) = 4.3735
+
+r(user 381, item 1585) = 4.1342
+
+r(user 381, item 1586) = 4.2310
+
+r(user 381, item 1587) = 4.2595
+
+r(user 381, item 1588) = 4.1821
+
+r(user 381, item 1589) = 4.2625
+
+r(user 381, item 1590) = 4.2989
+
+r(user 381, item 1591) = 4.3039
+
+r(user 381, item 1592) = 4.1241
+
+r(user 381, item 1593) = 4.0408
+
+r(user 381, item 1594) = 4.3049
+
+r(user 381, item 1595) = 4.0983
+
+r(user 381, item 1596) = 4.0727
+
+r(user 381, item 1597) = 4.2727
+
+r(user 381, item 1598) = 4.0624
+
+r(user 381, item 1599) = 4.1281
+
+r(user 381, item 1600) = 4.0833
+
+r(user 381, item 1601) = 4.0999
+
+r(user 381, item 1602) = 3.9235
+
+r(user 381, item 1603) = 4.2421
+
+r(user 381, item 1604) = 3.9869
+
+r(user 381, item 1605) = 4.0866
+
+r(user 381, item 1606) = 4.1073
+
+r(user 381, item 1608) = 4.2740
+
+r(user 381, item 1609) = 4.0960
+
+r(user 381, item 1610) = 4.3286
+
+r(user 381, item 1611) = 4.2894
+
+r(user 381, item 1612) = 4.1185
+
+r(user 381, item 1613) = 4.1939
+
+r(user 381, item 1614) = 4.2577
+
+r(user 381, item 1615) = 4.1474
+
+r(user 381, item 1616) = 4.1824
+
+r(user 381, item 1617) = 4.3607
+
+r(user 381, item 1619) = 4.1934
+
+r(user 381, item 1620) = 4.2009
+
+r(user 381, item 1621) = 4.0499
+
+r(user 381, item 1622) = 3.7978
+
+r(user 381, item 1623) = 4.1725
+
+r(user 381, item 1624) = 3.9398
+
+r(user 381, item 1625) = 4.3177
+
+r(user 381, item 1626) = 3.9144
+
+r(user 381, item 1627) = 4.2532
+
+r(user 381, item 1628) = 0.0000
+
+r(user 381, item 1629) = 4.2037
+
+r(user 381, item 1630) = 2.0004
+
+r(user 381, item 1631) = 3.9559
+
+r(user 381, item 1632) = 3.8038
+
+r(user 381, item 1633) = 4.2631
+
+r(user 381, item 1635) = 4.3237
+
+r(user 381, item 1636) = 4.0904
+
+r(user 381, item 1639) = 4.3296
+
+r(user 381, item 1640) = 4.1130
+
+r(user 381, item 1641) = 4.3089
+
+r(user 381, item 1642) = 4.0056
+
+r(user 381, item 1643) = 4.2108
+
+r(user 381, item 1644) = 4.2340
+
+r(user 381, item 1645) = 4.3140
+
+r(user 381, item 1646) = 4.0572
+
+r(user 381, item 1647) = 4.0099
+
+r(user 381, item 1648) = 4.2556
+
+r(user 381, item 1649) = 4.3894
+
+r(user 381, item 1650) = 3.9979
+
+r(user 381, item 2595) = 0.0000
+
+r(user 381, item 2596) = 4.2141
+
+r(user 381, item 2597) = 4.0604
+
+r(user 381, item 2598) = 4.2381
+
+r(user 381, item 2599) = 4.3459
+
+r(user 381, item 2600) = 4.3264
+
+r(user 381, item 2601) = 0.0000
+
+r(user 381, item 2602) = 4.5232
+
+r(user 381, item 2603) = 0.0000
+
+r(user 381, item 2604) = 0.0000
+
+r(user 381, item 2605) = 4.2560
+
+r(user 381, item 2606) = 4.1683
+
+r(user 381, item 2607) = 4.1901
+
+r(user 381, item 2608) = 3.7496
+
+r(user 381, item 2609) = 4.1829
+
+r(user 381, item 2610) = 4.0431
+
+r(user 381, item 2611) = 4.2230
+
+r(user 381, item 2612) = 4.1820
+
+r(user 381, item 2613) = 4.2469
+
+r(user 381, item 2614) = 4.1009
+
+r(user 381, item 2615) = 4.1552
+
+r(user 381, item 2616) = 4.2661
+
+r(user 381, item 2617) = 4.3086
+
+r(user 381, item 2618) = 3.9844
+
+r(user 381, item 2619) = 4.2093
+
+r(user 381, item 2620) = 3.9806
+
+r(user 381, item 2621) = 4.0112
+
+r(user 381, item 2622) = 4.2172
+
+r(user 381, item 2623) = 4.4783
+
+r(user 381, item 2624) = 4.0983
+
+r(user 381, item 2625) = 4.1523
+
+r(user 381, item 2626) = 4.0291
+
+r(user 381, item 2627) = 3.9846
+
+r(user 381, item 2628) = 4.3578
+
+r(user 381, item 2629) = 4.0781
+
+r(user 381, item 2630) = 4.0395
+
+r(user 381, item 2631) = 3.7211
+
+r(user 381, item 2632) = 4.0230
+
+r(user 381, item 2633) = 4.1010
+
+r(user 381, item 2634) = 4.0371
+
+r(user 381, item 2635) = 3.9079
+
+r(user 381, item 2636) = 3.9819
+
+r(user 381, item 2637) = 4.0205
+
+r(user 381, item 2638) = 3.9666
+
+r(user 381, item 2639) = 4.1236
+
+r(user 381, item 2640) = 4.3396
+
+r(user 381, item 2641) = 4.3068
+
+r(user 381, item 2642) = 4.2571
+
+r(user 381, item 2643) = 4.2038
+
+r(user 381, item 2644) = 4.1880
+
+r(user 381, item 2645) = 4.1301
+
+r(user 381, item 2646) = 3.9312
+
+r(user 381, item 2647) = 3.9514
+
+r(user 381, item 2648) = 4.2456
+
+r(user 381, item 2649) = 3.9934
+
+r(user 381, item 2650) = 3.9436
+
+r(user 381, item 2651) = 3.9982
+
+r(user 381, item 2652) = 3.9334
+
+r(user 381, item 2653) = 3.9397
+
+r(user 381, item 2654) = 4.1025
+
+r(user 381, item 2655) = 4.0240
+
+r(user 381, item 3451) = 4.1756
+
+r(user 381, item 3452) = 4.1984
+
+r(user 381, item 3453) = 3.7572
+
+r(user 381, item 3454) = 3.7591
+
+r(user 381, item 3455) = 0.0000
+
+r(user 381, item 3456) = 4.0463
+
+r(user 381, item 3457) = 4.0101
+
+r(user 381, item 3458) = 1.9587
+
+r(user 381, item 3459) = 4.1579
+
+r(user 381, item 3460) = 3.6107
+
+r(user 381, item 3461) = 4.2091
+
+r(user 381, item 3462) = 4.2371
+
+r(user 381, item 3463) = 3.3887
+
+r(user 381, item 3464) = 4.1120
+
+r(user 381, item 3465) = 3.9738
+
+r(user 381, item 3466) = 4.1196
+
+r(user 381, item 3467) = 4.1839
+
+r(user 381, item 3468) = 4.2456
+
+r(user 381, item 3469) = 4.2104
+
+r(user 381, item 3470) = 4.2229
+
+r(user 381, item 3471) = 4.3627
+
+r(user 381, item 3472) = 4.0521
+
+r(user 381, item 3473) = 3.9860
+
+r(user 381, item 3474) = 3.9593
+
+r(user 381, item 3475) = 4.1380
+
+r(user 381, item 3476) = 4.3439
+
+r(user 381, item 3477) = 4.2782
+
+r(user 381, item 3478) = 4.1615
+
+r(user 381, item 3479) = 4.2933
+
+r(user 381, item 3480) = 4.1649
+
+r(user 381, item 3481) = 4.3329
+
+r(user 381, item 3482) = 3.2240
+
+r(user 381, item 3483) = 4.0615
+
+r(user 381, item 3484) = 4.0115
+
+r(user 381, item 3485) = 3.6084
+
+r(user 381, item 3486) = 3.9500
+
+r(user 381, item 3487) = 3.8852
+
+r(user 381, item 3488) = 3.7603
+
+r(user 381, item 3489) = 4.2885
+
+r(user 381, item 3490) = 3.8878
+
+r(user 381, item 3491) = 4.0679
+
+r(user 381, item 3492) = 3.7988
+
+r(user 381, item 3493) = 2.2355
+
+r(user 381, item 3494) = 4.1265
+
+r(user 381, item 3495) = 4.2267
+
+r(user 381, item 3496) = 4.0983
+
+r(user 381, item 3497) = 4.0343
+
+r(user 381, item 3498) = 4.1759
+
+r(user 381, item 3499) = 4.3134
+
+r(user 381, item 3500) = 4.1377
+
+r(user 381, item 3501) = 4.1223
+
+r(user 381, item 3502) = 3.9767
+
+r(user 381, item 3503) = 4.2585
+
+r(user 381, item 3504) = 4.2894
+
+r(user 381, item 3505) = 4.2449
+
+r(user 381, item 3506) = 4.1131
+
+r(user 381, item 3507) = 4.1956
+
+r(user 381, item 3508) = 4.2078
+
+r(user 381, item 3509) = 4.0080
+
+r(user 381, item 3510) = 4.1641
+
+r(user 381, item 3511) = 3.9049
+
+r(user 381, item 555) = 4.3211
+
+r(user 381, item 556) = 4.3027
+
+r(user 381, item 557) = 4.7360
+
+r(user 381, item 558) = 4.0863
+
+r(user 381, item 559) = 3.6884
+
+r(user 381, item 560) = 4.5138
+
+r(user 381, item 561) = 3.8930
+
+r(user 381, item 562) = 4.3455
+
+r(user 381, item 563) = 4.0216
+
+r(user 381, item 564) = 3.9576
+
+r(user 381, item 565) = 4.1457
+
+r(user 381, item 566) = 3.7047
+
+r(user 381, item 567) = 4.1596
+
+r(user 381, item 568) = 4.2004
+
+r(user 381, item 569) = 4.0235
+
+r(user 381, item 570) = 3.8445
+
+r(user 381, item 571) = 3.8797
+
+r(user 381, item 572) = 4.2020
+
+r(user 381, item 573) = 4.2475
+
+r(user 381, item 574) = 4.2757
+
+r(user 381, item 575) = 4.0776
+
+r(user 381, item 576) = 4.8865
+
+r(user 381, item 577) = 3.9077
+
+r(user 381, item 578) = 4.6637
+
+r(user 381, item 579) = 2.0004
+
+r(user 381, item 580) = 4.0631
+
+r(user 381, item 581) = 4.3053
+
+r(user 381, item 582) = 4.0237
+
+r(user 381, item 583) = 4.3078
+
+r(user 381, item 584) = 3.2433
+
+r(user 381, item 585) = 4.2685
+
+r(user 381, item 586) = 4.2555
+
+r(user 381, item 587) = 4.2922
+
+r(user 381, item 588) = 4.3250
+
+r(user 381, item 590) = 4.3016
+
+r(user 381, item 591) = 4.2470
+
+r(user 381, item 592) = 4.3357
+
+r(user 381, item 593) = 4.3543
+
+r(user 381, item 594) = 4.3001
+
+r(user 381, item 595) = 4.3048
+
+r(user 381, item 596) = 4.2594
+
+r(user 381, item 597) = 4.2639
+
+r(user 381, item 598) = 4.5350
+
+r(user 381, item 599) = 4.1882
+
+r(user 381, item 600) = 4.0670
+
+r(user 381, item 601) = 2.0004
+
+r(user 381, item 602) = 4.4507
+
+r(user 381, item 603) = 4.1330
+
+r(user 381, item 604) = 0.0000
+
+r(user 381, item 605) = 4.0949
+
+r(user 381, item 606) = 4.0713
+
+r(user 381, item 607) = 3.2711
+
+r(user 381, item 608) = 4.3622
+
+r(user 381, item 609) = 3.8582
+
+r(user 381, item 611) = 4.2334
+
+r(user 381, item 612) = 4.0905
+
+r(user 381, item 613) = 4.1159
+
+r(user 381, item 614) = 3.9759
+
+r(user 381, item 615) = 4.1246
+
+r(user 381, item 616) = 4.2316
+
+r(user 381, item 617) = 3.9203
+
+r(user 381, item 1446) = 4.2550
+
+r(user 381, item 1447) = 4.1390
+
+r(user 381, item 1448) = 0.0000
+
+r(user 381, item 1449) = 4.3457
+
+r(user 381, item 1450) = 3.8034
+
+r(user 381, item 1453) = 4.0659
+
+r(user 381, item 1454) = 4.2168
+
+r(user 381, item 1455) = 4.3385
+
+r(user 381, item 1456) = 4.1362
+
+r(user 381, item 1457) = 4.1653
+
+r(user 381, item 1458) = 4.1036
+
+r(user 381, item 1459) = 4.2025
+
+r(user 381, item 1460) = 4.0465
+
+r(user 381, item 1461) = 4.1277
+
+r(user 381, item 1462) = 0.0000
+
+r(user 381, item 1463) = 3.8240
+
+r(user 381, item 1464) = 4.2766
+
+r(user 381, item 1465) = 4.1468
+
+r(user 381, item 1466) = 4.3026
+
+r(user 381, item 1467) = 0.0000
+
+r(user 381, item 1468) = 4.1548
+
+r(user 381, item 1470) = 3.5124
+
+r(user 381, item 1471) = 4.5130
+
+r(user 381, item 1472) = 4.0466
+
+r(user 381, item 1473) = 4.1866
+
+r(user 381, item 1474) = 4.0559
+
+r(user 381, item 1475) = 4.2587
+
+r(user 381, item 1476) = 4.2669
+
+r(user 381, item 1477) = 3.9822
+
+r(user 381, item 1479) = 4.2513
+
+r(user 381, item 1480) = 4.2036
+
+r(user 381, item 1482) = 4.1372
+
+r(user 381, item 1483) = 4.1503
+
+r(user 381, item 1484) = 4.2635
+
+r(user 381, item 1485) = 4.2482
+
+r(user 381, item 1486) = 3.9974
+
+r(user 381, item 1487) = 4.0841
+
+r(user 381, item 1488) = 4.1773
+
+r(user 381, item 1489) = 4.1210
+
+r(user 381, item 1490) = 3.9448
+
+r(user 381, item 1493) = 4.1196
+
+r(user 381, item 1494) = 4.0905
+
+r(user 381, item 1495) = 4.0663
+
+r(user 381, item 1496) = 3.9397
+
+r(user 381, item 1497) = 4.1048
+
+r(user 381, item 1498) = 4.0917
+
+r(user 381, item 1499) = 4.2022
+
+r(user 381, item 1500) = 4.3299
+
+r(user 381, item 1501) = 3.8467
+
+r(user 381, item 1502) = 3.9731
+
+r(user 381, item 1503) = 4.2139
+
+r(user 381, item 1504) = 3.8502
+
+r(user 381, item 1507) = 3.8491
+
+r(user 381, item 1508) = 3.9449
+
+r(user 381, item 1509) = 4.2212
+
+r(user 381, item 1510) = 2.9085
+
+r(user 381, item 1511) = 4.0264
+
+r(user 381, item 1513) = 4.2840
+
+r(user 381, item 1514) = 3.9239
+
+r(user 381, item 1515) = 4.1349
+
+r(user 381, item 1516) = 4.2358
+
+r(user 381, item 2288) = 4.3242
+
+r(user 381, item 2289) = 4.3380
+
+r(user 381, item 2290) = 4.1652
+
+r(user 381, item 2291) = 4.3218
+
+r(user 381, item 2292) = 4.1009
+
+r(user 381, item 2293) = 3.6895
+
+r(user 381, item 2294) = 4.3101
+
+r(user 381, item 2295) = 4.1509
+
+r(user 381, item 2296) = 4.1457
+
+r(user 381, item 2297) = 4.1957
+
+r(user 381, item 2298) = 3.7037
+
+r(user 381, item 2299) = 3.2089
+
+r(user 381, item 2300) = 4.3135
+
+r(user 381, item 2301) = 4.2511
+
+r(user 381, item 2302) = 4.2877
+
+r(user 381, item 2303) = 4.2546
+
+r(user 381, item 2304) = 3.7440
+
+r(user 381, item 2305) = 4.1520
+
+r(user 381, item 2306) = 4.0069
+
+r(user 381, item 2307) = 3.8869
+
+r(user 381, item 2308) = 4.0000
+
+r(user 381, item 2309) = 4.6164
+
+r(user 381, item 2310) = 4.0805
+
+r(user 381, item 2311) = 4.3096
+
+r(user 381, item 2312) = 4.2040
+
+r(user 381, item 2313) = 4.2601
+
+r(user 381, item 2314) = 4.0891
+
+r(user 381, item 2315) = 4.0767
+
+r(user 381, item 2316) = 4.1314
+
+r(user 381, item 2317) = 3.9033
+
+r(user 381, item 2318) = 4.3014
+
+r(user 381, item 2319) = 0.0000
+
+r(user 381, item 2320) = 4.1232
+
+r(user 381, item 2321) = 4.3071
+
+r(user 381, item 2322) = 4.1925
+
+r(user 381, item 2323) = 4.3748
+
+r(user 381, item 2324) = 4.3252
+
+r(user 381, item 2325) = 4.2639
+
+r(user 381, item 2326) = 3.6541
+
+r(user 381, item 2327) = 4.1422
+
+r(user 381, item 2328) = 4.1866
+
+r(user 381, item 2329) = 4.2915
+
+r(user 381, item 2330) = 4.4687
+
+r(user 381, item 2331) = 4.0942
+
+r(user 381, item 2332) = 3.4990
+
+r(user 381, item 2333) = 4.2972
+
+r(user 381, item 2334) = 4.2332
+
+r(user 381, item 2335) = 4.2313
+
+r(user 381, item 2336) = 4.3042
+
+r(user 381, item 2337) = 4.3069
+
+r(user 381, item 2338) = 4.1815
+
+r(user 381, item 2339) = 3.9050
+
+r(user 381, item 2340) = 4.1439
+
+r(user 381, item 2341) = 3.9496
+
+r(user 381, item 2342) = 4.4176
+
+r(user 381, item 2343) = 3.8378
+
+r(user 381, item 2344) = 4.1168
+
+r(user 381, item 2345) = 4.0593
+
+r(user 381, item 2346) = 4.2024
+
+r(user 381, item 2347) = 4.0897
+
+r(user 381, item 2348) = 4.2996
+
+r(user 381, item 3573) = 3.9737
+
+r(user 381, item 3574) = 3.9492
+
+r(user 381, item 3575) = 3.2877
+
+r(user 381, item 3576) = 4.2550
+
+r(user 381, item 3577) = 4.0838
+
+r(user 381, item 3578) = 4.3152
+
+r(user 381, item 3579) = 3.8223
+
+r(user 381, item 3580) = 3.7912
+
+r(user 381, item 3581) = 3.7810
+
+r(user 381, item 3582) = 0.0000
+
+r(user 381, item 3583) = 0.0000
+
+r(user 381, item 3584) = 4.0920
+
+r(user 381, item 3585) = 3.8854
+
+r(user 381, item 3586) = 4.0265
+
+r(user 381, item 3587) = 4.1217
+
+r(user 381, item 3588) = 4.0719
+
+r(user 381, item 3589) = 0.0000
+
+r(user 381, item 3590) = 3.9770
+
+r(user 381, item 3591) = 4.2549
+
+r(user 381, item 3592) = 3.9792
+
+r(user 381, item 3593) = 4.1313
+
+r(user 381, item 3594) = 3.8822
+
+r(user 381, item 3595) = 3.9505
+
+r(user 381, item 3596) = 3.9981
+
+r(user 381, item 3597) = 3.4963
+
+r(user 381, item 3598) = 4.1613
+
+r(user 381, item 3599) = 3.9872
+
+r(user 381, item 3600) = 4.0566
+
+r(user 381, item 3601) = 4.5950
+
+r(user 381, item 3602) = 4.0113
+
+r(user 381, item 3603) = 4.4593
+
+r(user 381, item 3604) = 4.0953
+
+r(user 381, item 3605) = 3.9733
+
+r(user 381, item 3606) = 4.1880
+
+r(user 381, item 3607) = 4.5003
+
+r(user 381, item 3608) = 4.3197
+
+r(user 381, item 3609) = 4.7240
+
+r(user 381, item 3610) = 3.7959
+
+r(user 381, item 3611) = 3.8014
+
+r(user 381, item 3612) = 3.9646
+
+r(user 381, item 3613) = 4.1609
+
+r(user 381, item 3614) = 4.2374
+
+r(user 381, item 3615) = 4.1157
+
+r(user 381, item 3616) = 3.8872
+
+r(user 381, item 3617) = 4.1859
+
+r(user 381, item 3618) = 4.1864
+
+r(user 381, item 3619) = 4.0399
+
+r(user 381, item 3620) = 4.1695
+
+r(user 381, item 3621) = 2.0972
+
+r(user 381, item 3622) = 4.1285
+
+r(user 381, item 3623) = 4.2646
+
+r(user 381, item 3624) = 4.2425
+
+r(user 381, item 3625) = 3.7976
+
+r(user 381, item 3626) = 4.1133
+
+r(user 381, item 3627) = 4.1149
+
+r(user 381, item 3628) = 3.9350
+
+r(user 381, item 3629) = 4.2470
+
+r(user 381, item 3630) = 0.0000
+
+r(user 381, item 3631) = 4.3416
+
+r(user 381, item 3632) = 3.8787
+
+r(user 381, item 3633) = 4.2006
+
+r(user 381, item 310) = 4.3927
+
+r(user 381, item 311) = 4.2677
+
+r(user 381, item 312) = 4.1137
+
+r(user 381, item 313) = 4.0160
+
+r(user 381, item 314) = 4.2522
+
+r(user 381, item 315) = 4.0878
+
+r(user 381, item 316) = 4.3412
+
+r(user 381, item 317) = 4.2372
+
+r(user 381, item 318) = 4.3413
+
+r(user 381, item 319) = 4.3440
+
+r(user 381, item 320) = 3.9038
+
+r(user 381, item 321) = 4.3411
+
+r(user 381, item 322) = 4.2403
+
+r(user 381, item 324) = 4.0697
+
+r(user 381, item 325) = 4.1388
+
+r(user 381, item 326) = 4.0860
+
+r(user 381, item 327) = 4.3172
+
+r(user 381, item 328) = 4.2059
+
+r(user 381, item 329) = 4.3390
+
+r(user 381, item 330) = 4.1878
+
+r(user 381, item 331) = 4.1195
+
+r(user 381, item 332) = 4.1278
+
+r(user 381, item 333) = 4.2452
+
+r(user 381, item 334) = 4.2239
+
+r(user 381, item 335) = 4.0033
+
+r(user 381, item 336) = 4.1829
+
+r(user 381, item 337) = 4.3279
+
+r(user 381, item 338) = 4.1912
+
+r(user 381, item 339) = 4.2242
+
+r(user 381, item 340) = 4.1697
+
+r(user 381, item 341) = 4.0241
+
+r(user 381, item 342) = 4.2913
+
+r(user 381, item 343) = 3.8575
+
+r(user 381, item 344) = 4.2753
+
+r(user 381, item 345) = 4.3150
+
+r(user 381, item 346) = 4.1517
+
+r(user 381, item 347) = 4.2221
+
+r(user 381, item 348) = 4.3134
+
+r(user 381, item 349) = 4.2847
+
+r(user 381, item 350) = 4.2102
+
+r(user 381, item 351) = 4.1626
+
+r(user 381, item 352) = 4.2050
+
+r(user 381, item 353) = 4.3277
+
+r(user 381, item 354) = 4.1071
+
+r(user 381, item 355) = 4.1498
+
+r(user 381, item 356) = 4.3024
+
+r(user 381, item 357) = 4.2979
+
+r(user 381, item 358) = 4.2280
+
+r(user 381, item 359) = 4.1169
+
+r(user 381, item 360) = 3.9919
+
+r(user 381, item 361) = 4.1496
+
+r(user 381, item 362) = 4.1405
+
+r(user 381, item 363) = 4.2170
+
+r(user 381, item 364) = 4.3287
+
+r(user 381, item 365) = 4.0364
+
+r(user 381, item 366) = 4.2274
+
+r(user 381, item 367) = 4.3146
+
+r(user 381, item 368) = 4.2555
+
+r(user 381, item 369) = 4.1215
+
+r(user 381, item 370) = 4.2243
+
+r(user 381, item 371) = 4.1862
+
+r(user 381, item 996) = 4.1882
+
+r(user 381, item 997) = 3.9484
+
+r(user 381, item 998) = 4.0057
+
+r(user 381, item 999) = 4.2505
+
+r(user 381, item 1000) = 4.0190
+
+r(user 381, item 1001) = 0.0000
+
+r(user 381, item 1002) = 4.4433
+
+r(user 381, item 1003) = 4.0648
+
+r(user 381, item 1004) = 4.0761
+
+r(user 381, item 1005) = 4.1311
+
+r(user 381, item 1006) = 4.0137
+
+r(user 381, item 1007) = 4.1486
+
+r(user 381, item 1008) = 3.9998
+
+r(user 381, item 1009) = 4.2097
+
+r(user 381, item 1010) = 4.1669
+
+r(user 381, item 1011) = 4.1472
+
+r(user 381, item 1012) = 4.1527
+
+r(user 381, item 1013) = 4.2035
+
+r(user 381, item 1014) = 4.0264
+
+r(user 381, item 1015) = 4.0840
+
+r(user 381, item 1016) = 4.1054
+
+r(user 381, item 1017) = 4.1564
+
+r(user 381, item 1018) = 4.1013
+
+r(user 381, item 1019) = 4.2460
+
+r(user 381, item 1020) = 4.1865
+
+r(user 381, item 1021) = 4.0969
+
+r(user 381, item 1022) = 4.2787
+
+r(user 381, item 1023) = 4.2220
+
+r(user 381, item 1024) = 4.0726
+
+r(user 381, item 1025) = 4.2409
+
+r(user 381, item 1026) = 3.3534
+
+r(user 381, item 1027) = 4.1815
+
+r(user 381, item 1028) = 4.2900
+
+r(user 381, item 1029) = 4.2681
+
+r(user 381, item 1030) = 4.2288
+
+r(user 381, item 1031) = 4.2243
+
+r(user 381, item 1032) = 4.2732
+
+r(user 381, item 1033) = 4.2138
+
+r(user 381, item 1034) = 4.2515
+
+r(user 381, item 1035) = 4.2722
+
+r(user 381, item 1036) = 4.3516
+
+r(user 381, item 1037) = 4.3227
+
+r(user 381, item 1038) = 4.0211
+
+r(user 381, item 1039) = 3.6879
+
+r(user 381, item 1040) = 3.4645
+
+r(user 381, item 1041) = 4.3192
+
+r(user 381, item 1042) = 4.2204
+
+r(user 381, item 1043) = 4.0337
+
+r(user 381, item 1044) = 4.1116
+
+r(user 381, item 1045) = 0.0000
+
+r(user 381, item 1046) = 4.1558
+
+r(user 381, item 1047) = 4.2605
+
+r(user 381, item 1049) = 4.2127
+
+r(user 381, item 1050) = 4.2577
+
+r(user 381, item 1051) = 4.1449
+
+r(user 381, item 1052) = 0.0000
+
+r(user 381, item 1053) = 4.0497
+
+r(user 381, item 1054) = 4.2159
+
+r(user 381, item 1055) = 3.6870
+
+r(user 381, item 1056) = 4.0026
+
+r(user 381, item 1057) = 4.2259
+
+r(user 381, item 2227) = 4.0454
+
+r(user 381, item 2228) = 0.0000
+
+r(user 381, item 2229) = 0.0000
+
+r(user 381, item 2230) = 0.0000
+
+r(user 381, item 2231) = 4.2269
+
+r(user 381, item 2232) = 4.2749
+
+r(user 381, item 2233) = 3.2258
+
+r(user 381, item 2234) = 3.7171
+
+r(user 381, item 2235) = 2.0004
+
+r(user 381, item 2236) = 4.1093
+
+r(user 381, item 2237) = 4.0123
+
+r(user 381, item 2238) = 4.1881
+
+r(user 381, item 2239) = 4.1244
+
+r(user 381, item 2240) = 4.1558
+
+r(user 381, item 2241) = 4.1183
+
+r(user 381, item 2242) = 3.7043
+
+r(user 381, item 2243) = 4.2778
+
+r(user 381, item 2244) = 3.8950
+
+r(user 381, item 2245) = 4.2208
+
+r(user 381, item 2246) = 3.7909
+
+r(user 381, item 2247) = 4.2324
+
+r(user 381, item 2248) = 4.3204
+
+r(user 381, item 2249) = 4.1931
+
+r(user 381, item 2250) = 4.0411
+
+r(user 381, item 2251) = 4.6094
+
+r(user 381, item 2252) = 4.1460
+
+r(user 381, item 2253) = 4.2970
+
+r(user 381, item 2254) = 4.5291
+
+r(user 381, item 2255) = 4.0438
+
+r(user 381, item 2256) = 4.1499
+
+r(user 381, item 2257) = 3.8703
+
+r(user 381, item 2258) = 4.5036
+
+r(user 381, item 2259) = 4.1801
+
+r(user 381, item 2260) = 4.0107
+
+r(user 381, item 2261) = 4.1592
+
+r(user 381, item 2262) = 4.1923
+
+r(user 381, item 2263) = 4.1457
+
+r(user 381, item 2264) = 4.0763
+
+r(user 381, item 2265) = 4.1354
+
+r(user 381, item 2266) = 4.1461
+
+r(user 381, item 2267) = 4.0199
+
+r(user 381, item 2268) = 4.2832
+
+r(user 381, item 2269) = 4.1245
+
+r(user 381, item 2270) = 0.0000
+
+r(user 381, item 2271) = 4.1960
+
+r(user 381, item 2272) = 4.0821
+
+r(user 381, item 2273) = 4.2704
+
+r(user 381, item 2274) = 0.0000
+
+r(user 381, item 2275) = 4.3229
+
+r(user 381, item 2276) = 3.8349
+
+r(user 381, item 2277) = 2.0004
+
+r(user 381, item 2278) = 4.3097
+
+r(user 381, item 2279) = 4.1612
+
+r(user 381, item 2280) = 4.1806
+
+r(user 381, item 2281) = 4.2376
+
+r(user 381, item 2282) = 4.3191
+
+r(user 381, item 2283) = 4.1064
+
+r(user 381, item 2284) = 4.1493
+
+r(user 381, item 2285) = 4.0839
+
+r(user 381, item 2286) = 3.9295
+
+r(user 381, item 2287) = 4.1909
+
+r(user 381, item 3207) = 3.4981
+
+r(user 381, item 3208) = 4.2144
+
+r(user 381, item 3209) = 3.0000
+
+r(user 381, item 3210) = 4.3112
+
+r(user 381, item 3211) = 4.0359
+
+r(user 381, item 3212) = 2.9085
+
+r(user 381, item 3213) = 4.2660
+
+r(user 381, item 3214) = 4.0283
+
+r(user 381, item 3215) = 3.7265
+
+r(user 381, item 3216) = 3.5660
+
+r(user 381, item 3217) = 4.0678
+
+r(user 381, item 3218) = 4.0423
+
+r(user 381, item 3219) = 4.2264
+
+r(user 381, item 3220) = 2.0004
+
+r(user 381, item 3221) = 4.1427
+
+r(user 381, item 3222) = 4.0483
+
+r(user 381, item 3223) = 4.0153
+
+r(user 381, item 3224) = 4.2212
+
+r(user 381, item 3225) = 3.8528
+
+r(user 381, item 3226) = 0.0000
+
+r(user 381, item 3227) = 0.0000
+
+r(user 381, item 3228) = 4.6035
+
+r(user 381, item 3229) = 3.2433
+
+r(user 381, item 3230) = 4.0204
+
+r(user 381, item 3231) = 0.0000
+
+r(user 381, item 3232) = 3.9295
+
+r(user 381, item 3233) = 4.2414
+
+r(user 381, item 3234) = 0.0000
+
+r(user 381, item 3235) = 4.1642
+
+r(user 381, item 3236) = 3.9881
+
+r(user 381, item 3237) = 3.6323
+
+r(user 381, item 3238) = 3.9791
+
+r(user 381, item 3239) = 3.7140
+
+r(user 381, item 3240) = 3.9755
+
+r(user 381, item 3241) = 4.1772
+
+r(user 381, item 3242) = 3.9316
+
+r(user 381, item 3243) = 4.2001
+
+r(user 381, item 3244) = 4.1512
+
+r(user 381, item 3245) = 4.4652
+
+r(user 381, item 3246) = 4.2765
+
+r(user 381, item 3247) = 4.2454
+
+r(user 381, item 3248) = 4.0856
+
+r(user 381, item 3249) = 4.1878
+
+r(user 381, item 3250) = 4.2201
+
+r(user 381, item 3251) = 4.1910
+
+r(user 381, item 3252) = 4.2443
+
+r(user 381, item 3253) = 4.3211
+
+r(user 381, item 3254) = 4.2538
+
+r(user 381, item 3255) = 4.2807
+
+r(user 381, item 3256) = 4.2897
+
+r(user 381, item 3257) = 4.2186
+
+r(user 381, item 3258) = 4.2286
+
+r(user 381, item 3259) = 4.1882
+
+r(user 381, item 3260) = 4.2870
+
+r(user 381, item 3261) = 4.3126
+
+r(user 381, item 3262) = 4.2873
+
+r(user 381, item 3263) = 4.2637
+
+r(user 381, item 3264) = 4.2757
+
+r(user 381, item 3265) = 4.3291
+
+r(user 381, item 3266) = 4.3450
+
+r(user 381, item 3267) = 4.3198
+
+r(user 381, item 187) = 4.3467
+
+r(user 381, item 188) = 4.2057
+
+r(user 381, item 189) = 3.9806
+
+r(user 381, item 190) = 4.2299
+
+r(user 381, item 191) = 3.9993
+
+r(user 381, item 192) = 3.2529
+
+r(user 381, item 193) = 4.1945
+
+r(user 381, item 194) = 4.2497
+
+r(user 381, item 195) = 4.0805
+
+r(user 381, item 196) = 4.2948
+
+r(user 381, item 197) = 3.7423
+
+r(user 381, item 198) = 4.3490
+
+r(user 381, item 199) = 4.1633
+
+r(user 381, item 200) = 3.5529
+
+r(user 381, item 201) = 3.8545
+
+r(user 381, item 202) = 4.0009
+
+r(user 381, item 203) = 4.1952
+
+r(user 381, item 204) = 4.1427
+
+r(user 381, item 205) = 4.1474
+
+r(user 381, item 206) = 4.2827
+
+r(user 381, item 207) = 4.1146
+
+r(user 381, item 208) = 4.2576
+
+r(user 381, item 209) = 3.9603
+
+r(user 381, item 210) = 3.8409
+
+r(user 381, item 211) = 4.0463
+
+r(user 381, item 212) = 3.9636
+
+r(user 381, item 213) = 4.2259
+
+r(user 381, item 214) = 3.9312
+
+r(user 381, item 215) = 4.2534
+
+r(user 381, item 216) = 4.2418
+
+r(user 381, item 217) = 4.0660
+
+r(user 381, item 218) = 4.1411
+
+r(user 381, item 219) = 4.1217
+
+r(user 381, item 220) = 3.9186
+
+r(user 381, item 222) = 4.2157
+
+r(user 381, item 223) = 4.3652
+
+r(user 381, item 224) = 4.2680
+
+r(user 381, item 225) = 4.1636
+
+r(user 381, item 226) = 4.7240
+
+r(user 381, item 227) = 4.0175
+
+r(user 381, item 228) = 4.0802
+
+r(user 381, item 229) = 4.1752
+
+r(user 381, item 230) = 4.2052
+
+r(user 381, item 231) = 4.2636
+
+r(user 381, item 232) = 4.2990
+
+r(user 381, item 233) = 4.2724
+
+r(user 381, item 234) = 4.1573
+
+r(user 381, item 235) = 4.3513
+
+r(user 381, item 236) = 4.1599
+
+r(user 381, item 237) = 4.1610
+
+r(user 381, item 238) = 3.7836
+
+r(user 381, item 239) = 4.1653
+
+r(user 381, item 240) = 3.8987
+
+r(user 381, item 241) = 3.8918
+
+r(user 381, item 242) = 4.2305
+
+r(user 381, item 243) = 3.9574
+
+r(user 381, item 244) = 4.0746
+
+r(user 381, item 245) = 3.6095
+
+r(user 381, item 246) = 4.3193
+
+r(user 381, item 247) = 4.3455
+
+r(user 381, item 248) = 4.0426
+
+r(user 381, item 1256) = 4.2913
+
+r(user 381, item 1257) = 4.2895
+
+r(user 381, item 1258) = 4.3489
+
+r(user 381, item 1259) = 4.3287
+
+r(user 381, item 1260) = 4.3122
+
+r(user 381, item 1261) = 4.3686
+
+r(user 381, item 1262) = 4.2477
+
+r(user 381, item 1263) = 4.2698
+
+r(user 381, item 1264) = 4.2791
+
+r(user 381, item 1265) = 4.3240
+
+r(user 381, item 1266) = 4.3094
+
+r(user 381, item 1267) = 4.3418
+
+r(user 381, item 1268) = 4.3081
+
+r(user 381, item 1269) = 4.2705
+
+r(user 381, item 1271) = 4.2502
+
+r(user 381, item 1272) = 4.2496
+
+r(user 381, item 1273) = 4.2373
+
+r(user 381, item 1274) = 4.3955
+
+r(user 381, item 1275) = 4.3169
+
+r(user 381, item 1276) = 4.3046
+
+r(user 381, item 1277) = 4.2890
+
+r(user 381, item 1278) = 4.3478
+
+r(user 381, item 1279) = 4.2951
+
+r(user 381, item 1280) = 4.2926
+
+r(user 381, item 1281) = 4.2409
+
+r(user 381, item 1282) = 4.3123
+
+r(user 381, item 1283) = 4.2040
+
+r(user 381, item 1284) = 4.2938
+
+r(user 381, item 1285) = 4.3420
+
+r(user 381, item 1286) = 4.1328
+
+r(user 381, item 1287) = 4.2447
+
+r(user 381, item 1288) = 4.3663
+
+r(user 381, item 1289) = 4.2707
+
+r(user 381, item 1290) = 4.2117
+
+r(user 381, item 1291) = 4.3397
+
+r(user 381, item 1292) = 4.2905
+
+r(user 381, item 1293) = 4.2886
+
+r(user 381, item 1294) = 4.3041
+
+r(user 381, item 1295) = 4.2290
+
+r(user 381, item 1296) = 4.2749
+
+r(user 381, item 1297) = 4.2991
+
+r(user 381, item 1298) = 4.3043
+
+r(user 381, item 1299) = 4.2787
+
+r(user 381, item 1300) = 4.2708
+
+r(user 381, item 1302) = 4.2682
+
+r(user 381, item 1303) = 4.2239
+
+r(user 381, item 1304) = 4.3036
+
+r(user 381, item 1305) = 4.1765
+
+r(user 381, item 1306) = 4.3050
+
+r(user 381, item 1307) = 4.3023
+
+r(user 381, item 1308) = 0.0000
+
+r(user 381, item 1309) = 0.0000
+
+r(user 381, item 1310) = 4.2692
+
+r(user 381, item 1311) = 4.3157
+
+r(user 381, item 1312) = 4.1096
+
+r(user 381, item 1313) = 4.2066
+
+r(user 381, item 1314) = 0.0000
+
+r(user 381, item 1315) = 4.5587
+
+r(user 381, item 1316) = 3.4725
+
+r(user 381, item 1317) = 4.0295
+
+r(user 381, item 1318) = 0.0000
+
+r(user 381, item 2044) = 4.0083
+
+r(user 381, item 2045) = 4.0362
+
+r(user 381, item 2046) = 4.3113
+
+r(user 381, item 2047) = 3.7465
+
+r(user 381, item 2048) = 4.1436
+
+r(user 381, item 2049) = 3.8278
+
+r(user 381, item 2050) = 4.0714
+
+r(user 381, item 2051) = 4.0741
+
+r(user 381, item 2052) = 4.0585
+
+r(user 381, item 2053) = 4.2141
+
+r(user 381, item 2054) = 4.3045
+
+r(user 381, item 2055) = 4.0279
+
+r(user 381, item 2056) = 3.8534
+
+r(user 381, item 2057) = 4.1062
+
+r(user 381, item 2058) = 4.2910
+
+r(user 381, item 2059) = 4.1375
+
+r(user 381, item 2060) = 4.2449
+
+r(user 381, item 2061) = 3.8459
+
+r(user 381, item 2062) = 4.0291
+
+r(user 381, item 2063) = 3.7952
+
+r(user 381, item 2064) = 4.3507
+
+r(user 381, item 2065) = 4.2753
+
+r(user 381, item 2066) = 4.1779
+
+r(user 381, item 2067) = 4.2251
+
+r(user 381, item 2068) = 4.2040
+
+r(user 381, item 2069) = 4.1197
+
+r(user 381, item 2070) = 4.1753
+
+r(user 381, item 2071) = 4.2055
+
+r(user 381, item 2072) = 4.2246
+
+r(user 381, item 2073) = 4.1417
+
+r(user 381, item 2074) = 3.8576
+
+r(user 381, item 2075) = 4.1740
+
+r(user 381, item 2076) = 4.3478
+
+r(user 381, item 2077) = 4.1123
+
+r(user 381, item 2078) = 4.2744
+
+r(user 381, item 2079) = 3.8285
+
+r(user 381, item 2080) = 4.2841
+
+r(user 381, item 2081) = 4.2919
+
+r(user 381, item 2082) = 4.1955
+
+r(user 381, item 2083) = 4.2206
+
+r(user 381, item 2084) = 4.0227
+
+r(user 381, item 2085) = 4.2793
+
+r(user 381, item 2086) = 4.0528
+
+r(user 381, item 2087) = 4.2796
+
+r(user 381, item 2088) = 4.2584
+
+r(user 381, item 2089) = 4.2013
+
+r(user 381, item 2090) = 4.2154
+
+r(user 381, item 2091) = 4.1858
+
+r(user 381, item 2092) = 4.1757
+
+r(user 381, item 2093) = 4.2445
+
+r(user 381, item 2094) = 4.2904
+
+r(user 381, item 2095) = 4.1456
+
+r(user 381, item 2096) = 4.2553
+
+r(user 381, item 2097) = 4.1954
+
+r(user 381, item 2098) = 3.9995
+
+r(user 381, item 2099) = 4.1611
+
+r(user 381, item 2100) = 4.3067
+
+r(user 381, item 2101) = 3.7743
+
+r(user 381, item 2102) = 4.1932
+
+r(user 381, item 2103) = 3.8646
+
+r(user 381, item 2104) = 4.0696
+
+r(user 381, item 3146) = 4.2391
+
+r(user 381, item 3147) = 4.2736
+
+r(user 381, item 3148) = 4.2245
+
+r(user 381, item 3149) = 3.8602
+
+r(user 381, item 3150) = 3.8832
+
+r(user 381, item 3151) = 4.6059
+
+r(user 381, item 3152) = 4.2586
+
+r(user 381, item 3153) = 4.1286
+
+r(user 381, item 3154) = 3.7811
+
+r(user 381, item 3155) = 4.1190
+
+r(user 381, item 3156) = 4.2073
+
+r(user 381, item 3157) = 4.1993
+
+r(user 381, item 3158) = 4.0945
+
+r(user 381, item 3159) = 4.2425
+
+r(user 381, item 3160) = 4.3260
+
+r(user 381, item 3161) = 3.6529
+
+r(user 381, item 3162) = 3.7781
+
+r(user 381, item 3163) = 4.2453
+
+r(user 381, item 3164) = 0.0000
+
+r(user 381, item 3165) = 3.9881
+
+r(user 381, item 3166) = 3.4260
+
+r(user 381, item 3167) = 4.1746
+
+r(user 381, item 3168) = 4.2774
+
+r(user 381, item 3169) = 4.1875
+
+r(user 381, item 3170) = 0.0000
+
+r(user 381, item 3171) = 3.9654
+
+r(user 381, item 3172) = 3.4738
+
+r(user 381, item 3173) = 4.1913
+
+r(user 381, item 3174) = 4.2906
+
+r(user 381, item 3175) = 4.3414
+
+r(user 381, item 3176) = 4.2851
+
+r(user 381, item 3177) = 4.1681
+
+r(user 381, item 3178) = 4.1820
+
+r(user 381, item 3179) = 4.0810
+
+r(user 381, item 3180) = 4.0480
+
+r(user 381, item 3181) = 4.1853
+
+r(user 381, item 3182) = 4.1985
+
+r(user 381, item 3183) = 3.8878
+
+r(user 381, item 3184) = 3.3622
+
+r(user 381, item 3185) = 4.0988
+
+r(user 381, item 3186) = 4.2310
+
+r(user 381, item 3187) = 4.1873
+
+r(user 381, item 3188) = 4.1033
+
+r(user 381, item 3189) = 4.0383
+
+r(user 381, item 3190) = 4.0491
+
+r(user 381, item 3191) = 0.0000
+
+r(user 381, item 3192) = 3.9958
+
+r(user 381, item 3193) = 0.0000
+
+r(user 381, item 3194) = 4.1409
+
+r(user 381, item 3195) = 0.0000
+
+r(user 381, item 3196) = 4.2060
+
+r(user 381, item 3197) = 4.1668
+
+r(user 381, item 3198) = 4.2298
+
+r(user 381, item 3199) = 4.0828
+
+r(user 381, item 3200) = 4.1607
+
+r(user 381, item 3201) = 4.2582
+
+r(user 381, item 3202) = 3.7094
+
+r(user 381, item 3203) = 4.2517
+
+r(user 381, item 3204) = 4.1582
+
+r(user 381, item 3205) = 3.7977
+
+r(user 381, item 3206) = 4.0146
+
+r(user 381, item 746) = 3.9674
+
+r(user 381, item 747) = 4.0791
+
+r(user 381, item 748) = 4.2585
+
+r(user 381, item 749) = 3.4751
+
+r(user 381, item 751) = 4.1342
+
+r(user 381, item 752) = 0.0000
+
+r(user 381, item 753) = 3.9194
+
+r(user 381, item 754) = 4.1753
+
+r(user 381, item 755) = 3.9038
+
+r(user 381, item 756) = 2.7279
+
+r(user 381, item 757) = 3.9824
+
+r(user 381, item 758) = 2.8941
+
+r(user 381, item 759) = 4.2539
+
+r(user 381, item 760) = 4.1511
+
+r(user 381, item 761) = 4.1035
+
+r(user 381, item 762) = 4.2001
+
+r(user 381, item 763) = 3.2433
+
+r(user 381, item 764) = 4.1569
+
+r(user 381, item 765) = 4.0825
+
+r(user 381, item 766) = 4.2782
+
+r(user 381, item 767) = 3.9752
+
+r(user 381, item 768) = 0.0000
+
+r(user 381, item 769) = 4.2696
+
+r(user 381, item 770) = 0.0000
+
+r(user 381, item 771) = 3.9008
+
+r(user 381, item 772) = 0.0000
+
+r(user 381, item 773) = 0.0000
+
+r(user 381, item 774) = 4.7326
+
+r(user 381, item 775) = 3.8578
+
+r(user 381, item 776) = 4.6330
+
+r(user 381, item 777) = 0.0000
+
+r(user 381, item 778) = 4.3735
+
+r(user 381, item 779) = 3.9117
+
+r(user 381, item 780) = 4.3445
+
+r(user 381, item 781) = 4.1765
+
+r(user 381, item 782) = 4.0403
+
+r(user 381, item 783) = 4.2453
+
+r(user 381, item 784) = 4.2408
+
+r(user 381, item 785) = 4.3087
+
+r(user 381, item 786) = 4.2132
+
+r(user 381, item 787) = 3.4424
+
+r(user 381, item 788) = 4.3061
+
+r(user 381, item 789) = 2.9801
+
+r(user 381, item 790) = 3.9268
+
+r(user 381, item 791) = 4.8430
+
+r(user 381, item 792) = 3.6125
+
+r(user 381, item 793) = 4.0214
+
+r(user 381, item 794) = 0.0000
+
+r(user 381, item 795) = 0.0000
+
+r(user 381, item 796) = 3.3282
+
+r(user 381, item 797) = 0.0000
+
+r(user 381, item 798) = 4.1299
+
+r(user 381, item 799) = 4.2665
+
+r(user 381, item 800) = 4.3332
+
+r(user 381, item 801) = 4.1250
+
+r(user 381, item 802) = 4.2240
+
+r(user 381, item 803) = 4.0865
+
+r(user 381, item 804) = 4.1572
+
+r(user 381, item 805) = 4.1860
+
+r(user 381, item 806) = 4.1139
+
+r(user 381, item 807) = 3.6111
+
+r(user 381, item 1715) = 3.8860
+
+r(user 381, item 1716) = 0.0000
+
+r(user 381, item 1717) = 4.2688
+
+r(user 381, item 1718) = 3.8417
+
+r(user 381, item 1719) = 4.3235
+
+r(user 381, item 1720) = 3.8332
+
+r(user 381, item 1721) = 4.2898
+
+r(user 381, item 1722) = 4.2846
+
+r(user 381, item 1723) = 0.0000
+
+r(user 381, item 1724) = 3.2392
+
+r(user 381, item 1725) = 3.7012
+
+r(user 381, item 1726) = 4.2127
+
+r(user 381, item 1727) = 4.1068
+
+r(user 381, item 1728) = 3.8314
+
+r(user 381, item 1729) = 4.3253
+
+r(user 381, item 1730) = 4.2081
+
+r(user 381, item 1731) = 4.0772
+
+r(user 381, item 1732) = 4.3690
+
+r(user 381, item 1733) = 4.1553
+
+r(user 381, item 1734) = 4.3454
+
+r(user 381, item 1735) = 4.2033
+
+r(user 381, item 1738) = 0.0000
+
+r(user 381, item 1739) = 3.9655
+
+r(user 381, item 1740) = 0.0000
+
+r(user 381, item 1741) = 4.5139
+
+r(user 381, item 1742) = 0.0000
+
+r(user 381, item 1743) = 4.2590
+
+r(user 381, item 1744) = 3.9905
+
+r(user 381, item 1746) = 4.1074
+
+r(user 381, item 1747) = 4.3047
+
+r(user 381, item 1748) = 4.3890
+
+r(user 381, item 1749) = 3.9627
+
+r(user 381, item 1750) = 4.0406
+
+r(user 381, item 1752) = 4.0894
+
+r(user 381, item 1753) = 4.2487
+
+r(user 381, item 1754) = 4.2180
+
+r(user 381, item 1755) = 4.3479
+
+r(user 381, item 1756) = 3.9513
+
+r(user 381, item 1757) = 0.0000
+
+r(user 381, item 1758) = 4.0506
+
+r(user 381, item 1759) = 4.2289
+
+r(user 381, item 1760) = 4.2318
+
+r(user 381, item 1762) = 4.1671
+
+r(user 381, item 1764) = 2.0004
+
+r(user 381, item 1765) = 0.0000
+
+r(user 381, item 1767) = 4.2221
+
+r(user 381, item 1768) = 0.0000
+
+r(user 381, item 1769) = 4.2406
+
+r(user 381, item 1770) = 4.0992
+
+r(user 381, item 1771) = 4.1629
+
+r(user 381, item 1772) = 4.1587
+
+r(user 381, item 1773) = 3.5795
+
+r(user 381, item 1774) = 0.0000
+
+r(user 381, item 1776) = 0.0000
+
+r(user 381, item 1777) = 4.2977
+
+r(user 381, item 1779) = 4.2759
+
+r(user 381, item 1780) = 4.5526
+
+r(user 381, item 1781) = 0.0000
+
+r(user 381, item 1782) = 4.2119
+
+r(user 381, item 1783) = 4.2425
+
+r(user 381, item 1784) = 4.2975
+
+r(user 381, item 2841) = 4.2477
+
+r(user 381, item 2842) = 3.9915
+
+r(user 381, item 2843) = 4.2207
+
+r(user 381, item 2844) = 4.1035
+
+r(user 381, item 2845) = 4.4647
+
+r(user 381, item 2846) = 4.1382
+
+r(user 381, item 2847) = 3.9275
+
+r(user 381, item 2848) = 3.9370
+
+r(user 381, item 2849) = 3.9354
+
+r(user 381, item 2850) = 3.7997
+
+r(user 381, item 2851) = 4.0788
+
+r(user 381, item 2852) = 4.1437
+
+r(user 381, item 2853) = 4.1402
+
+r(user 381, item 2854) = 3.8571
+
+r(user 381, item 2855) = 3.7081
+
+r(user 381, item 2856) = 3.9628
+
+r(user 381, item 2857) = 4.2757
+
+r(user 381, item 2858) = 4.3494
+
+r(user 381, item 2859) = 4.3238
+
+r(user 381, item 2860) = 4.0448
+
+r(user 381, item 2861) = 4.1266
+
+r(user 381, item 2862) = 4.1721
+
+r(user 381, item 2863) = 4.2700
+
+r(user 381, item 2864) = 3.8196
+
+r(user 381, item 2865) = 4.2115
+
+r(user 381, item 2866) = 4.1660
+
+r(user 381, item 2867) = 4.2455
+
+r(user 381, item 2868) = 4.0593
+
+r(user 381, item 2869) = 4.2089
+
+r(user 381, item 2870) = 4.1180
+
+r(user 381, item 2871) = 4.2995
+
+r(user 381, item 2872) = 4.3019
+
+r(user 381, item 2873) = 3.8327
+
+r(user 381, item 2874) = 3.9509
+
+r(user 381, item 2875) = 4.1644
+
+r(user 381, item 2876) = 3.8164
+
+r(user 381, item 2877) = 4.2111
+
+r(user 381, item 2878) = 3.9322
+
+r(user 381, item 2879) = 4.2239
+
+r(user 381, item 2880) = 4.2001
+
+r(user 381, item 2881) = 4.1879
+
+r(user 381, item 2882) = 4.1453
+
+r(user 381, item 2883) = 4.1627
+
+r(user 381, item 2884) = 4.0890
+
+r(user 381, item 2885) = 3.9683
+
+r(user 381, item 2886) = 4.1221
+
+r(user 381, item 2887) = 3.2081
+
+r(user 381, item 2888) = 3.9804
+
+r(user 381, item 2889) = 4.1640
+
+r(user 381, item 2890) = 4.3148
+
+r(user 381, item 2891) = 4.1843
+
+r(user 381, item 2892) = 3.9824
+
+r(user 381, item 2893) = 3.9443
+
+r(user 381, item 2894) = 4.1971
+
+r(user 381, item 2895) = 4.1240
+
+r(user 381, item 2896) = 3.8129
+
+r(user 381, item 2897) = 4.0976
+
+r(user 381, item 2898) = 4.1130
+
+r(user 381, item 2899) = 4.0486
+
+r(user 381, item 2900) = 4.1548
+
+r(user 381, item 2901) = 4.2756
+
+r(user 381, item 3512) = 4.1458
+
+r(user 381, item 3513) = 4.0826
+
+r(user 381, item 3514) = 4.0716
+
+r(user 381, item 3515) = 4.0602
+
+r(user 381, item 3516) = 4.1444
+
+r(user 381, item 3517) = 3.5017
+
+r(user 381, item 3518) = 4.0757
+
+r(user 381, item 3519) = 4.0699
+
+r(user 381, item 3520) = 3.8933
+
+r(user 381, item 3521) = 4.3156
+
+r(user 381, item 3522) = 3.5200
+
+r(user 381, item 3523) = 3.8255
+
+r(user 381, item 3524) = 4.2245
+
+r(user 381, item 3525) = 4.2203
+
+r(user 381, item 3526) = 4.2917
+
+r(user 381, item 3527) = 4.3605
+
+r(user 381, item 3528) = 4.1572
+
+r(user 381, item 3529) = 4.1602
+
+r(user 381, item 3530) = 3.9688
+
+r(user 381, item 3531) = 4.1489
+
+r(user 381, item 3532) = 4.0061
+
+r(user 381, item 3533) = 4.2545
+
+r(user 381, item 3534) = 4.1100
+
+r(user 381, item 3535) = 4.2724
+
+r(user 381, item 3536) = 4.1594
+
+r(user 381, item 3537) = 3.7375
+
+r(user 381, item 3538) = 4.1824
+
+r(user 381, item 3539) = 4.1057
+
+r(user 381, item 3540) = 3.2617
+
+r(user 381, item 3541) = 0.0000
+
+r(user 381, item 3542) = 3.7111
+
+r(user 381, item 3543) = 4.3029
+
+r(user 381, item 3544) = 4.2578
+
+r(user 381, item 3545) = 4.2216
+
+r(user 381, item 3546) = 4.2124
+
+r(user 381, item 3547) = 4.1067
+
+r(user 381, item 3548) = 4.1804
+
+r(user 381, item 3549) = 4.1912
+
+r(user 381, item 3550) = 4.2019
+
+r(user 381, item 3551) = 4.2569
+
+r(user 381, item 3552) = 4.2916
+
+r(user 381, item 3553) = 3.8100
+
+r(user 381, item 3554) = 3.8910
+
+r(user 381, item 3555) = 4.2057
+
+r(user 381, item 3556) = 4.1844
+
+r(user 381, item 3557) = 4.0829
+
+r(user 381, item 3558) = 0.0000
+
+r(user 381, item 3559) = 3.9097
+
+r(user 381, item 3560) = 0.0000
+
+r(user 381, item 3561) = 0.0000
+
+r(user 381, item 3562) = 3.6942
+
+r(user 381, item 3563) = 3.5166
+
+r(user 381, item 3564) = 3.9568
+
+r(user 381, item 3565) = 4.0081
+
+r(user 381, item 3566) = 4.1829
+
+r(user 381, item 3567) = 3.8270
+
+r(user 381, item 3568) = 3.8840
+
+r(user 381, item 3569) = 4.1671
+
+r(user 381, item 3570) = 4.1185
+
+r(user 381, item 3571) = 4.1771
+
+r(user 381, item 3572) = 4.0525
+
+r(user 381, item 618) = 3.3549
+
+r(user 381, item 619) = 4.0439
+
+r(user 381, item 620) = 0.0000
+
+r(user 381, item 621) = 3.9816
+
+r(user 381, item 623) = 2.8474
+
+r(user 381, item 624) = 3.9999
+
+r(user 381, item 625) = 0.0000
+
+r(user 381, item 626) = 3.7480
+
+r(user 381, item 627) = 4.2580
+
+r(user 381, item 628) = 4.2271
+
+r(user 381, item 629) = 0.0000
+
+r(user 381, item 630) = 3.8390
+
+r(user 381, item 631) = 3.9728
+
+r(user 381, item 632) = 4.0236
+
+r(user 381, item 633) = 4.2313
+
+r(user 381, item 634) = 4.3263
+
+r(user 381, item 635) = 3.9912
+
+r(user 381, item 636) = 0.0000
+
+r(user 381, item 637) = 4.1787
+
+r(user 381, item 638) = 4.1802
+
+r(user 381, item 639) = 4.3012
+
+r(user 381, item 640) = 4.0251
+
+r(user 381, item 641) = 4.7009
+
+r(user 381, item 642) = 3.9999
+
+r(user 381, item 643) = 3.1011
+
+r(user 381, item 644) = 2.0004
+
+r(user 381, item 645) = 4.2015
+
+r(user 381, item 647) = 4.1961
+
+r(user 381, item 648) = 4.3092
+
+r(user 381, item 649) = 4.1786
+
+r(user 381, item 650) = 4.1095
+
+r(user 381, item 651) = 2.0004
+
+r(user 381, item 652) = 3.6704
+
+r(user 381, item 653) = 4.2679
+
+r(user 381, item 654) = 0.0000
+
+r(user 381, item 655) = 5.0000
+
+r(user 381, item 656) = 3.8585
+
+r(user 381, item 657) = 4.4043
+
+r(user 381, item 658) = 4.6981
+
+r(user 381, item 659) = 4.1373
+
+r(user 381, item 660) = 2.9085
+
+r(user 381, item 661) = 4.3135
+
+r(user 381, item 662) = 4.0408
+
+r(user 381, item 663) = 4.3217
+
+r(user 381, item 664) = 3.5709
+
+r(user 381, item 665) = 4.1592
+
+r(user 381, item 666) = 3.0861
+
+r(user 381, item 667) = 4.1261
+
+r(user 381, item 668) = 4.1215
+
+r(user 381, item 669) = 4.1692
+
+r(user 381, item 670) = 4.1893
+
+r(user 381, item 671) = 4.3533
+
+r(user 381, item 672) = 2.4664
+
+r(user 381, item 673) = 4.2517
+
+r(user 381, item 674) = 4.2766
+
+r(user 381, item 675) = 0.0000
+
+r(user 381, item 676) = 0.0000
+
+r(user 381, item 678) = 4.2567
+
+r(user 381, item 679) = 3.2621
+
+r(user 381, item 680) = 4.1935
+
+r(user 381, item 681) = 3.9086
+
+r(user 381, item 1517) = 4.3297
+
+r(user 381, item 1518) = 4.1852
+
+r(user 381, item 1519) = 3.6515
+
+r(user 381, item 1520) = 4.0003
+
+r(user 381, item 1522) = 4.1301
+
+r(user 381, item 1523) = 4.0865
+
+r(user 381, item 1524) = 0.0000
+
+r(user 381, item 1525) = 4.0599
+
+r(user 381, item 1526) = 4.0485
+
+r(user 381, item 1528) = 4.0620
+
+r(user 381, item 1529) = 4.0307
+
+r(user 381, item 1531) = 3.5725
+
+r(user 381, item 1532) = 3.7960
+
+r(user 381, item 1533) = 3.9290
+
+r(user 381, item 1534) = 3.8534
+
+r(user 381, item 1535) = 4.2105
+
+r(user 381, item 1537) = 4.2826
+
+r(user 381, item 1538) = 4.0543
+
+r(user 381, item 1539) = 3.9711
+
+r(user 381, item 1541) = 4.1791
+
+r(user 381, item 1542) = 4.2463
+
+r(user 381, item 1543) = 4.0957
+
+r(user 381, item 1544) = 4.3026
+
+r(user 381, item 1545) = 4.1427
+
+r(user 381, item 1546) = 4.1522
+
+r(user 381, item 1547) = 3.8119
+
+r(user 381, item 1548) = 3.6591
+
+r(user 381, item 1549) = 3.8308
+
+r(user 381, item 1550) = 4.1160
+
+r(user 381, item 1551) = 3.7605
+
+r(user 381, item 1552) = 4.2811
+
+r(user 381, item 1553) = 3.7020
+
+r(user 381, item 1554) = 4.3028
+
+r(user 381, item 1555) = 3.9417
+
+r(user 381, item 1556) = 4.1853
+
+r(user 381, item 1557) = 0.0000
+
+r(user 381, item 1558) = 3.0012
+
+r(user 381, item 1559) = 0.0000
+
+r(user 381, item 1561) = 4.3224
+
+r(user 381, item 1562) = 4.2640
+
+r(user 381, item 1563) = 4.1403
+
+r(user 381, item 1564) = 3.9028
+
+r(user 381, item 1565) = 3.8466
+
+r(user 381, item 1566) = 4.2447
+
+r(user 381, item 1567) = 3.9962
+
+r(user 381, item 1568) = 0.0000
+
+r(user 381, item 1569) = 4.2480
+
+r(user 381, item 1570) = 4.1082
+
+r(user 381, item 1571) = 4.3714
+
+r(user 381, item 1572) = 4.2187
+
+r(user 381, item 1573) = 4.3491
+
+r(user 381, item 1574) = 4.3545
+
+r(user 381, item 1575) = 3.7186
+
+r(user 381, item 1577) = 0.0000
+
+r(user 381, item 1578) = 0.0000
+
+r(user 381, item 1579) = 4.9999
+
+r(user 381, item 1580) = 4.3508
+
+r(user 381, item 1581) = 3.9026
+
+r(user 381, item 1582) = 3.8793
+
+r(user 381, item 1583) = 3.8687
+
+r(user 381, item 1584) = 4.3608
+
+r(user 381, item 2963) = 3.7262
+
+r(user 381, item 2964) = 3.7539
+
+r(user 381, item 2965) = 3.9875
+
+r(user 381, item 2966) = 4.2605
+
+r(user 381, item 2967) = 4.1909
+
+r(user 381, item 2968) = 4.3767
+
+r(user 381, item 2969) = 4.0834
+
+r(user 381, item 2970) = 4.1827
+
+r(user 381, item 2971) = 4.2137
+
+r(user 381, item 2972) = 4.0807
+
+r(user 381, item 2973) = 4.3073
+
+r(user 381, item 2974) = 3.9234
+
+r(user 381, item 2975) = 4.0929
+
+r(user 381, item 2976) = 4.2800
+
+r(user 381, item 2977) = 4.0122
+
+r(user 381, item 2978) = 4.0701
+
+r(user 381, item 2979) = 3.7793
+
+r(user 381, item 2980) = 0.0000
+
+r(user 381, item 2981) = 3.8156
+
+r(user 381, item 2982) = 3.8401
+
+r(user 381, item 2983) = 4.0723
+
+r(user 381, item 2984) = 4.0881
+
+r(user 381, item 2985) = 4.3532
+
+r(user 381, item 2986) = 4.2655
+
+r(user 381, item 2987) = 4.3461
+
+r(user 381, item 2988) = 4.0689
+
+r(user 381, item 2989) = 4.2376
+
+r(user 381, item 2990) = 4.2186
+
+r(user 381, item 2991) = 4.2180
+
+r(user 381, item 2992) = 3.9987
+
+r(user 381, item 2993) = 4.2257
+
+r(user 381, item 2994) = 4.1098
+
+r(user 381, item 2995) = 4.1937
+
+r(user 381, item 2996) = 4.0386
+
+r(user 381, item 2997) = 4.3652
+
+r(user 381, item 2998) = 3.8213
+
+r(user 381, item 2999) = 3.8227
+
+r(user 381, item 3000) = 4.3308
+
+r(user 381, item 3001) = 3.5725
+
+r(user 381, item 3002) = 4.1645
+
+r(user 381, item 3003) = 4.2999
+
+r(user 381, item 3004) = 4.0803
+
+r(user 381, item 3005) = 4.2184
+
+r(user 381, item 3006) = 4.3009
+
+r(user 381, item 3007) = 4.3503
+
+r(user 381, item 3008) = 3.9709
+
+r(user 381, item 3009) = 0.0000
+
+r(user 381, item 3010) = 3.9392
+
+r(user 381, item 3011) = 4.1196
+
+r(user 381, item 3012) = 3.9111
+
+r(user 381, item 3013) = 4.1043
+
+r(user 381, item 3014) = 3.9624
+
+r(user 381, item 3015) = 4.1238
+
+r(user 381, item 3016) = 4.2969
+
+r(user 381, item 3017) = 4.1102
+
+r(user 381, item 3018) = 4.2463
+
+r(user 381, item 3019) = 4.3149
+
+r(user 381, item 3020) = 4.2765
+
+r(user 381, item 3021) = 3.9736
+
+r(user 381, item 3022) = 4.2354
+
+r(user 381, item 3023) = 0.0000
+
+r(user 381, item 3822) = 3.9999
+
+r(user 381, item 3823) = 4.1687
+
+r(user 381, item 3824) = 3.6576
+
+r(user 381, item 3825) = 3.9299
+
+r(user 381, item 3826) = 4.0946
+
+r(user 381, item 3828) = 2.9630
+
+r(user 381, item 3829) = 0.0000
+
+r(user 381, item 3830) = 3.9642
+
+r(user 381, item 3831) = 4.0109
+
+r(user 381, item 3832) = 3.7819
+
+r(user 381, item 3833) = 3.9177
+
+r(user 381, item 3834) = 4.0415
+
+r(user 381, item 3835) = 4.1243
+
+r(user 381, item 3836) = 4.1293
+
+r(user 381, item 3837) = 4.0601
+
+r(user 381, item 3838) = 3.9995
+
+r(user 381, item 3839) = 4.0621
+
+r(user 381, item 3840) = 4.0743
+
+r(user 381, item 3841) = 4.1142
+
+r(user 381, item 3842) = 5.0000
+
+r(user 381, item 3843) = 4.0087
+
+r(user 381, item 3844) = 4.1651
+
+r(user 381, item 3845) = 4.0784
+
+r(user 381, item 3846) = 4.0803
+
+r(user 381, item 3847) = 4.0135
+
+r(user 381, item 3848) = 3.6554
+
+r(user 381, item 3849) = 3.9768
+
+r(user 381, item 3850) = 3.7233
+
+r(user 381, item 3851) = 4.1746
+
+r(user 381, item 3852) = 4.1037
+
+r(user 381, item 3853) = 3.6891
+
+r(user 381, item 3854) = 4.2163
+
+r(user 381, item 3855) = 3.8588
+
+r(user 381, item 3856) = 0.0000
+
+r(user 381, item 3857) = 3.4566
+
+r(user 381, item 3858) = 3.9190
+
+r(user 381, item 3859) = 4.0963
+
+r(user 381, item 3860) = 3.9307
+
+r(user 381, item 3861) = 3.9361
+
+r(user 381, item 3862) = 3.9589
+
+r(user 381, item 3863) = 4.2179
+
+r(user 381, item 3864) = 4.0978
+
+r(user 381, item 3865) = 3.9398
+
+r(user 381, item 3866) = 2.6930
+
+r(user 381, item 3867) = 3.6891
+
+r(user 381, item 3868) = 4.2665
+
+r(user 381, item 3869) = 4.1953
+
+r(user 381, item 3870) = 3.8597
+
+r(user 381, item 3871) = 4.1545
+
+r(user 381, item 3872) = 4.0812
+
+r(user 381, item 3873) = 4.1089
+
+r(user 381, item 3874) = 3.9742
+
+r(user 381, item 3875) = 3.7770
+
+r(user 381, item 3876) = 3.1102
+
+r(user 381, item 3877) = 4.0905
+
+r(user 381, item 3878) = 3.7531
+
+r(user 381, item 3879) = 3.8682
+
+r(user 381, item 3880) = 3.5336
+
+r(user 381, item 3881) = 4.0000
+
+r(user 381, item 3882) = 4.0156
+
+r(user 381, item 3883) = 3.4003
+
+r(user 381, item 808) = 3.8723
+
+r(user 381, item 809) = 4.0516
+
+r(user 381, item 810) = 4.1312
+
+r(user 381, item 811) = 4.0690
+
+r(user 381, item 812) = 0.0000
+
+r(user 381, item 813) = 4.1571
+
+r(user 381, item 814) = 4.2479
+
+r(user 381, item 815) = 3.9846
+
+r(user 381, item 816) = 0.0000
+
+r(user 381, item 818) = 4.2034
+
+r(user 381, item 819) = 0.0000
+
+r(user 381, item 820) = 3.6618
+
+r(user 381, item 821) = 4.2140
+
+r(user 381, item 822) = 0.0000
+
+r(user 381, item 823) = 3.8150
+
+r(user 381, item 824) = 3.9680
+
+r(user 381, item 825) = 0.0000
+
+r(user 381, item 826) = 4.3841
+
+r(user 381, item 827) = 3.3625
+
+r(user 381, item 828) = 3.9596
+
+r(user 381, item 829) = 4.1460
+
+r(user 381, item 830) = 4.1654
+
+r(user 381, item 831) = 4.2439
+
+r(user 381, item 832) = 4.2444
+
+r(user 381, item 833) = 4.0284
+
+r(user 381, item 834) = 3.6400
+
+r(user 381, item 835) = 4.0557
+
+r(user 381, item 836) = 4.0996
+
+r(user 381, item 837) = 4.1681
+
+r(user 381, item 838) = 4.2348
+
+r(user 381, item 839) = 4.1773
+
+r(user 381, item 840) = 3.9888
+
+r(user 381, item 841) = 3.9647
+
+r(user 381, item 842) = 4.1951
+
+r(user 381, item 843) = 3.8768
+
+r(user 381, item 844) = 4.2294
+
+r(user 381, item 845) = 0.0000
+
+r(user 381, item 846) = 4.1957
+
+r(user 381, item 847) = 3.3431
+
+r(user 381, item 848) = 4.1380
+
+r(user 381, item 849) = 4.2753
+
+r(user 381, item 850) = 4.1207
+
+r(user 381, item 851) = 4.3280
+
+r(user 381, item 852) = 4.2446
+
+r(user 381, item 853) = 4.6061
+
+r(user 381, item 854) = 3.7981
+
+r(user 381, item 855) = 0.0000
+
+r(user 381, item 856) = 0.0000
+
+r(user 381, item 857) = 0.0000
+
+r(user 381, item 858) = 4.3616
+
+r(user 381, item 859) = 2.0004
+
+r(user 381, item 860) = 3.7655
+
+r(user 381, item 861) = 4.2684
+
+r(user 381, item 862) = 4.0436
+
+r(user 381, item 863) = 4.3186
+
+r(user 381, item 864) = 4.0693
+
+r(user 381, item 865) = 4.2311
+
+r(user 381, item 866) = 4.3109
+
+r(user 381, item 867) = 4.3231
+
+r(user 381, item 868) = 4.1421
+
+r(user 381, item 869) = 4.0085
+
+r(user 381, item 1857) = 4.1790
+
+r(user 381, item 1858) = 4.1954
+
+r(user 381, item 1859) = 4.3210
+
+r(user 381, item 1860) = 3.9985
+
+r(user 381, item 1861) = 4.4171
+
+r(user 381, item 1862) = 4.1931
+
+r(user 381, item 1863) = 3.9829
+
+r(user 381, item 1864) = 3.7619
+
+r(user 381, item 1865) = 4.2725
+
+r(user 381, item 1866) = 4.2358
+
+r(user 381, item 1867) = 3.9381
+
+r(user 381, item 1868) = 3.8923
+
+r(user 381, item 1869) = 3.8629
+
+r(user 381, item 1870) = 4.1604
+
+r(user 381, item 1871) = 4.4119
+
+r(user 381, item 1872) = 3.6085
+
+r(user 381, item 1873) = 4.1612
+
+r(user 381, item 1874) = 4.1751
+
+r(user 381, item 1875) = 4.1505
+
+r(user 381, item 1876) = 4.3036
+
+r(user 381, item 1877) = 4.6549
+
+r(user 381, item 1878) = 3.8748
+
+r(user 381, item 1879) = 4.2603
+
+r(user 381, item 1880) = 3.8227
+
+r(user 381, item 1881) = 4.0359
+
+r(user 381, item 1882) = 4.2724
+
+r(user 381, item 1883) = 4.2939
+
+r(user 381, item 1884) = 4.3339
+
+r(user 381, item 1885) = 4.3423
+
+r(user 381, item 1886) = 3.8778
+
+r(user 381, item 1887) = 3.9656
+
+r(user 381, item 1888) = 4.1430
+
+r(user 381, item 1889) = 3.9295
+
+r(user 381, item 1890) = 3.6433
+
+r(user 381, item 1891) = 4.2899
+
+r(user 381, item 1892) = 4.2236
+
+r(user 381, item 1893) = 3.8032
+
+r(user 381, item 1894) = 4.1789
+
+r(user 381, item 1895) = 4.2305
+
+r(user 381, item 1896) = 4.0507
+
+r(user 381, item 1897) = 4.2495
+
+r(user 381, item 1898) = 3.9477
+
+r(user 381, item 1899) = 3.9686
+
+r(user 381, item 1900) = 3.9482
+
+r(user 381, item 1901) = 4.4474
+
+r(user 381, item 1902) = 4.1702
+
+r(user 381, item 1903) = 3.7012
+
+r(user 381, item 1904) = 4.3246
+
+r(user 381, item 1905) = 4.1917
+
+r(user 381, item 1906) = 4.1596
+
+r(user 381, item 1907) = 4.2703
+
+r(user 381, item 1908) = 2.0004
+
+r(user 381, item 1909) = 4.3640
+
+r(user 381, item 1910) = 4.1733
+
+r(user 381, item 1911) = 4.1863
+
+r(user 381, item 1912) = 4.3129
+
+r(user 381, item 1913) = 4.1984
+
+r(user 381, item 1914) = 4.2909
+
+r(user 381, item 1915) = 0.0000
+
+r(user 381, item 1916) = 4.3299
+
+r(user 381, item 1917) = 4.3095
+
+r(user 381, item 2780) = 4.0497
+
+r(user 381, item 2781) = 4.0361
+
+r(user 381, item 2782) = 4.0545
+
+r(user 381, item 2783) = 3.7865
+
+r(user 381, item 2784) = 4.0100
+
+r(user 381, item 2785) = 3.7687
+
+r(user 381, item 2786) = 3.9692
+
+r(user 381, item 2787) = 4.1974
+
+r(user 381, item 2788) = 4.3253
+
+r(user 381, item 2789) = 4.1412
+
+r(user 381, item 2790) = 3.9634
+
+r(user 381, item 2791) = 4.3166
+
+r(user 381, item 2792) = 4.2485
+
+r(user 381, item 2793) = 4.1954
+
+r(user 381, item 2794) = 4.2232
+
+r(user 381, item 2795) = 4.2531
+
+r(user 381, item 2796) = 4.1693
+
+r(user 381, item 2797) = 4.3228
+
+r(user 381, item 2798) = 4.1581
+
+r(user 381, item 2799) = 4.1036
+
+r(user 381, item 2800) = 4.0881
+
+r(user 381, item 2801) = 4.1713
+
+r(user 381, item 2802) = 4.1610
+
+r(user 381, item 2803) = 4.1748
+
+r(user 381, item 2804) = 4.3236
+
+r(user 381, item 2805) = 4.1529
+
+r(user 381, item 2806) = 4.0632
+
+r(user 381, item 2807) = 4.1042
+
+r(user 381, item 2808) = 4.2725
+
+r(user 381, item 2809) = 3.7509
+
+r(user 381, item 2810) = 4.2624
+
+r(user 381, item 2811) = 3.3928
+
+r(user 381, item 2812) = 3.8843
+
+r(user 381, item 2813) = 4.2797
+
+r(user 381, item 2814) = 3.8547
+
+r(user 381, item 2815) = 4.1521
+
+r(user 381, item 2816) = 4.0974
+
+r(user 381, item 2817) = 4.1009
+
+r(user 381, item 2818) = 3.9950
+
+r(user 381, item 2819) = 4.2389
+
+r(user 381, item 2820) = 3.9697
+
+r(user 381, item 2821) = 2.9294
+
+r(user 381, item 2822) = 4.1711
+
+r(user 381, item 2823) = 4.0497
+
+r(user 381, item 2824) = 4.3510
+
+r(user 381, item 2825) = 3.6211
+
+r(user 381, item 2826) = 4.3006
+
+r(user 381, item 2827) = 4.1506
+
+r(user 381, item 2828) = 4.0439
+
+r(user 381, item 2829) = 4.0793
+
+r(user 381, item 2830) = 3.5778
+
+r(user 381, item 2831) = 4.2724
+
+r(user 381, item 2832) = 0.0000
+
+r(user 381, item 2833) = 4.2430
+
+r(user 381, item 2834) = 3.9242
+
+r(user 381, item 2835) = 3.8390
+
+r(user 381, item 2836) = 4.1918
+
+r(user 381, item 2837) = 4.0247
+
+r(user 381, item 2838) = 0.0000
+
+r(user 381, item 2839) = 4.5930
+
+r(user 381, item 2840) = 4.2168
+
+r(user 381, item 3884) = 3.4117
+
+r(user 381, item 3885) = 3.9542
+
+r(user 381, item 3886) = 3.8131
+
+r(user 381, item 3887) = 2.1321
+
+r(user 381, item 3888) = 4.3687
+
+r(user 381, item 3889) = 4.0571
+
+r(user 381, item 3890) = 4.4711
+
+r(user 381, item 3891) = 2.4745
+
+r(user 381, item 3892) = 3.1112
+
+r(user 381, item 3893) = 4.1830
+
+r(user 381, item 3894) = 3.7533
+
+r(user 381, item 3896) = 4.0640
+
+r(user 381, item 3897) = 4.2707
+
+r(user 381, item 3898) = 3.4369
+
+r(user 381, item 3899) = 2.2916
+
+r(user 381, item 3900) = 3.6167
+
+r(user 381, item 3901) = 3.8141
+
+r(user 381, item 3902) = 3.8807
+
+r(user 381, item 3903) = 3.9491
+
+r(user 381, item 3904) = 4.4874
+
+r(user 381, item 3905) = 4.1810
+
+r(user 381, item 3906) = 3.4974
+
+r(user 381, item 3907) = 0.0000
+
+r(user 381, item 3908) = 3.6530
+
+r(user 381, item 3909) = 3.7979
+
+r(user 381, item 3910) = 4.1971
+
+r(user 381, item 3912) = 3.3448
+
+r(user 381, item 3913) = 3.6658
+
+r(user 381, item 3914) = 3.8022
+
+r(user 381, item 3915) = 3.9932
+
+r(user 381, item 3916) = 4.0164
+
+r(user 381, item 3917) = 4.2220
+
+r(user 381, item 3918) = 4.1607
+
+r(user 381, item 3919) = 4.0660
+
+r(user 381, item 3920) = 4.1957
+
+r(user 381, item 3921) = 3.9228
+
+r(user 381, item 3922) = 3.9142
+
+r(user 381, item 3923) = 3.9986
+
+r(user 381, item 3924) = 3.7759
+
+r(user 381, item 3925) = 4.1941
+
+r(user 381, item 3926) = 4.0440
+
+r(user 381, item 3928) = 4.1096
+
+r(user 381, item 3929) = 4.1402
+
+r(user 381, item 3930) = 4.1488
+
+r(user 381, item 3931) = 3.8678
+
+r(user 381, item 3932) = 4.1629
+
+r(user 381, item 3933) = 3.8230
+
+r(user 381, item 3934) = 3.9771
+
+r(user 381, item 3935) = 3.9215
+
+r(user 381, item 3936) = 4.0618
+
+r(user 381, item 3937) = 4.1130
+
+r(user 381, item 3938) = 3.9790
+
+r(user 381, item 3939) = 4.0599
+
+r(user 381, item 3940) = 3.8051
+
+r(user 381, item 3941) = 4.0471
+
+r(user 381, item 3942) = 3.9541
+
+r(user 381, item 3943) = 3.9793
+
+r(user 381, item 3944) = 2.9706
+
+r(user 381, item 3945) = 3.7607
+
+r(user 381, item 3946) = 3.6451
+
+r(user 381, item 3947) = 3.9340
+
+r(user 381, item 870) = 3.9392
+
+r(user 381, item 871) = 0.0000
+
+r(user 381, item 872) = 3.9999
+
+r(user 381, item 873) = 0.0000
+
+r(user 381, item 874) = 3.5156
+
+r(user 381, item 875) = 3.9497
+
+r(user 381, item 876) = 4.2574
+
+r(user 381, item 877) = 3.9837
+
+r(user 381, item 878) = 2.9999
+
+r(user 381, item 879) = 4.1635
+
+r(user 381, item 880) = 4.2533
+
+r(user 381, item 881) = 4.0860
+
+r(user 381, item 882) = 3.9885
+
+r(user 381, item 884) = 3.3493
+
+r(user 381, item 885) = 3.9065
+
+r(user 381, item 886) = 4.0493
+
+r(user 381, item 887) = 4.6237
+
+r(user 381, item 888) = 4.0133
+
+r(user 381, item 889) = 4.6627
+
+r(user 381, item 890) = 0.0000
+
+r(user 381, item 891) = 4.1249
+
+r(user 381, item 892) = 4.2211
+
+r(user 381, item 893) = 4.1968
+
+r(user 381, item 894) = 0.0000
+
+r(user 381, item 895) = 2.4664
+
+r(user 381, item 896) = 4.2362
+
+r(user 381, item 897) = 4.0185
+
+r(user 381, item 898) = 4.2588
+
+r(user 381, item 899) = 4.2628
+
+r(user 381, item 900) = 4.1978
+
+r(user 381, item 901) = 4.1358
+
+r(user 381, item 902) = 4.2664
+
+r(user 381, item 903) = 4.3486
+
+r(user 381, item 904) = 4.3492
+
+r(user 381, item 905) = 4.2175
+
+r(user 381, item 906) = 4.1934
+
+r(user 381, item 907) = 4.0879
+
+r(user 381, item 908) = 4.3335
+
+r(user 381, item 909) = 4.2491
+
+r(user 381, item 910) = 4.2799
+
+r(user 381, item 911) = 4.2227
+
+r(user 381, item 912) = 4.3252
+
+r(user 381, item 913) = 4.3316
+
+r(user 381, item 914) = 4.2373
+
+r(user 381, item 915) = 4.2202
+
+r(user 381, item 916) = 4.2428
+
+r(user 381, item 917) = 3.9055
+
+r(user 381, item 918) = 4.1751
+
+r(user 381, item 919) = 4.3315
+
+r(user 381, item 921) = 4.2180
+
+r(user 381, item 922) = 4.2791
+
+r(user 381, item 923) = 4.3336
+
+r(user 381, item 925) = 3.5121
+
+r(user 381, item 926) = 4.2833
+
+r(user 381, item 927) = 4.1776
+
+r(user 381, item 928) = 4.2707
+
+r(user 381, item 929) = 4.0752
+
+r(user 381, item 930) = 4.2861
+
+r(user 381, item 931) = 4.2284
+
+r(user 381, item 932) = 4.1276
+
+r(user 381, item 933) = 4.2393
+
+r(user 381, item 1785) = 4.1712
+
+r(user 381, item 1787) = 2.0059
+
+r(user 381, item 1788) = 4.1531
+
+r(user 381, item 1789) = 0.0000
+
+r(user 381, item 1791) = 3.9342
+
+r(user 381, item 1792) = 4.1759
+
+r(user 381, item 1793) = 3.9747
+
+r(user 381, item 1794) = 4.2339
+
+r(user 381, item 1795) = 4.6659
+
+r(user 381, item 1796) = 4.5784
+
+r(user 381, item 1797) = 4.2384
+
+r(user 381, item 1798) = 3.7363
+
+r(user 381, item 1799) = 4.2685
+
+r(user 381, item 1801) = 4.1842
+
+r(user 381, item 1804) = 4.1282
+
+r(user 381, item 1805) = 4.2773
+
+r(user 381, item 1806) = 4.1368
+
+r(user 381, item 1807) = 3.6653
+
+r(user 381, item 1809) = 3.9798
+
+r(user 381, item 1810) = 4.2028
+
+r(user 381, item 1811) = 4.2891
+
+r(user 381, item 1812) = 3.9677
+
+r(user 381, item 1814) = 4.0181
+
+r(user 381, item 1815) = 4.8301
+
+r(user 381, item 1816) = 4.1782
+
+r(user 381, item 1817) = 4.0737
+
+r(user 381, item 1819) = 0.0000
+
+r(user 381, item 1820) = 3.2433
+
+r(user 381, item 1821) = 4.1556
+
+r(user 381, item 1822) = 4.1036
+
+r(user 381, item 1824) = 4.2510
+
+r(user 381, item 1825) = 4.1094
+
+r(user 381, item 1826) = 4.0050
+
+r(user 381, item 1827) = 4.1767
+
+r(user 381, item 1829) = 3.7539
+
+r(user 381, item 1830) = 3.4656
+
+r(user 381, item 1831) = 4.2876
+
+r(user 381, item 1832) = 5.0000
+
+r(user 381, item 1833) = 4.1363
+
+r(user 381, item 1834) = 4.3479
+
+r(user 381, item 1835) = 4.2045
+
+r(user 381, item 1836) = 4.2150
+
+r(user 381, item 1837) = 3.8893
+
+r(user 381, item 1839) = 4.1853
+
+r(user 381, item 1840) = 4.1416
+
+r(user 381, item 1841) = 4.0150
+
+r(user 381, item 1842) = 4.5287
+
+r(user 381, item 1843) = 3.9999
+
+r(user 381, item 1844) = 4.1005
+
+r(user 381, item 1845) = 4.3015
+
+r(user 381, item 1846) = 3.9188
+
+r(user 381, item 1847) = 0.0000
+
+r(user 381, item 1848) = 4.1261
+
+r(user 381, item 1849) = 3.9848
+
+r(user 381, item 1850) = 4.0255
+
+r(user 381, item 1851) = 4.0961
+
+r(user 381, item 1852) = 2.0004
+
+r(user 381, item 1853) = 3.9064
+
+r(user 381, item 1854) = 4.0433
+
+r(user 381, item 1855) = 4.1291
+
+r(user 381, item 1856) = 4.2047
+
+r(user 381, item 2471) = 4.1935
+
+r(user 381, item 2472) = 4.0686
+
+r(user 381, item 2473) = 4.1448
+
+r(user 381, item 2474) = 4.2255
+
+r(user 381, item 2475) = 4.0695
+
+r(user 381, item 2476) = 4.1475
+
+r(user 381, item 2477) = 3.9776
+
+r(user 381, item 2478) = 4.2652
+
+r(user 381, item 2479) = 3.8080
+
+r(user 381, item 2480) = 3.9999
+
+r(user 381, item 2481) = 4.1046
+
+r(user 381, item 2482) = 3.9588
+
+r(user 381, item 2483) = 4.1758
+
+r(user 381, item 2484) = 2.0004
+
+r(user 381, item 2485) = 4.2126
+
+r(user 381, item 2486) = 3.6240
+
+r(user 381, item 2487) = 3.6242
+
+r(user 381, item 2488) = 4.1489
+
+r(user 381, item 2489) = 0.0000
+
+r(user 381, item 2490) = 4.2774
+
+r(user 381, item 2491) = 4.0653
+
+r(user 381, item 2492) = 4.2835
+
+r(user 381, item 2493) = 3.9182
+
+r(user 381, item 2494) = 3.7131
+
+r(user 381, item 2495) = 4.1933
+
+r(user 381, item 2496) = 4.1564
+
+r(user 381, item 2497) = 4.0712
+
+r(user 381, item 2498) = 4.0429
+
+r(user 381, item 2499) = 4.0868
+
+r(user 381, item 2500) = 4.1713
+
+r(user 381, item 2501) = 4.2135
+
+r(user 381, item 2502) = 4.3181
+
+r(user 381, item 2503) = 4.1647
+
+r(user 381, item 2504) = 4.2436
+
+r(user 381, item 2505) = 4.1893
+
+r(user 381, item 2506) = 4.0673
+
+r(user 381, item 2507) = 4.0676
+
+r(user 381, item 2508) = 0.0000
+
+r(user 381, item 2509) = 4.1882
+
+r(user 381, item 2510) = 3.9216
+
+r(user 381, item 2511) = 4.0882
+
+r(user 381, item 2512) = 3.9438
+
+r(user 381, item 2513) = 4.2616
+
+r(user 381, item 2514) = 4.0983
+
+r(user 381, item 2515) = 4.0806
+
+r(user 381, item 2516) = 4.0816
+
+r(user 381, item 2517) = 4.2075
+
+r(user 381, item 2518) = 4.1833
+
+r(user 381, item 2519) = 4.0710
+
+r(user 381, item 2520) = 4.0545
+
+r(user 381, item 2521) = 3.9711
+
+r(user 381, item 2522) = 4.0439
+
+r(user 381, item 2523) = 3.8941
+
+r(user 381, item 2524) = 4.1265
+
+r(user 381, item 2525) = 4.1453
+
+r(user 381, item 2526) = 4.1026
+
+r(user 381, item 2528) = 4.2901
+
+r(user 381, item 2529) = 4.3358
+
+r(user 381, item 2530) = 4.2063
+
+r(user 381, item 2531) = 4.1801
+
+r(user 381, item 2532) = 4.2219
+
+r(user 381, item 3695) = 4.0515
+
+r(user 381, item 3696) = 4.0100
+
+r(user 381, item 3697) = 4.2982
+
+r(user 381, item 3698) = 4.3159
+
+r(user 381, item 3699) = 4.3043
+
+r(user 381, item 3700) = 4.2854
+
+r(user 381, item 3701) = 4.2871
+
+r(user 381, item 3704) = 4.3175
+
+r(user 381, item 3705) = 4.1854
+
+r(user 381, item 3706) = 4.2986
+
+r(user 381, item 3707) = 4.2331
+
+r(user 381, item 3708) = 4.2158
+
+r(user 381, item 3709) = 4.0923
+
+r(user 381, item 3710) = 4.1161
+
+r(user 381, item 3711) = 3.7835
+
+r(user 381, item 3712) = 4.2563
+
+r(user 381, item 3713) = 3.9484
+
+r(user 381, item 3714) = 4.0455
+
+r(user 381, item 3715) = 3.9995
+
+r(user 381, item 3716) = 3.9431
+
+r(user 381, item 3717) = 4.1362
+
+r(user 381, item 3718) = 4.0159
+
+r(user 381, item 3719) = 3.9173
+
+r(user 381, item 3720) = 3.9484
+
+r(user 381, item 3721) = 3.7168
+
+r(user 381, item 3722) = 4.0803
+
+r(user 381, item 3723) = 4.2607
+
+r(user 381, item 3724) = 4.1104
+
+r(user 381, item 3725) = 4.1881
+
+r(user 381, item 3726) = 4.0425
+
+r(user 381, item 3727) = 4.2060
+
+r(user 381, item 3728) = 4.1976
+
+r(user 381, item 3729) = 4.1581
+
+r(user 381, item 3730) = 4.2761
+
+r(user 381, item 3731) = 4.0052
+
+r(user 381, item 3732) = 3.9747
+
+r(user 381, item 3733) = 4.2155
+
+r(user 381, item 3734) = 4.1418
+
+r(user 381, item 3735) = 4.2466
+
+r(user 381, item 3736) = 3.9806
+
+r(user 381, item 3737) = 3.9657
+
+r(user 381, item 3738) = 4.0238
+
+r(user 381, item 3739) = 3.9494
+
+r(user 381, item 3740) = 4.2703
+
+r(user 381, item 3741) = 4.2281
+
+r(user 381, item 3742) = 4.2527
+
+r(user 381, item 3743) = 3.7665
+
+r(user 381, item 3744) = 4.1486
+
+r(user 381, item 3745) = 4.2580
+
+r(user 381, item 3746) = 4.0445
+
+r(user 381, item 3747) = 4.1226
+
+r(user 381, item 3748) = 4.5954
+
+r(user 381, item 3749) = 4.0384
+
+r(user 381, item 3750) = 0.0000
+
+r(user 381, item 3751) = 4.2982
+
+r(user 381, item 3752) = 4.1660
+
+r(user 381, item 3753) = 4.2109
+
+r(user 381, item 3754) = 4.0471
+
+r(user 381, item 3755) = 4.1919
+
+r(user 381, item 3756) = 3.6332
+
+r(user 381, item 3757) = 3.9064
+
+r(user 381, item 494) = 4.1889
+
+r(user 381, item 495) = 4.1038
+
+r(user 381, item 496) = 4.2176
+
+r(user 381, item 497) = 4.2985
+
+r(user 381, item 498) = 4.0522
+
+r(user 381, item 499) = 4.0343
+
+r(user 381, item 500) = 4.2677
+
+r(user 381, item 501) = 4.2349
+
+r(user 381, item 502) = 4.0947
+
+r(user 381, item 503) = 3.9278
+
+r(user 381, item 504) = 4.1606
+
+r(user 381, item 505) = 3.9828
+
+r(user 381, item 506) = 4.2335
+
+r(user 381, item 507) = 4.1969
+
+r(user 381, item 508) = 4.2694
+
+r(user 381, item 509) = 4.2859
+
+r(user 381, item 510) = 3.8992
+
+r(user 381, item 511) = 4.0906
+
+r(user 381, item 512) = 4.2079
+
+r(user 381, item 513) = 4.1300
+
+r(user 381, item 514) = 4.2374
+
+r(user 381, item 515) = 4.2838
+
+r(user 381, item 516) = 4.0960
+
+r(user 381, item 517) = 4.2170
+
+r(user 381, item 518) = 4.1523
+
+r(user 381, item 519) = 4.1713
+
+r(user 381, item 520) = 4.1965
+
+r(user 381, item 521) = 4.1710
+
+r(user 381, item 522) = 4.1613
+
+r(user 381, item 523) = 4.2027
+
+r(user 381, item 524) = 4.1910
+
+r(user 381, item 525) = 4.1947
+
+r(user 381, item 526) = 3.9994
+
+r(user 381, item 527) = 4.3333
+
+r(user 381, item 528) = 3.9422
+
+r(user 381, item 529) = 4.2916
+
+r(user 381, item 530) = 3.2477
+
+r(user 381, item 531) = 4.2000
+
+r(user 381, item 532) = 4.2896
+
+r(user 381, item 533) = 4.1706
+
+r(user 381, item 534) = 4.2136
+
+r(user 381, item 535) = 4.3186
+
+r(user 381, item 536) = 3.9637
+
+r(user 381, item 537) = 4.2428
+
+r(user 381, item 538) = 4.2828
+
+r(user 381, item 539) = 4.2547
+
+r(user 381, item 540) = 4.1288
+
+r(user 381, item 541) = 4.3996
+
+r(user 381, item 542) = 4.1362
+
+r(user 381, item 543) = 4.3088
+
+r(user 381, item 544) = 4.0471
+
+r(user 381, item 545) = 3.4975
+
+r(user 381, item 546) = 4.2508
+
+r(user 381, item 547) = 4.1070
+
+r(user 381, item 548) = 4.0392
+
+r(user 381, item 549) = 4.3480
+
+r(user 381, item 550) = 4.2120
+
+r(user 381, item 551) = 4.3360
+
+r(user 381, item 552) = 4.2171
+
+r(user 381, item 553) = 4.2531
+
+r(user 381, item 554) = 3.7079
+
+r(user 381, item 1918) = 4.2512
+
+r(user 381, item 1919) = 4.2064
+
+r(user 381, item 1920) = 4.2559
+
+r(user 381, item 1921) = 4.3945
+
+r(user 381, item 1922) = 3.9298
+
+r(user 381, item 1923) = 4.3236
+
+r(user 381, item 1924) = 4.2730
+
+r(user 381, item 1925) = 3.8856
+
+r(user 381, item 1926) = 3.8587
+
+r(user 381, item 1928) = 3.8738
+
+r(user 381, item 1929) = 4.0472
+
+r(user 381, item 1930) = 3.4763
+
+r(user 381, item 1931) = 4.1337
+
+r(user 381, item 1932) = 3.9388
+
+r(user 381, item 1933) = 3.9253
+
+r(user 381, item 1934) = 4.0845
+
+r(user 381, item 1935) = 4.0684
+
+r(user 381, item 1936) = 3.9891
+
+r(user 381, item 1937) = 3.9291
+
+r(user 381, item 1938) = 4.1439
+
+r(user 381, item 1939) = 4.1247
+
+r(user 381, item 1940) = 4.1297
+
+r(user 381, item 1941) = 4.0930
+
+r(user 381, item 1942) = 4.1077
+
+r(user 381, item 1943) = 3.9554
+
+r(user 381, item 1944) = 4.1973
+
+r(user 381, item 1945) = 4.2615
+
+r(user 381, item 1946) = 4.1271
+
+r(user 381, item 1947) = 4.2649
+
+r(user 381, item 1948) = 4.1959
+
+r(user 381, item 1949) = 4.2001
+
+r(user 381, item 1950) = 4.2103
+
+r(user 381, item 1951) = 4.1331
+
+r(user 381, item 1952) = 4.2884
+
+r(user 381, item 1953) = 4.2953
+
+r(user 381, item 1954) = 4.3109
+
+r(user 381, item 1955) = 4.2229
+
+r(user 381, item 1956) = 4.2303
+
+r(user 381, item 1957) = 4.2575
+
+r(user 381, item 1958) = 4.2060
+
+r(user 381, item 1959) = 4.2193
+
+r(user 381, item 1960) = 4.2850
+
+r(user 381, item 1961) = 4.3118
+
+r(user 381, item 1962) = 4.2603
+
+r(user 381, item 1963) = 4.2482
+
+r(user 381, item 1964) = 4.2467
+
+r(user 381, item 1966) = 4.3133
+
+r(user 381, item 1967) = 4.3447
+
+r(user 381, item 1968) = 4.3331
+
+r(user 381, item 1969) = 4.2194
+
+r(user 381, item 1970) = 4.2455
+
+r(user 381, item 1971) = 4.1827
+
+r(user 381, item 1972) = 4.1651
+
+r(user 381, item 1973) = 4.1651
+
+r(user 381, item 1974) = 4.2427
+
+r(user 381, item 1975) = 4.1914
+
+r(user 381, item 1976) = 4.1566
+
+r(user 381, item 1977) = 4.1372
+
+r(user 381, item 1978) = 4.1435
+
+r(user 381, item 1979) = 4.1251
+
+r(user 381, item 1980) = 4.1675
+
+r(user 381, item 2105) = 4.3390
+
+r(user 381, item 2106) = 4.1852
+
+r(user 381, item 2107) = 4.1517
+
+r(user 381, item 2108) = 4.3166
+
+r(user 381, item 2109) = 4.2883
+
+r(user 381, item 2110) = 4.2397
+
+r(user 381, item 2111) = 4.2318
+
+r(user 381, item 2112) = 4.2404
+
+r(user 381, item 2113) = 4.0291
+
+r(user 381, item 2114) = 4.2125
+
+r(user 381, item 2115) = 4.3126
+
+r(user 381, item 2116) = 4.3190
+
+r(user 381, item 2117) = 4.2720
+
+r(user 381, item 2118) = 4.2452
+
+r(user 381, item 2119) = 4.1579
+
+r(user 381, item 2120) = 4.1811
+
+r(user 381, item 2121) = 4.1785
+
+r(user 381, item 2122) = 4.1622
+
+r(user 381, item 2123) = 4.1727
+
+r(user 381, item 2124) = 4.2979
+
+r(user 381, item 2125) = 4.2167
+
+r(user 381, item 2126) = 4.2205
+
+r(user 381, item 2127) = 4.5613
+
+r(user 381, item 2128) = 3.9060
+
+r(user 381, item 2129) = 4.3603
+
+r(user 381, item 2130) = 4.2086
+
+r(user 381, item 2131) = 4.0663
+
+r(user 381, item 2132) = 4.2221
+
+r(user 381, item 2133) = 4.2635
+
+r(user 381, item 2134) = 4.2808
+
+r(user 381, item 2135) = 4.1374
+
+r(user 381, item 2136) = 4.1369
+
+r(user 381, item 2137) = 4.2890
+
+r(user 381, item 2138) = 4.2799
+
+r(user 381, item 2139) = 4.3194
+
+r(user 381, item 2140) = 4.3603
+
+r(user 381, item 2141) = 4.2470
+
+r(user 381, item 2142) = 4.1452
+
+r(user 381, item 2143) = 4.2729
+
+r(user 381, item 2144) = 4.2889
+
+r(user 381, item 2145) = 4.2859
+
+r(user 381, item 2146) = 4.2214
+
+r(user 381, item 2147) = 4.1472
+
+r(user 381, item 2148) = 4.1806
+
+r(user 381, item 2149) = 4.1043
+
+r(user 381, item 2150) = 4.3181
+
+r(user 381, item 2151) = 4.1614
+
+r(user 381, item 2152) = 4.0959
+
+r(user 381, item 2153) = 4.1701
+
+r(user 381, item 2154) = 4.1515
+
+r(user 381, item 2155) = 4.2540
+
+r(user 381, item 2156) = 3.7737
+
+r(user 381, item 2157) = 3.9680
+
+r(user 381, item 2158) = 4.2133
+
+r(user 381, item 2159) = 4.2567
+
+r(user 381, item 2160) = 4.3018
+
+r(user 381, item 2161) = 4.3220
+
+r(user 381, item 2162) = 4.1656
+
+r(user 381, item 2163) = 4.2076
+
+r(user 381, item 2164) = 4.0168
+
+r(user 381, item 2165) = 4.2233
+
+r(user 381, item 3390) = 4.0211
+
+r(user 381, item 3391) = 4.0658
+
+r(user 381, item 3392) = 4.1450
+
+r(user 381, item 3393) = 3.9399
+
+r(user 381, item 3394) = 4.1520
+
+r(user 381, item 3395) = 4.0447
+
+r(user 381, item 3396) = 4.3226
+
+r(user 381, item 3397) = 4.2394
+
+r(user 381, item 3398) = 4.2601
+
+r(user 381, item 3399) = 4.1382
+
+r(user 381, item 3400) = 4.0814
+
+r(user 381, item 3401) = 4.1469
+
+r(user 381, item 3402) = 4.0885
+
+r(user 381, item 3403) = 3.7402
+
+r(user 381, item 3404) = 4.1488
+
+r(user 381, item 3405) = 4.0708
+
+r(user 381, item 3406) = 4.0093
+
+r(user 381, item 3407) = 3.2340
+
+r(user 381, item 3408) = 4.2414
+
+r(user 381, item 3409) = 4.1412
+
+r(user 381, item 3410) = 4.3496
+
+r(user 381, item 3411) = 0.0000
+
+r(user 381, item 3412) = 4.1654
+
+r(user 381, item 3413) = 3.4606
+
+r(user 381, item 3414) = 3.8425
+
+r(user 381, item 3415) = 3.9219
+
+r(user 381, item 3416) = 4.0724
+
+r(user 381, item 3417) = 4.0010
+
+r(user 381, item 3418) = 4.3131
+
+r(user 381, item 3419) = 3.9467
+
+r(user 381, item 3420) = 4.1444
+
+r(user 381, item 3421) = 4.3204
+
+r(user 381, item 3422) = 4.2507
+
+r(user 381, item 3423) = 4.1424
+
+r(user 381, item 3424) = 4.3375
+
+r(user 381, item 3425) = 4.0449
+
+r(user 381, item 3426) = 4.2246
+
+r(user 381, item 3427) = 4.0461
+
+r(user 381, item 3428) = 3.8578
+
+r(user 381, item 3429) = 4.3182
+
+r(user 381, item 3430) = 4.1118
+
+r(user 381, item 3431) = 3.9356
+
+r(user 381, item 3432) = 3.9021
+
+r(user 381, item 3433) = 3.9877
+
+r(user 381, item 3434) = 4.0094
+
+r(user 381, item 3435) = 4.3031
+
+r(user 381, item 3436) = 4.0223
+
+r(user 381, item 3437) = 4.4311
+
+r(user 381, item 3438) = 4.2821
+
+r(user 381, item 3439) = 4.1878
+
+r(user 381, item 3440) = 4.1622
+
+r(user 381, item 3441) = 4.2384
+
+r(user 381, item 3442) = 3.8382
+
+r(user 381, item 3443) = 3.4184
+
+r(user 381, item 3444) = 4.1938
+
+r(user 381, item 3445) = 4.1102
+
+r(user 381, item 3446) = 4.1000
+
+r(user 381, item 3447) = 4.0480
+
+r(user 381, item 3448) = 4.2872
+
+r(user 381, item 3449) = 3.9836
+
+r(user 381, item 3450) = 4.2500
+
+r(user 381, item 126) = 4.0821
+
+r(user 381, item 127) = 0.0000
+
+r(user 381, item 128) = 4.3628
+
+r(user 381, item 129) = 3.6574
+
+r(user 381, item 130) = 3.9380
+
+r(user 381, item 131) = 4.1672
+
+r(user 381, item 132) = 4.0856
+
+r(user 381, item 133) = 4.0000
+
+r(user 381, item 134) = 4.6664
+
+r(user 381, item 135) = 4.0582
+
+r(user 381, item 136) = 4.1329
+
+r(user 381, item 137) = 3.9132
+
+r(user 381, item 138) = 3.3932
+
+r(user 381, item 139) = 3.0178
+
+r(user 381, item 140) = 3.9913
+
+r(user 381, item 141) = 4.2850
+
+r(user 381, item 142) = 2.0004
+
+r(user 381, item 143) = 0.0000
+
+r(user 381, item 144) = 4.2656
+
+r(user 381, item 145) = 4.2272
+
+r(user 381, item 146) = 3.8711
+
+r(user 381, item 147) = 4.2240
+
+r(user 381, item 148) = 3.9905
+
+r(user 381, item 149) = 4.0758
+
+r(user 381, item 150) = 4.2897
+
+r(user 381, item 151) = 4.2561
+
+r(user 381, item 152) = 4.1510
+
+r(user 381, item 153) = 4.2839
+
+r(user 381, item 154) = 4.2505
+
+r(user 381, item 155) = 4.1735
+
+r(user 381, item 156) = 4.2147
+
+r(user 381, item 157) = 4.1920
+
+r(user 381, item 158) = 4.1357
+
+r(user 381, item 159) = 4.1745
+
+r(user 381, item 160) = 4.2578
+
+r(user 381, item 161) = 4.2428
+
+r(user 381, item 162) = 4.3443
+
+r(user 381, item 163) = 4.2789
+
+r(user 381, item 164) = 4.2167
+
+r(user 381, item 165) = 4.2759
+
+r(user 381, item 166) = 4.1226
+
+r(user 381, item 167) = 4.2351
+
+r(user 381, item 168) = 4.1864
+
+r(user 381, item 169) = 4.0855
+
+r(user 381, item 170) = 4.2480
+
+r(user 381, item 171) = 4.2586
+
+r(user 381, item 172) = 4.3048
+
+r(user 381, item 173) = 4.2840
+
+r(user 381, item 174) = 4.0245
+
+r(user 381, item 175) = 4.2777
+
+r(user 381, item 176) = 4.3301
+
+r(user 381, item 177) = 4.1965
+
+r(user 381, item 178) = 4.0995
+
+r(user 381, item 179) = 3.9143
+
+r(user 381, item 180) = 4.3341
+
+r(user 381, item 181) = 4.0376
+
+r(user 381, item 182) = 3.9767
+
+r(user 381, item 183) = 3.8166
+
+r(user 381, item 184) = 4.0271
+
+r(user 381, item 185) = 4.2914
+
+r(user 381, item 186) = 4.1128
+
+r(user 381, item 1186) = 4.3044
+
+r(user 381, item 1187) = 4.2028
+
+r(user 381, item 1188) = 4.3190
+
+r(user 381, item 1189) = 4.2935
+
+r(user 381, item 1190) = 4.2598
+
+r(user 381, item 1191) = 4.2438
+
+r(user 381, item 1192) = 4.3690
+
+r(user 381, item 1193) = 4.3443
+
+r(user 381, item 1194) = 4.1941
+
+r(user 381, item 1197) = 4.3522
+
+r(user 381, item 1198) = 4.3624
+
+r(user 381, item 1199) = 4.4166
+
+r(user 381, item 1201) = 4.2953
+
+r(user 381, item 1202) = 4.1178
+
+r(user 381, item 1203) = 4.2719
+
+r(user 381, item 1204) = 4.2820
+
+r(user 381, item 1205) = 4.3054
+
+r(user 381, item 1206) = 4.3923
+
+r(user 381, item 1207) = 4.3073
+
+r(user 381, item 1208) = 4.3474
+
+r(user 381, item 1209) = 4.1155
+
+r(user 381, item 1211) = 4.3206
+
+r(user 381, item 1212) = 4.3072
+
+r(user 381, item 1213) = 4.3429
+
+r(user 381, item 1216) = 4.2289
+
+r(user 381, item 1217) = 4.3044
+
+r(user 381, item 1218) = 4.3038
+
+r(user 381, item 1219) = 4.3529
+
+r(user 381, item 1220) = 4.3281
+
+r(user 381, item 1221) = 4.3469
+
+r(user 381, item 1222) = 4.3503
+
+r(user 381, item 1223) = 4.3660
+
+r(user 381, item 1224) = 4.2985
+
+r(user 381, item 1225) = 4.3309
+
+r(user 381, item 1226) = 4.1523
+
+r(user 381, item 1227) = 4.1906
+
+r(user 381, item 1228) = 4.3172
+
+r(user 381, item 1230) = 4.3274
+
+r(user 381, item 1231) = 4.2946
+
+r(user 381, item 1232) = 4.2181
+
+r(user 381, item 1233) = 4.3095
+
+r(user 381, item 1234) = 4.2987
+
+r(user 381, item 1235) = 4.3252
+
+r(user 381, item 1236) = 4.3128
+
+r(user 381, item 1237) = 4.3142
+
+r(user 381, item 1238) = 4.2443
+
+r(user 381, item 1241) = 4.0556
+
+r(user 381, item 1242) = 4.3167
+
+r(user 381, item 1243) = 4.3492
+
+r(user 381, item 1244) = 4.3020
+
+r(user 381, item 1245) = 4.3079
+
+r(user 381, item 1246) = 4.3038
+
+r(user 381, item 1247) = 4.3273
+
+r(user 381, item 1248) = 4.3267
+
+r(user 381, item 1249) = 4.3452
+
+r(user 381, item 1250) = 4.2872
+
+r(user 381, item 1251) = 4.2587
+
+r(user 381, item 1252) = 4.3568
+
+r(user 381, item 1253) = 4.2979
+
+r(user 381, item 1254) = 4.2381
+
+r(user 381, item 1255) = 4.0442
+
+r(user 381, item 2656) = 3.9033
+
+r(user 381, item 2657) = 4.3617
+
+r(user 381, item 2658) = 3.8253
+
+r(user 381, item 2659) = 4.0378
+
+r(user 381, item 2661) = 4.0263
+
+r(user 381, item 2663) = 3.9250
+
+r(user 381, item 2664) = 4.2909
+
+r(user 381, item 2665) = 3.9660
+
+r(user 381, item 2666) = 3.9701
+
+r(user 381, item 2667) = 3.9739
+
+r(user 381, item 2668) = 4.2148
+
+r(user 381, item 2669) = 3.9613
+
+r(user 381, item 2670) = 4.0570
+
+r(user 381, item 2671) = 4.2250
+
+r(user 381, item 2672) = 4.2267
+
+r(user 381, item 2673) = 3.4529
+
+r(user 381, item 2674) = 4.3033
+
+r(user 381, item 2675) = 3.7887
+
+r(user 381, item 2676) = 4.0892
+
+r(user 381, item 2677) = 4.3761
+
+r(user 381, item 2678) = 4.2109
+
+r(user 381, item 2679) = 4.0731
+
+r(user 381, item 2680) = 0.0000
+
+r(user 381, item 2681) = 4.0570
+
+r(user 381, item 2682) = 4.1341
+
+r(user 381, item 2683) = 4.3135
+
+r(user 381, item 2684) = 0.0000
+
+r(user 381, item 2685) = 4.2366
+
+r(user 381, item 2686) = 4.2566
+
+r(user 381, item 2687) = 4.2443
+
+r(user 381, item 2688) = 4.2044
+
+r(user 381, item 2689) = 4.1801
+
+r(user 381, item 2690) = 4.2169
+
+r(user 381, item 2691) = 3.9170
+
+r(user 381, item 2692) = 4.3805
+
+r(user 381, item 2693) = 4.3020
+
+r(user 381, item 2694) = 4.2746
+
+r(user 381, item 2695) = 4.0768
+
+r(user 381, item 2696) = 4.1696
+
+r(user 381, item 2697) = 4.1543
+
+r(user 381, item 2698) = 0.0000
+
+r(user 381, item 2699) = 4.3243
+
+r(user 381, item 2700) = 4.3684
+
+r(user 381, item 2701) = 4.2824
+
+r(user 381, item 2702) = 4.2257
+
+r(user 381, item 2703) = 4.4175
+
+r(user 381, item 2704) = 3.9837
+
+r(user 381, item 2705) = 3.6002
+
+r(user 381, item 2706) = 4.3199
+
+r(user 381, item 2707) = 4.2359
+
+r(user 381, item 2708) = 3.8180
+
+r(user 381, item 2709) = 4.2021
+
+r(user 381, item 2710) = 4.3298
+
+r(user 381, item 2711) = 3.7998
+
+r(user 381, item 2712) = 4.3362
+
+r(user 381, item 2713) = 4.1859
+
+r(user 381, item 2714) = 4.0080
+
+r(user 381, item 2715) = 3.8076
+
+r(user 381, item 2716) = 4.3303
+
+r(user 381, item 2717) = 4.2762
+
+r(user 381, item 2718) = 4.2536
+
+r(user 381, item 3634) = 4.1172
+
+r(user 381, item 3635) = 4.2342
+
+r(user 381, item 3636) = 3.2774
+
+r(user 381, item 3637) = 3.9096
+
+r(user 381, item 3638) = 4.2875
+
+r(user 381, item 3639) = 4.2180
+
+r(user 381, item 3640) = 3.6985
+
+r(user 381, item 3641) = 3.3016
+
+r(user 381, item 3642) = 3.6179
+
+r(user 381, item 3643) = 3.8968
+
+r(user 381, item 3644) = 3.7000
+
+r(user 381, item 3645) = 4.0184
+
+r(user 381, item 3646) = 3.9679
+
+r(user 381, item 3647) = 4.7389
+
+r(user 381, item 3648) = 3.9859
+
+r(user 381, item 3649) = 4.1819
+
+r(user 381, item 3650) = 0.0000
+
+r(user 381, item 3651) = 4.0000
+
+r(user 381, item 3652) = 3.7047
+
+r(user 381, item 3653) = 4.0889
+
+r(user 381, item 3654) = 4.1937
+
+r(user 381, item 3655) = 3.9415
+
+r(user 381, item 3656) = 4.4924
+
+r(user 381, item 3657) = 3.7129
+
+r(user 381, item 3658) = 4.0910
+
+r(user 381, item 3659) = 4.0130
+
+r(user 381, item 3660) = 4.0990
+
+r(user 381, item 3661) = 4.0720
+
+r(user 381, item 3662) = 4.1320
+
+r(user 381, item 3663) = 4.1217
+
+r(user 381, item 3664) = 4.0369
+
+r(user 381, item 3665) = 3.9964
+
+r(user 381, item 3666) = 3.8790
+
+r(user 381, item 3667) = 3.8321
+
+r(user 381, item 3668) = 4.2078
+
+r(user 381, item 3669) = 4.0253
+
+r(user 381, item 3670) = 3.8500
+
+r(user 381, item 3671) = 4.3058
+
+r(user 381, item 3672) = 4.1346
+
+r(user 381, item 3673) = 4.0666
+
+r(user 381, item 3674) = 4.0155
+
+r(user 381, item 3675) = 4.1284
+
+r(user 381, item 3676) = 4.3073
+
+r(user 381, item 3677) = 4.1769
+
+r(user 381, item 3678) = 4.1218
+
+r(user 381, item 3679) = 4.2224
+
+r(user 381, item 3680) = 4.2278
+
+r(user 381, item 3681) = 4.2197
+
+r(user 381, item 3682) = 4.1524
+
+r(user 381, item 3683) = 4.3348
+
+r(user 381, item 3684) = 4.2094
+
+r(user 381, item 3685) = 4.2394
+
+r(user 381, item 3686) = 4.2388
+
+r(user 381, item 3687) = 2.9022
+
+r(user 381, item 3688) = 4.2172
+
+r(user 381, item 3689) = 4.0886
+
+r(user 381, item 3690) = 4.0591
+
+r(user 381, item 3691) = 4.0417
+
+r(user 381, item 3692) = 4.0350
+
+r(user 381, item 3693) = 4.2266
+
+r(user 381, item 3694) = 4.0610
+
+r(user 381, item 249) = 4.2697
+
+r(user 381, item 250) = 4.0480
+
+r(user 381, item 251) = 3.9859
+
+r(user 381, item 252) = 4.2067
+
+r(user 381, item 253) = 4.3095
+
+r(user 381, item 254) = 4.0270
+
+r(user 381, item 255) = 4.1625
+
+r(user 381, item 256) = 4.1734
+
+r(user 381, item 257) = 4.0508
+
+r(user 381, item 258) = 4.1052
+
+r(user 381, item 259) = 4.0790
+
+r(user 381, item 260) = 4.3791
+
+r(user 381, item 261) = 4.2088
+
+r(user 381, item 262) = 4.1520
+
+r(user 381, item 263) = 4.0808
+
+r(user 381, item 264) = 3.3013
+
+r(user 381, item 265) = 4.3026
+
+r(user 381, item 266) = 4.2233
+
+r(user 381, item 267) = 4.1681
+
+r(user 381, item 268) = 4.1354
+
+r(user 381, item 269) = 4.1722
+
+r(user 381, item 270) = 3.9886
+
+r(user 381, item 271) = 4.0029
+
+r(user 381, item 272) = 4.3039
+
+r(user 381, item 273) = 4.2127
+
+r(user 381, item 274) = 3.6631
+
+r(user 381, item 275) = 4.0855
+
+r(user 381, item 276) = 4.1492
+
+r(user 381, item 277) = 4.0629
+
+r(user 381, item 278) = 4.2151
+
+r(user 381, item 279) = 3.9772
+
+r(user 381, item 280) = 4.1303
+
+r(user 381, item 281) = 4.1573
+
+r(user 381, item 282) = 4.1293
+
+r(user 381, item 283) = 4.0359
+
+r(user 381, item 284) = 0.0000
+
+r(user 381, item 285) = 0.0000
+
+r(user 381, item 286) = 4.2855
+
+r(user 381, item 287) = 3.8700
+
+r(user 381, item 288) = 4.3001
+
+r(user 381, item 289) = 4.1012
+
+r(user 381, item 290) = 4.2029
+
+r(user 381, item 291) = 4.0281
+
+r(user 381, item 292) = 4.2616
+
+r(user 381, item 293) = 4.3550
+
+r(user 381, item 294) = 3.9875
+
+r(user 381, item 295) = 3.9501
+
+r(user 381, item 296) = 4.3669
+
+r(user 381, item 297) = 3.9199
+
+r(user 381, item 298) = 4.1520
+
+r(user 381, item 299) = 4.2071
+
+r(user 381, item 300) = 4.3005
+
+r(user 381, item 301) = 3.9998
+
+r(user 381, item 302) = 4.2248
+
+r(user 381, item 303) = 4.2141
+
+r(user 381, item 304) = 3.9022
+
+r(user 381, item 305) = 4.2135
+
+r(user 381, item 306) = 4.3085
+
+r(user 381, item 307) = 4.2736
+
+r(user 381, item 308) = 4.3206
+
+r(user 381, item 309) = 4.0179
+
+r(user 381, item 1381) = 4.2028
+
+r(user 381, item 1382) = 4.0838
+
+r(user 381, item 1383) = 4.1344
+
+r(user 381, item 1384) = 3.8456
+
+r(user 381, item 1385) = 4.2044
+
+r(user 381, item 1386) = 2.0004
+
+r(user 381, item 1387) = 4.3504
+
+r(user 381, item 1388) = 4.1869
+
+r(user 381, item 1389) = 4.1263
+
+r(user 381, item 1390) = 4.0642
+
+r(user 381, item 1391) = 4.3378
+
+r(user 381, item 1392) = 4.3012
+
+r(user 381, item 1393) = 4.2839
+
+r(user 381, item 1394) = 4.3407
+
+r(user 381, item 1395) = 4.1906
+
+r(user 381, item 1396) = 4.3457
+
+r(user 381, item 1397) = 4.0896
+
+r(user 381, item 1398) = 3.8354
+
+r(user 381, item 1399) = 4.1169
+
+r(user 381, item 1400) = 0.0000
+
+r(user 381, item 1401) = 4.1679
+
+r(user 381, item 1404) = 4.0267
+
+r(user 381, item 1405) = 4.3049
+
+r(user 381, item 1406) = 4.0971
+
+r(user 381, item 1407) = 4.3407
+
+r(user 381, item 1408) = 4.2753
+
+r(user 381, item 1409) = 4.1879
+
+r(user 381, item 1410) = 3.9601
+
+r(user 381, item 1411) = 4.2706
+
+r(user 381, item 1412) = 3.8201
+
+r(user 381, item 1413) = 4.0930
+
+r(user 381, item 1414) = 4.1364
+
+r(user 381, item 1415) = 3.8712
+
+r(user 381, item 1416) = 4.1973
+
+r(user 381, item 1417) = 3.9984
+
+r(user 381, item 1419) = 4.2145
+
+r(user 381, item 1420) = 3.9554
+
+r(user 381, item 1421) = 4.1556
+
+r(user 381, item 1422) = 4.1877
+
+r(user 381, item 1423) = 3.9126
+
+r(user 381, item 1424) = 0.0000
+
+r(user 381, item 1425) = 4.2077
+
+r(user 381, item 1426) = 3.9780
+
+r(user 381, item 1427) = 3.8771
+
+r(user 381, item 1428) = 3.9362
+
+r(user 381, item 1429) = 4.2270
+
+r(user 381, item 1430) = 4.5517
+
+r(user 381, item 1431) = 4.1806
+
+r(user 381, item 1432) = 4.0460
+
+r(user 381, item 1433) = 4.3221
+
+r(user 381, item 1434) = 4.2122
+
+r(user 381, item 1436) = 3.8893
+
+r(user 381, item 1437) = 3.8523
+
+r(user 381, item 1438) = 4.1738
+
+r(user 381, item 1439) = 4.2129
+
+r(user 381, item 1440) = 4.0895
+
+r(user 381, item 1441) = 4.2766
+
+r(user 381, item 1442) = 4.1079
+
+r(user 381, item 1443) = 0.0000
+
+r(user 381, item 1444) = 4.2404
+
+r(user 381, item 1445) = 4.0816
+
+r(user 381, item 2533) = 4.2297
+
+r(user 381, item 2534) = 3.6884
+
+r(user 381, item 2535) = 4.0034
+
+r(user 381, item 2536) = 3.9850
+
+r(user 381, item 2537) = 3.8462
+
+r(user 381, item 2538) = 3.7436
+
+r(user 381, item 2539) = 4.2581
+
+r(user 381, item 2540) = 4.1770
+
+r(user 381, item 2541) = 4.2350
+
+r(user 381, item 2542) = 4.3475
+
+r(user 381, item 2543) = 4.5037
+
+r(user 381, item 2544) = 3.6246
+
+r(user 381, item 2545) = 3.8669
+
+r(user 381, item 2546) = 3.9392
+
+r(user 381, item 2547) = 0.0000
+
+r(user 381, item 2548) = 4.0925
+
+r(user 381, item 2549) = 4.2252
+
+r(user 381, item 2550) = 4.1100
+
+r(user 381, item 2551) = 4.2373
+
+r(user 381, item 2552) = 4.0830
+
+r(user 381, item 2553) = 4.1693
+
+r(user 381, item 2554) = 4.1368
+
+r(user 381, item 2555) = 4.1149
+
+r(user 381, item 2556) = 4.5120
+
+r(user 381, item 2557) = 3.8146
+
+r(user 381, item 2558) = 4.1320
+
+r(user 381, item 2559) = 3.7514
+
+r(user 381, item 2560) = 4.1574
+
+r(user 381, item 2561) = 4.0185
+
+r(user 381, item 2562) = 4.3465
+
+r(user 381, item 2563) = 3.8285
+
+r(user 381, item 2564) = 0.0000
+
+r(user 381, item 2565) = 4.2018
+
+r(user 381, item 2566) = 3.9435
+
+r(user 381, item 2567) = 4.1855
+
+r(user 381, item 2568) = 4.1775
+
+r(user 381, item 2569) = 3.4196
+
+r(user 381, item 2570) = 4.0166
+
+r(user 381, item 2572) = 4.2781
+
+r(user 381, item 2573) = 3.9979
+
+r(user 381, item 2574) = 4.0884
+
+r(user 381, item 2575) = 4.2183
+
+r(user 381, item 2576) = 3.6861
+
+r(user 381, item 2577) = 3.8789
+
+r(user 381, item 2578) = 4.1019
+
+r(user 381, item 2579) = 3.9963
+
+r(user 381, item 2580) = 4.3385
+
+r(user 381, item 2581) = 4.1984
+
+r(user 381, item 2582) = 4.1682
+
+r(user 381, item 2583) = 4.1895
+
+r(user 381, item 2584) = 2.0004
+
+r(user 381, item 2585) = 3.9486
+
+r(user 381, item 2586) = 3.9258
+
+r(user 381, item 2587) = 3.9623
+
+r(user 381, item 2588) = 0.0000
+
+r(user 381, item 2589) = 4.0902
+
+r(user 381, item 2590) = 3.9305
+
+r(user 381, item 2591) = 4.0000
+
+r(user 381, item 2592) = 4.0856
+
+r(user 381, item 2593) = 4.0759
+
+r(user 381, item 2594) = 4.1617
+
+r(user 381, item 3758) = 4.0778
+
+r(user 381, item 3759) = 3.9241
+
+r(user 381, item 3760) = 4.1953
+
+r(user 381, item 3761) = 3.9368
+
+r(user 381, item 3762) = 3.6416
+
+r(user 381, item 3763) = 4.2762
+
+r(user 381, item 3764) = 4.1373
+
+r(user 381, item 3765) = 3.8645
+
+r(user 381, item 3766) = 4.1039
+
+r(user 381, item 3767) = 4.0448
+
+r(user 381, item 3768) = 3.9545
+
+r(user 381, item 3769) = 4.0450
+
+r(user 381, item 3770) = 4.2318
+
+r(user 381, item 3771) = 3.9422
+
+r(user 381, item 3772) = 3.2631
+
+r(user 381, item 3773) = 4.1752
+
+r(user 381, item 3774) = 4.0084
+
+r(user 381, item 3775) = 3.8987
+
+r(user 381, item 3776) = 3.7382
+
+r(user 381, item 3777) = 3.8808
+
+r(user 381, item 3778) = 3.3196
+
+r(user 381, item 3779) = 2.9999
+
+r(user 381, item 3780) = 3.9109
+
+r(user 381, item 3781) = 3.7806
+
+r(user 381, item 3782) = 3.8427
+
+r(user 381, item 3783) = 4.1861
+
+r(user 381, item 3784) = 3.8088
+
+r(user 381, item 3785) = 4.1786
+
+r(user 381, item 3786) = 4.2183
+
+r(user 381, item 3787) = 4.0339
+
+r(user 381, item 3788) = 4.2368
+
+r(user 381, item 3789) = 4.1033
+
+r(user 381, item 3790) = 3.8797
+
+r(user 381, item 3791) = 4.2010
+
+r(user 381, item 3792) = 3.8822
+
+r(user 381, item 3794) = 4.0259
+
+r(user 381, item 3795) = 3.9559
+
+r(user 381, item 3796) = 3.4901
+
+r(user 381, item 3797) = 3.5317
+
+r(user 381, item 3798) = 4.0557
+
+r(user 381, item 3799) = 4.0555
+
+r(user 381, item 3800) = 3.1516
+
+r(user 381, item 3801) = 4.1541
+
+r(user 381, item 3802) = 4.1933
+
+r(user 381, item 3803) = 3.7976
+
+r(user 381, item 3804) = 3.9429
+
+r(user 381, item 3805) = 3.8477
+
+r(user 381, item 3806) = 3.8729
+
+r(user 381, item 3808) = 3.8587
+
+r(user 381, item 3809) = 4.2515
+
+r(user 381, item 3810) = 3.9145
+
+r(user 381, item 3811) = 4.1970
+
+r(user 381, item 3812) = 4.1731
+
+r(user 381, item 3813) = 4.1578
+
+r(user 381, item 3814) = 4.1908
+
+r(user 381, item 3816) = 3.8490
+
+r(user 381, item 3817) = 3.9329
+
+r(user 381, item 3818) = 3.6089
+
+r(user 381, item 3819) = 4.2797
+
+r(user 381, item 3820) = 3.6850
+
+r(user 381, item 3821) = 3.9753
+
+Dumping similarity matrix to [./mem/item_jaccard_uid381.pkl]...
+
+Computation time: 6.72 mins
+
+====================================================================================================
+
+Loading similarity matrix from [./mem/item_jaccard_uid381.pkl]...
+
+Top-5 recommendations for user 381 (item_jaccard):
+
+   Rank                                         Title  ... MovieID  RatingPred
+1     1                       Heaven's Burning (1997)  ...    1832    4.999981
+2     2  Make Them Die Slowly (Cannibal Ferox) (1980)  ...    3842    4.999968
+3     3                        Mutters Courage (1995)  ...     655    4.999954
+4     4                        For Ever Mozart (1996)  ...    1579    4.999932
+5     5                          Outside Ozona (1998)  ...    2438    4.999924
+
+[5 rows x 5 columns]
+
+====================================================================================================
