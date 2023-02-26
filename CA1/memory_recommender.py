@@ -57,6 +57,10 @@ class MemoryRecommender:
     
     def dump_similarity(self, userID):
         start_time = time.time()
+        dump_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
+        if os.path.exists(dump_path):
+            print(f'\nFound existing dump at [{dump_path}]')
+            return
         print(f'\nComputing similarity matrix for user {userID}')
         # compute the similarity scores for this user via multi-processing
         df = self.sim.dataset.movies_df
@@ -70,7 +74,6 @@ class MemoryRecommender:
             rec_list = [self.rating_predict(userID, j) for j in list(rec_set)]
         rec_list.sort(key=lambda x: x[0], reverse=True)
         # dump the sorted similarity list
-        dump_path = os.path.join(SAVE_ROOT, f'mem/{self.func_type}_uid{userID}.pkl')
         print(f'\nDumping similarity matrix to [{dump_path}]...')
         with open(dump_path, 'wb') as f:
             pickle.dump(rec_list, f)
