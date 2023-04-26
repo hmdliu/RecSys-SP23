@@ -13,5 +13,5 @@ tmp/
 *.err
 *.zip
 *.csv
-*.pickle
+*.pkl
 *.pyc

@@ -3,6 +3,46 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+class BPR(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+       
+        # hyper-parameters
+        self.config = config
+        self.emb_dim = config['emb_dim']
+        self.nb_users = config['user_cnts']
+        self.nb_items = config['item_cnts']
+
+        # embedding layers
+        self.emb_user = nn.Embedding(num_embeddings=self.nb_users, embedding_dim=self.emb_dim)
+        self.emb_item = nn.Embedding(num_embeddings=self.nb_items, embedding_dim=self.emb_dim)
+
+    def forward(self, u, i, js):
+        # compute x_ui
+        emb_u = self.emb_user(u)                            # (batch_size, embed_dim)
+        emb_i = self.emb_item(i)                            # (batch_size, embed_dim)
+        x_ui = torch.mul(emb_u, emb_i).sum(dim=1)           # (batch_size, )
+        # compute x_uj for all j
+        if len(js.shape) > 1:
+            x_uj = 0
+            for j in range(js.shape[-1]):
+                emb_j = self.emb_item(js[:, j])             # (batch_size, embed_dim)
+                x_uj += torch.mul(emb_u, emb_j).sum(dim=1)  # (batch_size, )
+            x_uj /= js.shape[-1]                            # (batch_size, )
+        else:
+            emb_j = self.emb_item(js)                       # (batch_size, embed_dim)
+            x_uj = torch.mul(emb_u, emb_j).sum(dim=1)       # (batch_size, )
+        # compute logits
+        x_uij = x_ui - x_uj                                 # (batch_size, )
+        return torch.sigmoid(x_uij)
+    
+    def predict(self, u, i):
+        # compute x_ui
+        emb_u = self.emb_user(u)                            # (batch_size, embed_dim)
+        emb_i = self.emb_item(i)                            # (batch_size, embed_dim)
+        x_ui = torch.mul(emb_u, emb_i).sum(dim=1)           # (batch_size, )
+        return torch.sigmoid(x_ui)
+
 class NMF(nn.Module):
     def __init__(self, config):
         super().__init__()

@@ -4,13 +4,14 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --mem=10GB
+#SBATCH --mem=32GB
 #SBATCH --time=48:00:00
 #SBATCH --gres=gpu
 
+#GREENE GREENE_GPU_MPS=yes
+
 # job info
 code_file=$1
-log_file=$2
 
 # Singularity path
 ext3_path=/scratch/$USER/overlay-25GB-500K.ext3
@@ -22,5 +23,7 @@ singularity exec --nv \
 ${sif_path} /bin/bash -c "
 source /ext3/env.sh
 cd /scratch/$USER/RecSys-SP23/CA3
-python -m src.${code_file} > logs/${log_file} 2>&1
+python -m src.${code_file} loo > logs/${code_file}_loo.log 2>&1 &
+python -m src.${code_file} hp > logs/${code_file}_hp.log 2>&1 &
+wait
 "

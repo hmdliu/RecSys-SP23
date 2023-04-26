@@ -10,11 +10,11 @@ from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
 from .utils import *
-from .model import NMF
+from .model import BPR
 from .dataset import PosNegDataset
 from .metrics import compute_metrics
 
-def train_nmf(configs, verbose=True):
+def train_bpr(configs, verbose=True):
 
     # init variables
     train_losses = []
@@ -25,7 +25,7 @@ def train_nmf(configs, verbose=True):
 
     # init model
     device = configs['device']
-    model = NMF(configs['model_config']).to(device)
+    model = BPR(configs['model_config']).to(device)
     print(f'\nModel: {model}')
 
     # init loss function
@@ -34,7 +34,8 @@ def train_nmf(configs, verbose=True):
     # init dataloaders
     with open(configs['split_path'], 'rb') as f:
         tp = pickle.load(f)
-    train_ds, valid_ds = PosNegDataset(tp, idx=0, eval_flag=False), PosNegDataset(tp, idx=1, eval_flag=True)
+    train_ds = PosNegDataset(tp, idx=0, neg_samples=5, eval_flag=False)
+    valid_ds = PosNegDataset(tp, idx=1, neg_samples=0, eval_flag=True)
     train_dl = DataLoader(train_ds, batch_size=configs['batch_size'], shuffle=True, num_workers=2, pin_memory=True)
 
     # init optimizer & scheduler
@@ -48,18 +49,14 @@ def train_nmf(configs, verbose=True):
         count = 0
         model.train()
         for u, p, n in train_dl:
-            # concat pos & neg samples
-            n = n.flatten()
-            i = torch.cat((p, n), dim=0)
-            u = u.repeat(i.shape[0] // u.shape[0])
-            y = torch.cat((torch.ones(p.shape[0]), torch.zeros(n.shape[0])), dim=0)
-            count += i.shape[0]
+            # count samples
+            count += p.shape[0]
             # send data to device
-            u, i, y = u.to(device), i.to(device), y.to(device)
+            u, p, n = u.to(device), p.to(device), n.to(device)
             # model prediction
-            r_pred = model(u, i)
+            r_pred = model(u, p, n)
             # compute loss
-            loss = loss_fn(r_pred, y)
+            loss = loss_fn(r_pred, torch.ones_like(r_pred).to(device))
             # back prop
             optimizer.zero_grad()
             loss.backward()
@@ -81,8 +78,8 @@ def train_nmf(configs, verbose=True):
             u_sub, i_sub = u_sub.to(device), i_sub.to(device)
             # model prediction
             with torch.no_grad():
-                r_pred_all = model(u_all, i_all)
-                r_pred_sub = model(u_sub, i_sub)
+                r_pred_all = model.predict(u_all, i_all)
+                r_pred_sub = model.predict(u_sub, i_sub)
             # convert probas to ordered item ids
             i_pred_all = i_all[torch.argsort(r_pred_all, descending=True)]
             i_pred_sub = i_sub[torch.argsort(r_pred_sub, descending=True)]
@@ -149,14 +146,13 @@ if __name__ == '__main__':
         'epochs': 100,
         'batch_size': 2048,
         'weight_decay': 'TBD',
-        'save_path': f'./results/hps_nmf_{sys.argv[1]}',
+        'save_path': f'./results/hps_bpr_{sys.argv[1]}',
         'device': torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
         # model config
         'model_config': {
             'user_cnts': 6041,      # unique users for embedding layer
             'item_cnts': 3953,      # unique items for embedding layer
             'emb_dim': 10,          # size of embedding vector
-            'hidden_dims': (10, ),  # hidden dims tuple
         }
     }
     print(f'\nBase configs: {configs}')
@@ -172,7 +168,7 @@ if __name__ == '__main__':
         }
         configs.update(to_modify)
         print(f'\n==> Hyper-parameter Search {s}\nModified configs: {to_modify}')
-        train_losses, metrics_list_all, metrics_list_sub = train_nmf(configs, verbose=True)
+        train_losses, metrics_list_all, metrics_list_sub = train_bpr(configs, verbose=True)
         vl_list.append((s, max(metrics_list_all, key=sum_metrics)))
         print(f'Valid metrics (all): {vl_list[-1][1]}')
     vl_list.sort(key=lambda x: sum_metrics(x[1]), reverse=True)
