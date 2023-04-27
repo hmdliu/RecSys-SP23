@@ -10,8 +10,8 @@
 
 #GREENE GREENE_GPU_MPS=yes
 
-# job info
-code_file=$1
+# loo_all | loo_male | loo_female | hp_all | hp_male | hp_female
+split=$1
 
 # Singularity path
 ext3_path=/scratch/$USER/overlay-25GB-500K.ext3
@@ -23,7 +23,7 @@ singularity exec --nv \
 ${sif_path} /bin/bash -c "
 source /ext3/env.sh
 cd /scratch/$USER/RecSys-SP23/CA3
-python -m src.${code_file} loo > logs/${code_file}_loo.log 2>&1 &
-python -m src.${code_file} hp > logs/${code_file}_hp.log 2>&1 &
+python -m src.train_nmf ${split} > logs/nmf_${split}.log 2>&1 &
+python -m src.train_bpr ${split} > logs/bpr_${split}.log 2>&1 &
 wait
 "

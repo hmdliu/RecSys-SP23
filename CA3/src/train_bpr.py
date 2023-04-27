@@ -135,12 +135,13 @@ def train_bpr(configs, verbose=True):
 if __name__ == '__main__':
     vl_list = []
     search_num = 5
-    assert sys.argv[1] in ('hp', 'loo')
+    split_path = f'./pkl/split_{sys.argv[1]}.pkl'
     if not os.path.exists('./pkl'):
         init_data_split()
+    assert os.path.exists(split_path)
     configs = {
         # dataset config
-        'split_path': f'./pkl/split_{sys.argv[1]}.pkl',
+        'split_path': split_path,
         # training config
         'lr': 'TBD',
         'epochs': 100,

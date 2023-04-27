@@ -24,5 +24,9 @@ def set_seed(seed=42):
 
 def init_data_split():
     print('\nProcessing data using LOO and HP strategy...')
-    loo_split()
-    hp_split()
+    loo_split(gender=None)
+    loo_split(gender='M')
+    loo_split(gender='F')
+    hp_split(gender=None)
+    hp_split(gender='M')
+    hp_split(gender='F')

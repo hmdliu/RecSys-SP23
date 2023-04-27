@@ -9,58 +9,7 @@ from tqdm import tqdm
 import torch
 from torch.utils.data import Dataset
 
-def load_dfs():
-    rating_df = pd.read_csv("ml-1m/ratings.dat", sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
-    movie_df = pd.read_csv("ml-1m/movies.dat", sep='::', header=None, engine="python", encoding='latin-1', names=["movieID", "title", "genre"])
-    user_df = pd.read_csv("ml-1m/users.dat", sep='::', header=None, engine="python", names=["userID", "gender", "age", "occupation", "zipcode"])
-    return rating_df, movie_df, user_df
-
-def loo_split():
-    try:
-        with open('pkl/split_loo.pkl', 'rb') as f:
-            tp = pickle.load(f)
-        print('Pre-computed LOO split loaded')
-    except:
-        train_list, valid_list, test_list = [], [], []
-        rating_df = pd.read_csv('ml-1m/ratings.dat', sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
-        # rating_df['rating'] = rating_df['rating'].apply(lambda x: 1 if x > 3 else 0)
-        user_list = rating_df['userID'].unique()
-        for u in tqdm(user_list):
-            df = rating_df[rating_df['userID'] == u].sort_values(by='timestamp')
-            train_list.append(df.iloc[:-2])
-            valid_list.append(df.iloc[-2:-1])
-            test_list.append(df.iloc[-1:])
-        tp = pd.concat(train_list), pd.concat(valid_list), pd.concat(test_list), rating_df
-        os.makedirs('./pkl', exist_ok=True)
-        with open('./pkl/split_loo.pkl', 'wb') as f:
-            pickle.dump(tp, f)
-        print('LOO split has been saved to ./pkl/split_loo.pkl')
-    return tp
-
-def hp_split(ratio=[8, 1, 1]):
-    try:
-        with open('pkl/split_hp.pkl', 'rb') as f:
-            tp = pickle.load(f)
-        print('Pre-computed HP split loaded')
-    except:
-        assert len(ratio) == 3
-        train_list, valid_list, test_list = [], [], []
-        rating_df = pd.read_csv('ml-1m/ratings.dat', sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
-        # rating_df['rating'] = rating_df['rating'].apply(lambda x: 1 if x > 3 else 0)
-        user_list = rating_df['userID'].unique()
-        for u in tqdm(user_list):
-            df = rating_df[rating_df['userID'] == u].sort_values(by='timestamp')
-            r1 = int(len(df) * ratio[0] / sum(ratio))
-            r2 = int(len(df) * (ratio[0] + ratio[1]) / sum(ratio))
-            train_list.append(df.iloc[:r1])
-            valid_list.append(df.iloc[r1:r2])
-            test_list.append(df.iloc[r2:])
-        tp = pd.concat(train_list), pd.concat(valid_list), pd.concat(test_list), rating_df
-        os.makedirs('./pkl', exist_ok=True)
-        with open('./pkl/split_hp.pkl', 'wb') as f:
-            pickle.dump(tp, f)
-        print('HP split has been saved to ./pkl/split_hp.pkl')
-    return tp
+GENDER_DICT = {None: 'all', 'M': 'male', 'F': 'female'}
 
 class PosNegDataset(Dataset):
     def __init__(self, dfs, idx=0, user_col=0, item_col=1, neg_samples=1, eval_flag=False):
@@ -101,6 +50,63 @@ class PosNegDataset(Dataset):
     def __len__(self):
         return len(self.user_list) if self.eval_flag else self.item_tensor.shape[0]
 
+def load_dfs():
+    rating_df = pd.read_csv("ml-1m/ratings.dat", sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
+    movie_df = pd.read_csv("ml-1m/movies.dat", sep='::', header=None, engine="python", encoding='latin-1', names=["movieID", "title", "genre"])
+    user_df = pd.read_csv("ml-1m/users.dat", sep='::', header=None, engine="python", names=["userID", "gender", "age", "occupation", "zipcode"])
+    return rating_df, movie_df, user_df
+
+def loo_split(gender=None):
+    try:
+        with open(f'pkl/split_loo_{GENDER_DICT[gender]}.pkl', 'rb') as f:
+            tp = pickle.load(f)
+        print(f'Found pre-computed LOO split at ./pkl/split_loo_{GENDER_DICT[gender]}.pkl')
+    except:
+        train_list, valid_list, test_list = [], [], []
+        rating_df = pd.read_csv('ml-1m/ratings.dat', sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
+        user_df = pd.read_csv("ml-1m/users.dat", sep='::', header=None, engine="python", names=["userID", "gender", "age", "occupation", "zipcode"])
+        user_list = rating_df['userID'].unique()
+        for u in tqdm(user_list):
+            if (gender is not None) and (user_df[user_df['userID'] == u]['gender'].values[0] != gender):
+                continue
+            df = rating_df[rating_df['userID'] == u].sort_values(by='timestamp')
+            train_list.append(df.iloc[:-2])
+            valid_list.append(df.iloc[-2:-1])
+            test_list.append(df.iloc[-1:])
+        tp = pd.concat(train_list), pd.concat(valid_list), pd.concat(test_list), rating_df
+        os.makedirs('./pkl', exist_ok=True)
+        with open(f'pkl/split_loo_{GENDER_DICT[gender]}.pkl', 'wb') as f:
+            pickle.dump(tp, f)
+        print(f'LOO split has been saved to ./pkl/split_loo_{GENDER_DICT[gender]}.pkl')
+    return tp
+
+def hp_split(ratio=[8, 1, 1], gender=None):
+    try:
+        with open(f'pkl/split_hp_{GENDER_DICT[gender]}.pkl', 'rb') as f:
+            tp = pickle.load(f)
+        print(f'Found pre-computed HP split at ./pkl/split_hp_{GENDER_DICT[gender]}.pkl')
+    except:
+        assert len(ratio) == 3
+        train_list, valid_list, test_list = [], [], []
+        rating_df = pd.read_csv('ml-1m/ratings.dat', sep='::', header=None, engine="python", names=["userID", "movieID", "rating", "timestamp"])
+        user_df = pd.read_csv("ml-1m/users.dat", sep='::', header=None, engine="python", names=["userID", "gender", "age", "occupation", "zipcode"])
+        user_list = rating_df['userID'].unique()
+        for u in tqdm(user_list):
+            if (gender is not None) and (user_df[user_df['userID'] == u]['gender'].values[0] != gender):
+                continue
+            df = rating_df[rating_df['userID'] == u].sort_values(by='timestamp')
+            r1 = int(len(df) * ratio[0] / sum(ratio))
+            r2 = int(len(df) * (ratio[0] + ratio[1]) / sum(ratio))
+            train_list.append(df.iloc[:r1])
+            valid_list.append(df.iloc[r1:r2])
+            test_list.append(df.iloc[r2:])
+        tp = pd.concat(train_list), pd.concat(valid_list), pd.concat(test_list), rating_df
+        os.makedirs('./pkl', exist_ok=True)
+        with open(f'pkl/split_hp_{GENDER_DICT[gender]}.pkl', 'wb') as f:
+            pickle.dump(tp, f)
+        print(f'LOO split has been saved to ./pkl/split_hp_{GENDER_DICT[gender]}.pkl')
+    return tp
+
 if __name__ == '__main__':
 
     print('\nLoading dataframes...')
@@ -108,5 +114,9 @@ if __name__ == '__main__':
     print('\n'.join(outputs))
 
     print('\nLoading data using LOO and HP strategy...')
-    loo_split()
-    hp_split()
+    loo_split(gender=None)
+    loo_split(gender='M')
+    loo_split(gender='F')
+    hp_split(gender=None)
+    hp_split(gender='M')
+    hp_split(gender='F')
