@@ -1,0 +1,41 @@
+BPR LOO ALL
+Test metrics (all): {'Recall@10': 0.0603, 'Recall@50': 0.2066, 'NDCG@10': 0.0299, 'NDCG@50': 0.0610} | Time 9.93s
+Test metrics (sub): {'Recall@10': 0.6083, 'Recall@50': 0.9631, 'NDCG@10': 0.3450, 'NDCG@50': 0.4265} | Time 9.54s
+NMF LOO ALL
+Test metrics (all): {'Recall@10': 0.0608, 'Recall@50': 0.2127, 'NDCG@10': 0.0308, 'NDCG@50': 0.0629} | Time 11.25s
+Test metrics (sub): {'Recall@10': 0.6349, 'Recall@50': 0.9672, 'NDCG@10': 0.3585, 'NDCG@50': 0.4346} | Time 10.82s
+
+BPR LOO MALE
+Test metrics (all): {'Recall@10': 0.0612, 'Recall@50': 0.2004, 'NDCG@10': 0.0298, 'NDCG@50': 0.0592} | Time 8.01s
+Test metrics (sub): {'Recall@10': 0.6045, 'Recall@50': 0.9626, 'NDCG@10': 0.3426, 'NDCG@50': 0.4249} | Time 7.60s
+NMF LOO MALE
+Test metrics (all): {'Recall@10': 0.0679, 'Recall@50': 0.2122, 'NDCG@10': 0.0347, 'NDCG@50': 0.0654} | Time 9.36s
+Test metrics (sub): {'Recall@10': 0.6096, 'Recall@50': 0.9591, 'NDCG@10': 0.3482, 'NDCG@50': 0.4283} | Time 8.89s
+
+BPR LOO FEMALE
+Test metrics (all): {'Recall@10': 0.0509, 'Recall@50': 0.2066, 'NDCG@10': 0.0250, 'NDCG@50': 0.0575} | Time 5.10s
+Test metrics (sub): {'Recall@10': 0.6156, 'Recall@50': 0.9549, 'NDCG@10': 0.3442, 'NDCG@50': 0.4215} | Time 4.67s
+NMF LOO FEMALE
+Test metrics (all): {'Recall@10': 0.0568, 'Recall@50': 0.2183, 'NDCG@10': 0.0292, 'NDCG@50': 0.0633} | Time 6.40s
+Test metrics (sub): {'Recall@10': 0.6396, 'Recall@50': 0.9608, 'NDCG@10': 0.3695, 'NDCG@50': 0.4433} | Time 5.96s
+
+BPR HP ALL
+Test metrics (all): {'Recall@10': 0.0527, 'Recall@50': 0.1846, 'NDCG@10': 0.0820, 'NDCG@50': 0.1190} | Time 10.09s
+Test metrics (sub): {'Recall@10': 0.4402, 'Recall@50': 0.9010, 'NDCG@10': 0.5688, 'NDCG@50': 0.7060} | Time 9.72s
+NMF HP ALL
+Test metrics (all): {'Recall@10': 0.0578, 'Recall@50': 0.2011, 'NDCG@10': 0.0886, 'NDCG@50': 0.1288} | Time 11.37s
+Test metrics (sub): {'Recall@10': 0.4589, 'Recall@50': 0.9013, 'NDCG@10': 0.5909, 'NDCG@50': 0.7184} | Time 10.95s
+
+BPR HP MALE
+Test metrics (all): {'Recall@10': 0.0541, 'Recall@50': 0.1895, 'NDCG@10': 0.0880, 'NDCG@50': 0.1249} | Time 8.17s
+Test metrics (sub): {'Recall@10': 0.4403, 'Recall@50': 0.8987, 'NDCG@10': 0.5856, 'NDCG@50': 0.7171} | Time 7.74s
+NMF HP MALE
+Test metrics (all): {'Recall@10': 0.0590, 'Recall@50': 0.2052, 'NDCG@10': 0.0930, 'NDCG@50': 0.1334} | Time 9.38s
+Test metrics (sub): {'Recall@10': 0.4549, 'Recall@50': 0.8958, 'NDCG@10': 0.6006, 'NDCG@50': 0.7243} | Time 8.92s
+
+BPR HP FEMALE
+Test metrics (all): {'Recall@10': 0.0480, 'Recall@50': 0.1742, 'NDCG@10': 0.0719, 'NDCG@50': 0.1081} | Time 5.11s
+Test metrics (sub): {'Recall@10': 0.4415, 'Recall@50': 0.9048, 'NDCG@10': 0.5356, 'NDCG@50': 0.6791} | Time 4.69s
+NMF HP FEMALE
+Test metrics (all): {'Recall@10': 0.0527, 'Recall@50': 0.1855, 'NDCG@10': 0.0748, 'NDCG@50': 0.1144} | Time 6.36s
+Test metrics (sub): {'Recall@10': 0.4574, 'Recall@50': 0.9016, 'NDCG@10': 0.5562, 'NDCG@50': 0.6913} | Time 5.94s

@@ -1,6 +1,7 @@
 
 import os
 import sys
+import time
 import torch
 import pickle
 
@@ -17,8 +18,7 @@ def test_bpr(configs):
     print(f'\nModel: {model}')
 
     # load checkpoint
-    assert os.path.exists(configs['resume'])
-    ckpt = torch.load(configs['resume'])
+    ckpt = torch.load(configs['resume_path'])
     model.load_state_dict(ckpt['state_dict'])
 
     # init dataloaders
@@ -26,41 +26,53 @@ def test_bpr(configs):
         tp = pickle.load(f)
     test_ds = PosNegDataset(tp, idx=2, neg_samples=0, eval_flag=True)
         
-    # validation
+    # init testing
     model.eval()
     all_list, sub_list = [], []
+
+    # full corpus
+    start_time = time.time()
     for i in range(len(test_ds)):
         # fetch one user & send data to device
         u_all, i_all, u_sub, i_sub, y = test_ds[i]
         u_all, i_all = u_all.to(device), i_all.to(device)
-        u_sub, i_sub = u_sub.to(device), i_sub.to(device)
         # model prediction
         with torch.no_grad():
             r_pred_all = model.predict(u_all, i_all)
-            r_pred_sub = model.predict(u_sub, i_sub)
         # convert probas to ordered item ids
         i_pred_all = i_all[torch.argsort(r_pred_all, descending=True)]
-        i_pred_sub = i_sub[torch.argsort(r_pred_sub, descending=True)]
         all_list.append((i_pred_all, y))
-        sub_list.append((i_pred_sub, y))
-        
-    # compute metrics
     metrics_all = compute_metrics(all_list, round_digits=4)
-    metrics_sub = compute_metrics(sub_list, round_digits=4)
+    total_time = time.time() - start_time
+    print(f'Test metrics (all): {metrics_all} | Time {total_time:.2f}s')
 
-    # logging
-    print(f'Test metrics (all): {metrics_all}')
-    print(f'Test metrics (sub): {metrics_sub}')
+    # sampled corpus
+    start_time = time.time()
+    for i in range(len(test_ds)):
+        # fetch one user & send data to device
+        u_all, i_all, u_sub, i_sub, y = test_ds[i]
+        u_sub, i_sub = u_sub.to(device), i_sub.to(device)
+        # model prediction
+        with torch.no_grad():
+            r_pred_sub = model.predict(u_sub, i_sub)
+        # convert probas to ordered item ids
+        i_pred_sub = i_sub[torch.argsort(r_pred_sub, descending=True)]
+        sub_list.append((i_pred_sub, y))
+    metrics_sub = compute_metrics(sub_list, round_digits=4)
+    total_time = time.time() - start_time
+    print(f'Test metrics (sub): {metrics_sub} | Time {total_time:.2f}s')
 
 if __name__ == '__main__':
-    assert sys.argv[1] in ('hp', 'loo')
+    split_path = f'./pkl/split_{sys.argv[1]}.pkl'
+    resume_path = f'./results/hps_bpr_{sys.argv[1]}/best.ckpt'
     if not os.path.exists('./pkl'):
         init_data_split()
+    assert os.path.exists(split_path) and os.path.exists(resume_path)
     configs = {
         # dataset config
-        'split_path': f'./pkl/split_{sys.argv[1]}.pkl',
+        'split_path': split_path,
         # test config
-        'resume': f'./results/hps_bpr_{sys.argv[1]}/best.ckpt',
+        'resume_path': resume_path,
         'device': torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
         # model config
         'model_config': {
