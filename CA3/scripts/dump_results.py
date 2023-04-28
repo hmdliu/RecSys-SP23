@@ -10,4 +10,5 @@ for d in sorted(os.listdir(root_dir)):
     with open(path, 'r') as f:
         lines = f.read().split('\n')
     results = '\n'.join([l for l in lines if l.startswith('Valid') or l.startswith('Best')])
-    print(f'\n{path}:\n{results}')
+    if len(results) > 0:
+        print(f'\n{path}:\n{results}')
