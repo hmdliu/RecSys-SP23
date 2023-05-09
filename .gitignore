@@ -2,6 +2,8 @@ CA1/ml-1m
 CA3/ml-1m
 CA3/results
 CA3/pkl
+Project/data
+Project/fig
 tmp/
 *.DS_Store
 *.swp

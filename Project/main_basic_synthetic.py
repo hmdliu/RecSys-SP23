@@ -38,7 +38,7 @@ parser.add_argument("--batch_size",
 	help="batch size for training")
 parser.add_argument("--epochs", 
 	type=int,
-	default=12,  
+	default=10,  
 	help="training epoches")
 parser.add_argument("--top_k", 
 	type=int, 
@@ -63,10 +63,10 @@ parser.add_argument("--test_num_ng",
 parser.add_argument("--out", 
 	default=True,
 	help="save model or not")
-parser.add_argument("--gpu", 
-	type=str,
-	default="1",  
-	help="gpu card ID")
+# parser.add_argument("--gpu", 
+# 	type=str,
+# 	default="1",  
+# 	help="gpu card ID")
 
 
 parser.add_argument("--dataset", 
@@ -99,7 +99,7 @@ args = parser.parse_args()
 val_results = []
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+# os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 cudnn.benchmark = True
 
 
@@ -107,7 +107,7 @@ cudnn.benchmark = True
 ############################## PREPARE DATASET ##########################
 
 # construct the train and test datasets
-user_num, item_num, train_data_len = data_utils.load_all_custom( dataset=args.dataset )
+user_num, item_num, train_data_len = data_utils.load_all_custom(dataset=args.dataset)
 item_num = 200
 
 raw_train_data = pd.read_csv(f'./data/final_{args.dataset}/train_df')    
@@ -119,7 +119,7 @@ sid_pop_train = pd.read_csv(f'./data/final_{args.dataset}/sid_pop_train')
 
 train_dataset = data_utils.BPRData(train_data_len*args.num_ng)
 train_loader = data.DataLoader(train_dataset,
-		batch_size=args.batch_size, shuffle=True, num_workers=4)
+		batch_size=args.batch_size, shuffle=True, num_workers=2)
 
 
 ########################### CREATE MODEL #################################
