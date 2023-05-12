@@ -63,10 +63,10 @@ parser.add_argument("--test_num_ng",
 parser.add_argument("--out", 
 	default=True,
 	help="save model or not")
-parser.add_argument("--gpu", 
-	type=str,
-	default="1",  
-	help="gpu card ID")
+# parser.add_argument("--gpu", 
+# 	type=str,
+# 	default="1",  
+# 	help="gpu card ID")
 
 
 parser.add_argument("--dataset", 
@@ -99,7 +99,7 @@ args = parser.parse_args()
 val_results = []
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+# os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 cudnn.benchmark = True
 
 
@@ -120,7 +120,7 @@ sid_pop_train = pd.read_csv(f'./data/final_{args.dataset}/sid_pop_train')
 
 train_dataset = data_utils.BPRData(train_data_len*args.num_ng)
 train_loader = data.DataLoader(train_dataset,
-		batch_size=args.batch_size, shuffle=True, num_workers=4)
+		batch_size=args.batch_size, shuffle=True, num_workers=2)
 
 
 ########################### CREATE MODEL #################################
