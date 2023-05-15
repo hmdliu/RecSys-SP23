@@ -8,6 +8,9 @@
 #SBATCH --time=8:00:00
 #SBATCH --gres=gpu
 
+# epsilon
+epsilon=$1
+
 # Singularity path
 ext3_path=/scratch/$USER/overlay-25GB-500K.ext3
 sif_path=/scratch/$USER/cuda11.4.2-cudnn8.2.4-devel-ubuntu20.04.3.sif
@@ -18,7 +21,7 @@ singularity exec --nv \
 ${sif_path} /bin/bash -c "
 source /ext3/env.sh
 cd /scratch/$USER/RecSys-SP23/Project
-python main_basic.py --model MF --dataset movielens --sample none --weight 0.9 --reg yes
-python main_basic.py --model MF --dataset movielens --sample pos2neg2 --weight 0.9 --reg yes
-python main_basic.py --model MF --dataset movielens --sample posneg --weight 0.9 --reg yes
+python main_basic.py --model MF --dataset movielens --sample none --weight 0.9 --reg yes --epsilon ${epsilon}
+python main_basic.py --model MF --dataset movielens --sample pos2neg2 --weight 0.9 --reg yes --epsilon ${epsilon}
+python main_basic.py --model MF --dataset movielens --sample posneg --weight 0.9 --reg yes --epsilon ${epsilon}
 "

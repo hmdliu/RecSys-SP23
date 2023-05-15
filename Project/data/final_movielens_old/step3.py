@@ -1,18 +1,18 @@
 
+import os
 import pickle
+import random
 import numpy as np 
 import pandas as pd 
 import scipy.sparse as sp
-
 import torch.utils.data as data
-import config
-import random as random
 
-'''
+random.seed(0)
+
 def load_all_custom(test_num=100, dataset=None):
 	""" We load all the three file here to save time in each epoch. """
     
-	total_data = pd.read_csv(f'./data/final_{dataset}/total_df')    
+	total_data = pd.read_csv('./total_df')    
 	total_data = total_data[['uid', 'sid']]    
 	total_data['uid'] = total_data['uid'].apply(lambda x : int(x))
 	total_data['sid'] = total_data['sid'].apply(lambda x : int(x))    
@@ -20,11 +20,10 @@ def load_all_custom(test_num=100, dataset=None):
 	item_num = total_data['sid'].max() + 1
 	del total_data    
     
-	train_data = pd.read_csv(f'./data/final_{dataset}/train_df')    
+	train_data = pd.read_csv('./train_df')    
 	train_data = train_data[['uid', 'sid']]
 	train_data['uid'] = train_data['uid'].apply(lambda x : int(x))
 	train_data['sid'] = train_data['sid'].apply(lambda x : int(x))    
-	#train_data.columns = ['user', 'item']
 	train_data = train_data.values.tolist()
 
 	# load ratings as a dok matrix
@@ -32,29 +31,32 @@ def load_all_custom(test_num=100, dataset=None):
 	for x in train_data:
 		train_mat[x[0], x[1]] = 1.0
 
-	#test_data = pd.read_csv('./data/test_df_true_neg')        
-	#test_data = pd.read_csv('./data/synthetic/test_df_true_neg')
-	test_data = pd.read_csv(f'./data/final_{dataset}/test_df')     
+	test_data = pd.read_csv('./test_df')     
 	test_data = test_data[['uid', 'sid']]
 	test_data['uid'] = test_data['uid'].apply(lambda x : int(x))
 	test_data['sid'] = test_data['sid'].apply(lambda x : int(x))
 	test_data.columns = ['user', 'item']    
 	test_data = test_data.values.tolist()    
     
-	val_data = pd.read_csv(f'./data/final_{dataset}/val_df')     
+	val_data = pd.read_csv('./val_df')     
 	val_data = val_data[['uid', 'sid']]
 	val_data['uid'] = val_data['uid'].apply(lambda x : int(x))
 	val_data['sid'] = val_data['sid'].apply(lambda x : int(x))
 	val_data.columns = ['user', 'item']    
 	val_data = val_data.values.tolist()        
 
-	neg_samples_data = pd.read_csv(f'./data/final_{dataset}/neg_sample_df')     
+	neg_samples_data = pd.read_csv('./neg_sample_df')     
 	neg_samples_data = neg_samples_data[['uid', 'sid']]
 	neg_samples_data['uid'] = neg_samples_data['uid'].apply(lambda x : int(x))
 	neg_samples_data['sid'] = neg_samples_data['sid'].apply(lambda x : int(x))
 	neg_samples_data.columns = ['user', 'item']    
 	neg_samples_data = neg_samples_data.values.tolist()            
 
+	'''
+	test_mat = sp.dok_matrix((user_num, item_num), dtype=np.float32)
+	for x in test_data:
+		test_mat[x[0], x[1]] = 1.0
+	'''
         
 	total_mat = sp.dok_matrix((user_num, item_num), dtype=np.float32)
 	for x in train_data:
@@ -70,28 +72,7 @@ def load_all_custom(test_num=100, dataset=None):
 	test_mat = None  # dummy code
 
 	return train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat
-'''
 
-def load_all_custom(test_num=100, dataset=None):
-	""" We load all the three file here to save time in each epoch. """
-    
-	total_data = pd.read_csv(f'./data/final_{dataset}/total_df')    
-	total_data = total_data[['uid', 'sid']]    
-	total_data['uid'] = total_data['uid'].apply(lambda x : int(x))
-	total_data['sid'] = total_data['sid'].apply(lambda x : int(x))    
-	user_num = total_data['uid'].max() + 1
-	item_num = total_data['sid'].max() + 1
-    
-	train_data = pd.read_csv(f'./data/final_{dataset}/train_df')    
-	train_data = train_data[['uid', 'sid']]
-	train_data_len = train_data.shape[0]
-    
-	return user_num, item_num, train_data_len
-
-
-
-
-'''
 class BPRData(data.Dataset):
 	def __init__(self, features, 
 				num_item, train_mat=None, total_mat=None, num_ng=0, is_training=None, sample_mode = None):
@@ -158,40 +139,30 @@ class BPRData(data.Dataset):
 			neg1 = features[idx][3]                    
 			neg2 = features[idx][4]                                
 			return user, pos1, pos2, neg1, neg2
-'''
 
+train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat = load_all_custom()
+print('original user-pos tuple is', train_data[0:5])
 
+train_dataset = BPRData(train_data, item_num, train_mat, total_mat, num_ng=1, is_training=True, sample_mode=None)
+train_dataset.ng_sample()
+negative_samples = train_dataset.features_fill
+print('new (user, pos1, pos2, neg1, neg2) tuple is', negative_samples[0:5])
 
+tmp1 = np.array(negative_samples)[:, 1]
+tmp2 = np.array(negative_samples)[:, 2]
+print('ratio of pos1 > pos2')
+print(np.mean(tmp1 > tmp2))
 
-class BPRData(data.Dataset):
-	def __init__(self, train_data_length):
-		super(BPRData, self).__init__()
-		self.train_data_length = train_data_length
-		self.features_fill = None        
+random.seed(0)
+num_ng = 3
+total_epochs = 20
 
-	def get_data(self, dataset, current_epoch, epsilon=None):
-		if epsilon is None:
-			path = f'./data/final_{dataset}/train_samples/train_samples_{current_epoch}'
-		else:
-			path = f'./data/final_{dataset}/train_samples_{epsilon}/train_samples_{current_epoch}'
-		print('path:', path)
-		with open(path, 'rb') as fp:
-			b = pickle.load(fp)
-			self.features_fill = b            
-            
-	def __len__(self):
-		return self.train_data_length
-
-	def __getitem__(self, idx):
-		features = self.features_fill 
-		if True:    
-			user = features[idx][0]
-			pos1 = features[idx][1]
-			pos2 = features[idx][2]        
-			neg1 = features[idx][3]                    
-			neg2 = features[idx][4]                                
-			return user, pos1, pos2, neg1, neg2
-
-
-
-
+for i in range(total_epochs):
+    print(i)
+    train_list = []
+    for j in range(num_ng):
+        train_dataset.ng_sample()
+        train_samples = train_dataset.features_fill
+        train_list += train_samples
+    with open(f'./train_samples/train_samples_{i}', 'wb') as fp:
+        pickle.dump(train_list, fp)

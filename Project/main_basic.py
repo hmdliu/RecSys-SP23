@@ -84,6 +84,10 @@ parser.add_argument("--weight",
 	type=float,
 	default=0.5,  
 	help="weight")
+parser.add_argument("--epsilon", 
+	type=float,
+	default=0.0,  
+	help="epsilon")
 parser.add_argument("--burnin", 
 	type=str,
 	default="no",  
@@ -95,6 +99,7 @@ parser.add_argument("--reg",
 
 
 args = parser.parse_args()
+args.epsilon = round(args.epsilon, 1)
 
 val_results = []
 
@@ -155,7 +160,7 @@ optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
 sid_pop_train_dict = dict(list(zip(sid_pop_train.sid, sid_pop_train.train_counts)))
 
-print(args.dataset, ' ', args.model, ' ', args.sample, ' ', args.weight, ' ', 'reg', args.reg, 'burnin', args.burnin)
+print(args.dataset, ' ', args.model, ' ', args.sample, ' ', args.weight, ' ', 'reg', args.reg, 'burnin', args.burnin, 'epsilon', args.epsilon)
 print('entered training')
 count, best_hr = 0, 0
 
@@ -171,7 +176,7 @@ for epoch in range(args.epochs):
 	model.train() 
 	start_time = time.time()
     
-	train_loader.dataset.get_data(args.dataset, epoch)
+	train_loader.dataset.get_data(args.dataset, epoch, epsilon=args.epsilon)
 	model.cuda()
     
 	if epoch < args.epochs/4:
@@ -452,7 +457,11 @@ for epoch in range(args.epochs):
 
 	model.eval()
 	print('entered val evaluated')    
-	HR, NDCG, ARP = evaluate.metrics_custom_new_bpr(model, val_data_with_neg, args.top_k, sid_pop_total, user_num)
+	try:
+		HR, NDCG, ARP = evaluate.metrics_custom_new_bpr(model, val_data_with_neg, args.top_k, sid_pop_total, user_num)
+	except Exception as err:
+		print('error:', err)
+		continue
 	#HR, NDCG, ARP = 0, 0, 0    
 	PCC_TEST = pcc_test(model, val_data_without_neg, sid_pop_total, item_num)  
 	#PCC_TEST2 = pcc_test_check(model, val_data_without_neg, sid_pop_total)
@@ -493,7 +502,7 @@ for epoch in range(args.epochs):
 		if not os.path.exists(config.model_path):
 			os.mkdir(config.model_path)
 		torch.save(model, 
-			'{}{}_{}_{}_{}.pth'.format(config.model_path,f'final_{args.dataset}_', f'{args.model}_{args.sample}', args.weight, args.epochs))
+			'{}{}_{}_{}_{}_{}.pth'.format(config.model_path,f'final_{args.dataset}_', f'{args.model}_{args.sample}', args.weight, args.epochs, args.epsilon))
         
 
 print("End. Best epoch {:03d}: HR = {:.3f}, NDCG = {:.3f}, ARP = {:.3f}".format(
@@ -527,11 +536,11 @@ val_results.append(epoch_val_result)
 experiment_results = pd.DataFrame(val_results)
 experiment_results.columns = ['batch', 'epoch', 'sample', 'weight', 'HR', 'NDCG', 'ARP', 'PCC', 'SCC_score', 'SCC_rank', 'upo', 'mean', 'skew']
 
-experiment_results.to_csv('{}{}_{}_{}_{}_{}_burnin{}_reg{}.csv'.format('./experiments/',args.model, args.dataset, args.sample, args.epochs, np.round(args.weight, 2), args.burnin, args.reg))
+experiment_results.to_csv('{}{}_{}_{}_{}_{}_burnin{}_reg{}_{}.csv'.format('./experiments/',args.model, args.dataset, args.sample, args.epochs, np.round(args.weight, 2), args.burnin, args.reg, args.epsilon))
 
     
 elapsed_time = time.time() - start_time
-print(args.dataset, ' ', args.model, ' ', args.sample, ' ', args.weight, ' ', 'reg', args.reg, 'burnin', args.burnin)
+print(args.dataset, ' ', args.model, ' ', args.sample, ' ', args.weight, ' ', 'reg', args.reg, 'burnin', args.burnin, 'epsilon', args.epsilon)
 print(' ')
 print("HR: {:.3f}\tNDCG: {:.3f}\tARP: {:.3f}".format(np.mean(HR), np.mean(NDCG), np.mean(ARP)))
 print('PCC_TEST : ', np.round(PCC_TEST, 3))    

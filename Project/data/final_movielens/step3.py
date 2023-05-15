@@ -1,13 +1,29 @@
 
 import os
+import sys
 import pickle
 import random
 import numpy as np 
 import pandas as pd 
 import scipy.sparse as sp
-import torch.utils.data as data
+from collections import defaultdict
 
-random.seed(0)
+import torch
+import torch.utils.data as data
+import torch.backends.cudnn as cudnn
+
+EPOCHS = 20
+NUM_NEG = 3
+EPSILON = float(sys.argv[1])
+
+def set_seed(seed=42):
+    cudnn.benchmark = False
+    cudnn.deterministic = True
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
 
 def load_all_custom(test_num=100, dataset=None):
 	""" We load all the three file here to save time in each epoch. """
@@ -18,7 +34,9 @@ def load_all_custom(test_num=100, dataset=None):
 	total_data['sid'] = total_data['sid'].apply(lambda x : int(x))    
 	user_num = total_data['uid'].max() + 1
 	item_num = total_data['sid'].max() + 1
-	del total_data    
+	item_set = set(total_data['sid'].unique())
+	user_set = set(total_data['uid'].unique())
+	del total_data
     
 	train_data = pd.read_csv('./train_df')    
 	train_data = train_data[['uid', 'sid']]
@@ -71,11 +89,11 @@ def load_all_custom(test_num=100, dataset=None):
 	test_data = None # dummy code
 	test_mat = None  # dummy code
 
-	return train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat
+	return train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat, user_set, item_set
 
 class BPRData(data.Dataset):
 	def __init__(self, features, 
-				num_item, train_mat=None, total_mat=None, num_ng=0, is_training=None, sample_mode = None):
+				num_item, train_mat=None, total_mat=None, num_ng=0, is_training=None, epsilon=EPSILON, user_set=set(), item_set=set()):
 		super(BPRData, self).__init__()
 		""" Note that the labels are only useful when training, we thus 
 			add them in the ng_sample() function.
@@ -86,83 +104,55 @@ class BPRData(data.Dataset):
 		self.train_mat = train_mat
 		self.total_mat = total_mat
 		self.num_ng = num_ng
-		self.is_training = is_training        
-		self.sample_mode = sample_mode        
-		# self.labels = [0 for _ in range(len(features))]
+		self.is_training = is_training       
+		
+		assert 0 <= epsilon <= 1
+		self.epsilon = epsilon
+		self.user_lst = list(user_set)
+		self.item_set = item_set
 
-	def ng_sample(self):
-		### sample 2 pos, 2 neg        
-
-		if True:
-			assert self.is_training, 'no need to sampling when testing'
-			self.features_fill = []
-			### self.features is train [user, pos item] list
-			tmp = pd.DataFrame(self.features)
-			tmp.columns = ['uid', 'sid']
+		self.feat_num = len(features)
+		self.pos_dict = defaultdict(set)
+		self.neg_dict = defaultdict(set)
+		for u, i in map(tuple, features):
+			self.pos_dict[u].add(i)
+		for u in self.pos_dict:
+			self.neg_dict[u] = list(self.item_set - self.pos_dict[u])
+		for k, v in self.pos_dict.items():
+			self.pos_dict[k] = list(v)
             
-			### [user pos] -> [user pos1 pos2] 
-			### by groupby uid, then shuffling sid
-			tmp = tmp.sort_values('uid')
-			tmp_list = list(range(tmp.shape[0]))
-			random.shuffle(tmp_list)
-			tmp['rng'] = tmp_list
-			sid2 = tmp.sort_values(['uid', 'rng']).sid
-			tmp['sid2'] = sid2.reset_index().sid
-			tmp = tmp[['uid', 'sid', 'sid2']]
-			tmp = tmp.sort_index()
-			self.features2 = tmp.values.tolist()   
-            
-			### add neg1, neg2
-			### random sample until neg1, neg2 is not from total_mat            
-			### note total_mat includes train, val, test, (test neg_samples)            
-			for x in self.features2:
-				u, pos1, pos2 = x[0], x[1], x[2]
-				for t in range(self.num_ng):
-					neg1, neg2 = np.random.randint(self.num_item, size = 2)
-					while ((u, neg1) in self.total_mat) or ((u, neg2) in self.total_mat):
-						neg1, neg2 = np.random.randint(self.num_item, size = 2)
-					self.features_fill.append([u, pos1, pos2, neg1, neg2])
-            
-
 	def __len__(self):
-		return self.num_ng * len(self.features) if self.is_training \
-					else len(self.features)
+		return self.num_ng * len(self.features) if self.is_training else len(self.features)
 
 	def __getitem__(self, idx):
-		features = self.features_fill if \
-					self.is_training else self.features
-        
-		if True:    
-			user = features[idx][0]
-			pos1 = features[idx][1]
-			pos2 = features[idx][2]        
-			neg1 = features[idx][3]                    
-			neg2 = features[idx][4]                                
-			return user, pos1, pos2, neg1, neg2
+		if random.random() > self.epsilon:
+			u = random.choice(self.features)[0]     # interaction-uniform sampling
+		else:
+			u = random.choice(self.user_lst)        # user-uniform sampling
+		pos1 = random.choice(self.pos_dict[u])
+		pos2 = random.choice(self.pos_dict[u])
+		neg1 = random.choice(self.neg_dict[u])
+		neg2 = random.choice(self.neg_dict[u])
+		return [u, pos1, pos2, neg1, neg2]
 
-train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat = load_all_custom()
-print('original user-pos tuple is', train_data[0:5])
+	def fetch_data(self):
+		return [self[i] for i in range(len(self))]
 
-train_dataset = BPRData(train_data, item_num, train_mat, total_mat, num_ng=1, is_training=True, sample_mode=None)
-train_dataset.ng_sample()
-negative_samples = train_dataset.features_fill
-print('new (user, pos1, pos2, neg1, neg2) tuple is', negative_samples[0:5])
+if __name__ == '__main__':
 
-tmp1 = np.array(negative_samples)[:, 1]
-tmp2 = np.array(negative_samples)[:, 2]
-print('ratio of pos1 > pos2')
-print(np.mean(tmp1 > tmp2))
+	set_seed(0)
+	print('using epsilon =', EPSILON)
 
-random.seed(0)
-num_ng = 3
-total_epochs = 20
+	train_data, test_data, user_num, item_num, train_mat, test_mat, total_mat, user_set, item_set = load_all_custom()
+	print('original user-pos tuple is', train_data[0:5])
 
-for i in range(total_epochs):
-    print(i)
-    train_list = []
-    for j in range(num_ng):
-        train_dataset.ng_sample()
-        train_samples = train_dataset.features_fill
-        train_list += train_samples
-    with open(f'./train_samples/train_samples_{i}', 'wb') as fp:
-        pickle.dump(train_list, fp)
+	train_dataset = BPRData(train_data, item_num, train_mat, total_mat, num_ng=NUM_NEG, is_training=True, user_set=user_set, item_set=item_set)
+	print('new (user, pos1, pos2, neg1, neg2) tuple is', train_dataset[0:5])
+
+	root = f'./train_samples_{EPSILON:.1f}'
+	os.makedirs(root)
+	for i in range(EPOCHS):
+		print('epoch', i)
+		train_list = train_dataset.fetch_data()
+		with open(f'{root}/train_samples_{i}', 'wb') as fp:
+			pickle.dump(train_list, fp)

@@ -76,9 +76,9 @@ class BPRData(data.Dataset):
 
     def __getitem__(self, idx):
         if random.random() > self.epsilon:
-            u = random.choice(self.features)[0]     # item-based sampling
+            u = random.choice(self.features)[0]     # interaction-uniform sampling
         else:
-            u = random.randint(0, 199)              # user-based sampling
+            u = random.randint(0, 199)              # user-uniform sampling
         pos1 = random.choice(self.pos_dict[u])
         pos2 = random.choice(self.pos_dict[u])
         neg1 = random.choice(self.neg_dict[u])
